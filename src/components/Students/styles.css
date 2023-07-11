@@ -1,11 +1,22 @@
 .StudentRegistration{
     display: flex;
+    flex-direction: column;
     height: 100vh;
     padding: 20px;
-    flex-wrap: wrap;
     background-color: #f2f2f2;
 }
 
+.addStudentFormDiv{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: 85%;
+    padding: 15px;
+}
+.inputField{
+    display: flex;
+    gap: 1rem;
+}
 /* {
     "admissionNo": "AD12352",
     "registrationNo": "REG56796",

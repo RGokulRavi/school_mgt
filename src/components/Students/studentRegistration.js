@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.css";
-import { TextField, Typography } from "@mui/material";
-import { Form, useFormik } from "formik";
+// import { Typography } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Button, Typography } from "@mui/material";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string().required(),
   registrationNo: Yup.string().required(),
   initial: Yup.string().required(),
-  firstName: Yup.string().required("First Name is required"),
+  firstName: Yup.string().required("First Name is required").min("2"),
   middleName: Yup.string(),
   lastName: Yup.string(),
   className: Yup.string().required(),
@@ -59,6 +61,21 @@ const studentValidationSchema = Yup.object({
 });
 
 const StudentRegistration = () => {
+  const inputFieldArr = [
+    "initial",
+    "firstName",
+    "middleName",
+    "lastName",
+    "className",
+    "sectionName",
+    "gender",
+    "address1",
+    "address2",
+    "pincode",
+    "stateName",
+    "cityName",
+  ];
+
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
@@ -124,25 +141,39 @@ const StudentRegistration = () => {
     console.log("Then Form Values are:", newStudent);
   };
 
-  return (
-    // <div className="StudentRegistration">
-    //   <Typography sx={{ fontWeight: "bold" }} variant="h6">
-    //     Add Students
-    //   </Typography>
-    // </div>
-    <Form onSubmit={handleSubmit} className="addStudentForm">
+  const renderFields = () => {
+    return inputFieldArr.map((field) => (
       <TextField
-        id="filled-basic"
-        label="name"
-        variant="filled"
-        name="name"
-        value={values.name}
+        key={field}
+        fullWidth
+        id={field}
+        sx={{ marginBottom: 1 }}
+        size="small"
+        name={field}
+        label={field.charAt(0).toUpperCase() + field.slice(1)}
+        value={values[field]}
         onChange={handleChange}
         onBlur={handleBlur}
-        error={touched.name && errors.name}
-        helperText={touched.name && errors.name ? errors.name : null}
+        error={touched[field] && Boolean(errors[field])}
+        helperText={touched[field] && errors[field]}
       />
-    </Form>
+    ));
+  };
+
+  return (
+    <div className="StudentRegistration">
+      <Typography sx={{ fontWeight: "bold" }} variant="h6">
+        Add Students
+      </Typography>
+      <div className="addStudentFormDiv">
+        <form onSubmit={handleSubmit} className="addStudentForm">
+          {renderFields()}
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
+        </form>
+      </div>
+    </div>
   );
 };
 
