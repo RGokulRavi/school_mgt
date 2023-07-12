@@ -209,40 +209,77 @@
 //               touched.className && errors.className ? errors.className : null
 //             }
 //           />
-import React from "react";
-import { TextField, Button } from "@mui/material";
+// import React from "react";
+// import { TextField, Button } from "@mui/material";
 
-const MyForm = () => {
-  const fields = ["firstName", "lastName", "email"];
+// const MyForm = () => {
+//   const fields = ["firstName", "lastName", "email"];
 
-  const handleChange = (event) => {
-    // Handle input changes
-    // You can update the form state or do other logic here
-  };
+//   const handleChange = (event) => {
+//     // Handle input changes
+//     // You can update the form state or do other logic here
+//   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission
-    // You can access the form values and perform any desired logic here
-  };
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     // Handle form submission
+//     // You can access the form values and perform any desired logic here
+//   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {fields.map((field) => (
-        <TextField
-          key={field}
-          fullWidth
-          id={field}
-          name={field}
-          label={field.charAt(0).toUpperCase() + field.slice(1)}
-          onChange={handleChange}
-        />
-      ))}
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
-    </form>
-  );
-};
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       {fields.map((field) => (
+//         <TextField
+//           key={field}
+//           fullWidth
+//           id={field}
+//           name={field}
+//           label={field.charAt(0).toUpperCase() + field.slice(1)}
+//           onChange={handleChange}
+//         />
+//       ))}
+//       <Button type="submit" variant="contained" color="primary">
+//         Submit
+//       </Button>
+//     </form>
+//   );
+// };
 
-export default MyForm;
+// export default MyForm;
+
+// <Radio
+//   checked={selectedValue === "a"}
+//   onChange={handleChange}
+//   value="a"
+//   name="radio-buttons"
+//   inputProps={{ "aria-label": "A" }}
+// />;
+
+// import * as React from "react";
+// import Radio from "@mui/material/Radio";
+// import RadioGroup from "@mui/material/RadioGroup";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import FormControl from "@mui/material/FormControl";
+// import FormLabel from "@mui/material/FormLabel";
+
+// export default function RadioButtonsGroup() {
+//   return (
+//     <FormControl>
+//       <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+//       <RadioGroup
+//         aria-labelledby="demo-radio-buttons-group-label"
+//         defaultValue="female"
+//         name="radio-buttons-group"
+//       >
+//         <FormControlLabel value="female" control={<Radio />} label="Female" />
+//         <FormControlLabel value="male" control={<Radio />} label="Male" />
+//         <FormControlLabel value="other" control={<Radio />} label="Other" />
+//       </RadioGroup>
+//     </FormControl>
+//   );
+// }
+
+const fieldData = [
+  { type: "Typography", name: "initial" },
+  { type: "Typography", name: "firstName" },
+];
