@@ -48,11 +48,13 @@ const LoginPage = () => {
                 id="outlined-basic"
                 label="User Name"
                 variant="outlined"
+                // sx={{ minWidth: 340 }}
               />
               <TextField
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
+                // sx={{ minWidth: 340 }}
               />
             </div>
             <div className="CheckBoxAndForgetPassword">

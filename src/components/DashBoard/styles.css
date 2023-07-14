@@ -1,0 +1,21 @@
+.MasterDataDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    min-height: 84vh ;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+.Card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: fit-content
+}

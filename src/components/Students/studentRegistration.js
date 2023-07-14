@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-// import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -74,6 +73,24 @@ const StudentRegistration = () => {
     "pincode",
     "stateName",
     "cityName",
+  ];
+
+  const fieldData = [
+    { type: "TextField", name: "initial" },
+    { type: "TextField", name: "firstName" },
+    { type: "TextField", name: "middleName" },
+    { type: "TextField", name: "lastName" },
+    { type: "select", name: "religion", values: ["Hindu", "Muslims"] },
+    { type: "TextField", name: "address1" },
+    { type: "TextField", name: "address2" },
+    { type: "TextField", name: "pincode" },
+    { type: "TextField", name: "mobile" },
+    { type: "TextField", name: "nationality" },
+    { type: "TextField", name: "emailId" },
+    { type: "TextField", name: "dateOfBirth" },
+    { type: "TextField", name: "photoUrl" },
+    { type: "TextField", name: "fatherName" },
+    { type: "TextField", name: "motherName" },
   ];
 
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =

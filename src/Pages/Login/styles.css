@@ -30,18 +30,19 @@
     border-radius: 8px;
     background-color:white;
     padding: 16px;
-    max-width: fit-content;
-    width: auto
+    max-width: 400px;
 }
 .LoginBox{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .LoginTextFieldContainer{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    width: fit-content;
 }
 
 .CheckBoxAndForgetPassword{

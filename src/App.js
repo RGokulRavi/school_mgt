@@ -6,12 +6,14 @@ import PageNotFound from "./Pages/PageNotFound";
 import LoginPage from "./Pages/Login/LoginPage";
 import StudentRegistration from "./components/Students/studentRegistration";
 import Test from "./Test";
+import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
+import MiniDrawer from "./components/DashBoard/leftDrawer";
 
 export const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<ResponsiveAppBar />} />
+        <Route path="/" element={<DashBoardPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/test" element={<Test />} />
         <Route path="/student_registration" element={<StudentRegistration />} />
