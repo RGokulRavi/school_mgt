@@ -7,6 +7,7 @@
     height: 100vh;
     width: 100%;
     gap: 1rem;
+    margin: 5px;
 }
 .LoginTitleName{
     text-align: left;
@@ -27,31 +28,41 @@
     font-size: 18px;
 }
 .LoginContainer{
-    border-radius: 8px;
-    background-color:white;
-    padding: 16px;
-    max-width: 400px;
-}
-.LoginBox{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 8px;
+    background-color:white;
+    padding: 16px;
+    height: 350px; ;
+    min-width: 320px;
 }
+
 .LoginTextFieldContainer{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    width: fit-content;
+    /* max-width: 350px; */
+    
 }
 
 .CheckBoxAndForgetPassword{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .RememberMe{
-    
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
 }
 .LoginButton{
     margin-top: 10px;
+}
+.CheckBoxAndForgetPassword{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

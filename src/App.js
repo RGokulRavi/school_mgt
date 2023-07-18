@@ -7,7 +7,7 @@ import LoginPage from "./Pages/Login/LoginPage";
 import StudentRegistration from "./components/Students/studentRegistration";
 import Test from "./Test";
 import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
-import MiniDrawer from "./components/DashBoard/leftDrawer";
+import MiniDrawer from "./components/DashBoard/minidrawer";
 
 export const App = () => {
   return (

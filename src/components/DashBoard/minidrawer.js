@@ -28,6 +28,15 @@ import StudentRegistration from "../Students/studentRegistration";
 import Home from "../../Pages/DashBoard/Home";
 import MasterSelection from "../MasterComponents/MasterFunctions";
 import StateMaster from "../MasterComponents/StateMaster";
+import Body from "../Body/Body";
+import ListSubheader from "@mui/material/ListSubheader";
+import Collapse from "@mui/material/Collapse";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import DraftsIcon from "@mui/icons-material/Drafts";
+import SendIcon from "@mui/icons-material/Send";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import StarBorder from "@mui/icons-material/StarBorder";
 
 const drawerWidth = 240;
 
@@ -98,8 +107,9 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [mainBox, setMainBox] = React.useState(null);
+  const [openSubMenu, setOpenSubMenu] = React.useState(true);
   const MasterData = ["State Master", "City Master", "School Setup"];
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -111,6 +121,10 @@ export default function MiniDrawer() {
 
   const handleMasterClick = (text) => {
     setMainBox(text);
+  };
+
+  const handleClick = () => {
+    setOpenSubMenu(!openSubMenu);
   };
 
   return (
@@ -137,6 +151,8 @@ export default function MiniDrawer() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+          <Typography>Test</Typography>
+
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -146,29 +162,44 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {["Teachers", "Students"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <PsychologyIcon /> : <PsychologyAltIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+        <List
+          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+        >
+          <ListItemButton>
+            <ListItemIcon>{/* <SendIcon /> */}</ListItemIcon>
+            <ListItemText primary="DashBoard" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <DraftsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Teachers" />
+          </ListItemButton>
+          <ListItemButton onClick={handleClick}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Students" />
+            {openSubMenu ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openSubMenu} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="Student" />
               </ListItemButton>
-            </ListItem>
-          ))}
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="Student Details" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="Add New Student" />
+              </ListItemButton>
+            </List>
+          </Collapse>
         </List>
         <Divider />
         <List>
@@ -203,61 +234,62 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {mainBox === "Master" ? MasterDataFunction() : null}
+        {/* {mainBox === "Master" ? MasterDataFunction() : null} */}
+        <Body data={mainBox} />
       </Box>
     </Box>
   );
 }
 
-const MasterDataFunction = () => {
-  const MasterData = [
-    "State Master",
-    "City Master",
-    "School Setup",
-    "Class Master",
-    "Blood Group Master",
-    "Student Master",
-    "Student Addmission Entry",
-  ];
-  return (
-    <div className="MasterDataDiv">
-      {MasterData.map((data) => (
-        <CardFunction data={data} />
-      ))}
-    </div>
-  );
-};
+// const MasterDataFunction = () => {
+//   const MasterData = [
+//     "State Master",
+//     "City Master",
+//     "School Setup",
+//     "Class Master",
+//     "Blood Group Master",
+//     "Student Master",
+//     "Student Addmission Entry",
+//   ];
+//   return (
+//     <div className="MasterDataDiv">
+//       {MasterData.map((data) => (
+//         <CardFunction data={data} />
+//       ))}
+//     </div>
+//   );
+// };
 
-function CardFunction({ data }) {
-  return (
-    <div className="Card">
-      <Card
-        sx={{ maxWidth: 300, minWidth: 200 }}
-        onClick={() => stateMasters()}
-      >
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {data}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </div>
-  );
-}
+// function CardFunction({ data }) {
+//   return (
+//     <div className="Card">
+//       <Card
+//         sx={{ maxWidth: 300, minWidth: 200 }}
+//         onClick={() => stateMasters()}
+//       >
+//         <CardActionArea>
+//           <CardContent>
+//             <Typography gutterBottom variant="h6" component="div">
+//               {data}
+//             </Typography>
+//           </CardContent>
+//         </CardActionArea>
+//       </Card>
+//     </div>
+//   );
+// }
 
-const test = (data) => {
-  //   const words = data.match(/\w+/g);
-  //   const camelCase = words
-  //     .map((word, index) =>
-  //       index === 0
-  //         ? word.toLowerCase()
-  //         : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-  //     )
-  //     .join("");
-  console.log("first");
-};
+// const test = (data) => {
+//     const words = data.match(/\w+/g);
+//     const camelCase = words
+//       .map((word, index) =>
+//         index === 0
+//           ? word.toLowerCase()
+//           : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+//       )
+//       .join("");
+//   console.log("first");
+// };
 
 const stateMasters = () => {
   return (
