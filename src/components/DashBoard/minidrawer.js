@@ -22,12 +22,6 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import { Card, CardActionArea, CardContent } from "@mui/material";
-import LoginPage from "../../Pages/Login/LoginPage";
-import StudentRegistration from "../Students/studentRegistration";
-import Home from "../../Pages/DashBoard/Home";
-import MasterSelection from "../MasterComponents/MasterFunctions";
-import StateMaster from "../MasterComponents/StateMaster";
 import Body from "../Body/Body";
 import ListSubheader from "@mui/material/ListSubheader";
 import Collapse from "@mui/material/Collapse";
@@ -107,9 +101,10 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
-  const [mainBox, setMainBox] = React.useState(null);
-  const [openSubMenu, setOpenSubMenu] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [mainBox, setMainBox] = React.useState("DashBoard");
+  const [openTeacherSubMenu, setOpenTeacherSubMenu] = React.useState(false);
+  const [openStudentSubMenu, setOpenStudentSubMenu] = React.useState(false);
   const MasterData = ["State Master", "City Master", "School Setup"];
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -117,21 +112,33 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setOpenStudentSubMenu(false);
+    setOpenTeacherSubMenu(false);
   };
 
   const handleMasterClick = (text) => {
     setMainBox(text);
   };
 
-  const handleClick = () => {
-    setOpenSubMenu(!openSubMenu);
+  const handleStudentClick = () => {
+    setOpenStudentSubMenu(!openStudentSubMenu);
+  };
+  const handleTeacherClick = () => {
+    setOpenTeacherSubMenu(!openTeacherSubMenu);
   };
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar
+        sx={{
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+        }}
+        position="fixed"
+        open={open}
+      >
+        <Toolbar sx={{ color: "black" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -167,34 +174,69 @@ export default function MiniDrawer() {
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <ListItemButton>
+          <ListItemButton onClick={() => handleMasterClick("DashBoard")}>
             <ListItemIcon>{/* <SendIcon /> */}</ListItemIcon>
-            <ListItemText primary="DashBoard" />
+            <ListItemText primary="Dashboard" />
           </ListItemButton>
-          <ListItemButton>
+          <ListItemButton onClick={handleTeacherClick}>
             <ListItemIcon>
-              <DraftsIcon />
+              <InboxIcon />
             </ListItemIcon>
             <ListItemText primary="Teachers" />
+            {openTeacherSubMenu ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <ListItemButton onClick={handleClick}>
+          <Collapse in={openTeacherSubMenu} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("Teachers")}
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="Teachers" />
+              </ListItemButton>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("TeacherDetails")}
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="TeacherDetails" />
+              </ListItemButton>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("AddNewTeacher")}
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="AddNewTeacher" />
+              </ListItemButton>
+            </List>
+          </Collapse>
+          <ListItemButton onClick={handleStudentClick}>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
             <ListItemText primary="Students" />
-            {openSubMenu ? <ExpandLess /> : <ExpandMore />}
+            {openStudentSubMenu ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Collapse in={openSubMenu} timeout="auto" unmountOnExit>
+          <Collapse in={openStudentSubMenu} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("Students")}
+              >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Student" />
               </ListItemButton>
-              <ListItemButton sx={{ pl: 4 }}>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("StudentDetails")}
+              >
                 <ListItemIcon></ListItemIcon>
-                <ListItemText primary="Student Details" />
+                <ListItemText primary="StudentDetails" />
               </ListItemButton>
-              <ListItemButton sx={{ pl: 4 }}>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleMasterClick("AddNewStudent")}
+              >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Add New Student" />
               </ListItemButton>
@@ -232,9 +274,8 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
         <DrawerHeader />
-        {/* {mainBox === "Master" ? MasterDataFunction() : null} */}
         <Body data={mainBox} />
       </Box>
     </Box>
@@ -291,10 +332,10 @@ export default function MiniDrawer() {
 //   console.log("first");
 // };
 
-const stateMasters = () => {
-  return (
-    <div className="StateMaster">
-      <Typography>Test</Typography>
-    </div>
-  );
-};
+// const stateMasters = () => {
+//   return (
+//     <div className="StateMaster">
+//       <Typography>Test</Typography>
+//     </div>
+//   );
+// };

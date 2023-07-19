@@ -328,3 +328,22 @@ function CardFunction({ data }) {
 }
 
 export default Test;
+
+// const renderFields = () => {
+//   return inputFieldArr.map((field) => (
+//     <TextField
+//       key={field}
+//       fullWidth
+//       id={field}
+//       sx={{ marginBottom: 1 }}
+//       size="small"
+//       name={field}
+//       label={field.charAt(0).toUpperCase() + field.slice(1)}
+//       value={values[field]}
+//       onChange={handleChange}
+//       onBlur={handleBlur}
+//       error={touched[field] && Boolean(errors[field])}
+//       helperText={touched[field] && errors[field]}
+//     />
+//   ));
+// };
