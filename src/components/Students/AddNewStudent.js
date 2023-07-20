@@ -1,16 +1,24 @@
 import React from "react";
 import "./styles.css";
 import TextField from "@mui/material/TextField";
-import { useFormik } from "formik";
+import { Field, useFormik } from "formik";
 import * as Yup from "yup";
 import {
   Button,
+  Divider,
   FormControl,
+  FormControlLabel,
+  FormLabel,
+  Input,
   InputLabel,
+  Radio,
+  RadioGroup,
   Select,
   Typography,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import DatePickerValue from "../Common/DataPicker";
+import BasicDatePicker from "../Common/DataPicker";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string().required(),
@@ -81,20 +89,32 @@ const AddNewStudent = () => {
     "cityName",
   ];
 
-  const fieldData = [
+  const studentRequiredFields = [
     { type: "TextField", typeName: "initial" },
     { type: "TextField", typeName: "firstName" },
     { type: "TextField", typeName: "middleName" },
     { type: "TextField", typeName: "lastName" },
-    { type: "select", typeName: "religion", values: ["Hindu", "Muslims"] },
-    { type: "TextField", typeName: "address1" },
-    { type: "TextField", typeName: "address2" },
-    { type: "TextField", typeName: "pincode" },
-    { type: "TextField", typeName: "mobile" },
-    { type: "TextField", typeName: "nationality" },
+    {
+      type: "Select",
+      typeName: "religion",
+      selectValues: ["Hindu", "Muslims"],
+    },
+    {
+      type: "Radio",
+      typeName: "gender",
+      radioValues: ["Male", "Female"],
+    },
     { type: "TextField", typeName: "emailId" },
     { type: "TextField", typeName: "dateOfBirth" },
     { type: "TextField", typeName: "photoUrl" },
+    { type: "TextField", typeName: "nationality" },
+    { type: "TextField", typeName: "mobile" },
+  ];
+
+  const parantRequiredFeilds = [
+    { type: "TextField", typeName: "address1" },
+    { type: "TextField", typeName: "address2" },
+    { type: "TextField", typeName: "pincode" },
     { type: "TextField", typeName: "fatherName" },
     { type: "TextField", typeName: "motherName" },
   ];
@@ -159,176 +179,163 @@ const AddNewStudent = () => {
         addStudent(newStudent);
       },
     });
-
   const addStudent = (newStudent) => {
     console.log("Then Form Values are:", newStudent);
   };
-
-  // const RenderField = (field) => {
-  //   const { type, typeName, values } = field;
-  // switch (type) {
-  //   case "TextField":
-  //     return (
-  //       <TextField
-  //         key={name}
-  //         fullWidth
-  //         id={name}
-  //         sx={{ marginBottom: 1 }}
-  //         size="small"
-  //         name={name}
-  //         label={name.charAt(0).toUpperCase() + name.slice(1)}
-  //         value={values[name]}
-  //         onChange={handleChange}
-  //         onBlur={handleBlur}
-  //         error={touched[name] && Boolean(errors[name])}
-  //         helperText={touched[name] && errors[name]}
-  //       />
-  //     );
-  // case "select":
-  //   return (
-  //     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-  //       <InputLabel>{name}</InputLabel>
-  //       <Select
-  //         labelId="demo-select-small-label"
-  //         id={name}
-  //         value={name}
-  //         label={name}
-  //         onChange={handleChange}
-  //       >
-  //         <MenuItem value="">
-  //           <em>None</em>
-  //         </MenuItem>
-  //         values.map{(data) => <MenuItem value={data}>Ten</MenuItem>}
-  //         {/* <MenuItem value={10}>Ten</MenuItem>
-  //         <MenuItem value={20}>Twenty</MenuItem>
-  //         <MenuItem value={30}>Thirty</MenuItem> */}
-  //       </Select>
-  //     </FormControl>
-  //   );
-  // default:
-  //   return null;
-  //   switch (type) {
-  //     case "TextField":
-  //       return (
-  //         <TextField
-  //           key={typeName}
-  //           fullWidth
-  //           id={typeName}
-  //           sx={{ marginBottom: 1 }}
-  //           size="small"
-  //           name={typeName}
-  //           label={typeName.charAt(0).toUpperCase() + typeName.slice(1)}
-  //           value={values[typeName]}
-  //           onChange={handleChange}
-  //           onBlur={handleBlur}
-  //           error={touched[typeName] && Boolean(errors[typeName])}
-  //           helperText={touched[typeName] && errors[typeName]}
-  //         />
-  //       );
-  //     case "select":
-  //       return (
-  //         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-  //           <InputLabel>{typeName}</InputLabel>
-  //           <Select
-  //             labelId="demo-select-small-label"
-  //             id={typeName}
-  //             value={values[typeName]}
-  //             label={typeName}
-  //             onChange={handleChange}
-  //           >
-  //             <MenuItem value="">
-  //               <em>None</em>
-  //             </MenuItem>
-  //             values.map
-  //             {(data) => <MenuItem value={values.data}>{data}</MenuItem>}
-  //             {/* <MenuItem value={10}>Ten</MenuItem>
-  //           <MenuItem value={20}>Twenty</MenuItem>
-  //           <MenuItem value={30}>Thirty</MenuItem> */}
-  //           </Select>
-  //         </FormControl>
-  //       );
-  //   }
-  // };
-
-  const renderTextField = () => {
-    return (
-      <TextField
-        key={typeName}
-        fullWidth
-        id={typeName}
-        sx={{ marginBottom: 1 }}
-        size="small"
-        name={typeName}
-        label={capitalizeFirstLetter(typeName)}
-        value={values[typeName]}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched[typeName] && Boolean(errors[typeName])}
-        helperText={touched[typeName] && errors[typeName]}
-      />
-    );
-  };
-
-  const renderRadioGroup = () => {
-    return (
-      <FormControl component="fieldset">
-        <InputLabel>{capitalizeFirstLetter(typeName)}</InputLabel>
-        <RadioGroup
-          key={typeName}
-          id={typeName}
-          name={typeName}
-          value={values[typeName]}
-          onChange={handleChange}
-          onBlur={handleBlur}
-        >
-          {values.map((option) => (
-            <FormControlLabel
-              key={option}
-              value={option}
-              control={<Radio />}
-              label={option}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
-    );
-  };
-
-  const renderSelect = () => {
-    return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel>{capitalizeFirstLetter(typeName)}</InputLabel>
-        <Select
-          labelId="demo-select-small-label"
-          id={typeName}
-          value={values[typeName]}
-          label={capitalizeFirstLetter(typeName)}
-          onChange={handleChange}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {values.map((data) => (
-            <MenuItem key={data} value={data}>
-              {data}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    );
-  };
-
   return (
     <div className="StudentRegistration">
-      <Typography sx={{ fontWeight: "bold" }} variant="h6">
-        Student Detail
-      </Typography>
       <div className="addStudentFormDiv">
+        <div className="studentRegistrationHeading">
+          <Typography sx={{ fontWeight: "bold" }} variant="h6">
+            Student Detail
+          </Typography>
+        </div>
+        <Divider />
         <form onSubmit={handleSubmit} className="addStudentForm">
-          {/* {fieldData.map((field) => RenderField(field))} */}
-          {typeName === "TextField" && renderTextField()}
-          {typeName === "Radio" && renderRadioGroup()}
-          {typeName === "Select" && renderSelect()}
+          <div className="studentRequiredFieldsDiv">
+            <div className="PassPortSizePhotoDiv">PHoto</div>
+            <div className="StudentsFields">
+              <div className="studentName">
+                <TextField
+                  id="filled-basic"
+                  label="Initial"
+                  variant="outlined"
+                  size="small"
+                  name="initial"
+                  value={values.initial}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.initial && Boolean(errors.initial)}
+                  helperText={
+                    touched.initial && errors.initial ? errors.initial : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="First Name"
+                  variant="outlined"
+                  size="small"
+                  name="firstName" // Use 'name' instead of 'firstName'
+                  value={values.firstName}
+                  onChange={handleChange} // Provide 'onChange' to update the value
+                  onBlur={handleBlur}
+                  error={touched.firstName && Boolean(errors.firstName)}
+                  helperText={
+                    touched.firstName && errors.firstName
+                      ? errors.firstName
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Middle Name"
+                  variant="outlined"
+                  size="small"
+                  name="middleName"
+                  value={values.middleName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.middleName && Boolean(errors.middleName)}
+                  helperText={
+                    touched.middleName && errors.middleName
+                      ? errors.middleName
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Last Name"
+                  variant="outlined"
+                  size="small"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.lastName && Boolean(errors.lastName)}
+                  helperText={
+                    touched.lastName && errors.lastName ? errors.lastName : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Class</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="Class"
+                    name="className"
+                    value={values.className}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.className && Boolean(errors.className)}
+                    helperText={
+                      touched.className && errors.className
+                        ? errors.className
+                        : null
+                    }
+                  >
+                    <MenuItem value={1}>I</MenuItem>
+                    <MenuItem value={2}>II</MenuItem>
+                    <MenuItem value={3}>III</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Section</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="Class"
+                    name="sectionName"
+                    value={values.sectionName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.sectionName && Boolean(errors.sectionName)}
+                    helperText={
+                      touched.sectionName && errors.sectionName
+                        ? errors.sectionName
+                        : null
+                    }
+                  >
+                    <MenuItem value={1}>A</MenuItem>
+                    <MenuItem value={2}>B</MenuItem>
+                    <MenuItem value={3}>C</MenuItem>
+                  </Select>
+                </FormControl>
+                <Input variant="outlined" type="Date"></Input>
+                <FormControl>
+                  <FormLabel
+                    id="demo-row-radio-buttons-group-label"
+                    sx={{ marginRight: "auto" }}
+                  >
+                    Gender
+                  </FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio size="small" />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio size="small" />}
+                      label="Male"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio size="small" />}
+                      label="Other"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+            </div>
+          </div>
+
           <Button type="submit" variant="contained" color="primary">
             Submit
           </Button>

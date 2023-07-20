@@ -1,19 +1,50 @@
-.StudentRegistration{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 20px;
-    background-color: #f2f2f2;
+.StudentRegistration {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  background-color: #f2f2f2;
 }
-
-.addStudentFormDiv{
-    display: flex;
-    background-color: white;
-    border-radius: 10px;
-    height: 85%;
-    padding: 15px;
+.studentRegistrationHeading {
+  margin-right: auto;
 }
-.inputField{
-    display: flex;
-    gap: 1rem;
+.addStudentFormDiv {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  height: 85%;
+  padding: 15px;
+  gap: 0.5rem;
+}
+.inputField {
+  display: flex;
+  gap: 1rem;
+}
+.addStudentForm {
+  display: flex;
+  flex-direction: column;
+}
+.studentRequiredFieldsDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.PassPortSizePhotoDiv {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+.StudentsFields {
+  display: flex;
+  flex-direction: column;
+}
+.studentName {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 300px;
 }

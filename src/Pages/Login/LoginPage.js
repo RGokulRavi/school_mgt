@@ -58,7 +58,6 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 });
 
-// Inspired by blueprintjs
 function BpCheckbox(props) {
   return (
     <Checkbox
@@ -90,9 +89,15 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 const LoginPage = () => {
   return (
     <div className="LoginPage">
+      <div className="loginPageSchoolLogoDiv">
+        <img
+          className="loginPageSchoolLogo"
+          src="https://img.freepik.com/free-vector/gradient-high-school-logo-design_23-2149626932.jpg"
+        />
+      </div>
+
       <React.Fragment>
         <CssBaseline />
-
         <Box className="LoginContainer">
           <div className="LoginTitle">
             <Typography
@@ -108,7 +113,7 @@ const LoginPage = () => {
               </Typography>
               <StyledTypography
                 sx={{
-                  color: "#18aefa",
+                  color: "#1976F4",
                   fontSize: 14,
                   marginBottom: 2,
                   marginLeft: 0.2,
@@ -158,18 +163,24 @@ const LoginPage = () => {
           </div>
           <div className="CheckBoxAndForgetPassword">
             <div className="RememberMe">
-              <BpCheckbox defaultChecked />
-              <Typography>Remember me</Typography>
+              <BpCheckbox sx={{ color: "#16062A" }} defaultChecked />
+              <Typography sx={{ fontSize: 13 }}>Remember me</Typography>
             </div>
 
-            <StyledTypography sx={{ color: "#18aefa", cursor: "pointer" }}>
+            <StyledTypography
+              sx={{ color: "#1976F4", cursor: "pointer", fontSize: 13 }}
+            >
               Forgot Password?
             </StyledTypography>
           </div>
           <div className="LoginButton">
             <Button
               variant="contained"
-              sx={{ textTransform: "none", width: "100%" }}
+              sx={{
+                textTransform: "none",
+                width: "100%",
+                backgroundColor: "#16062A",
+              }}
             >
               Sign in
             </Button>

@@ -18,3 +18,30 @@
     width: 300px;
     height: fit-content
 }
+.navBarDiv{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.css-j204z7-MuiFormControlLabel-root{
+    margin-right: 0;
+}
+.css-j204z7-MuiFormControlLabel-root {
+    /* Other CSS properties */
+    margin-right: 0; /* Remove the right margin */
+  }
+  .schoolLogo{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+.toggleButton{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    }
+.AppBarRight{
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}

@@ -309,25 +309,25 @@
 //   { type: "select", name: "motherQualification" },
 // ];
 // const radioData = [{ type: "radio", name: "gender" }];
-import React from "react";
-import "./teststyle.css";
-import { StateMasterData } from "./Global";
+// import React from "react";
+// import "./teststyle.css";
+// import { StateMasterData } from "./Global";
 
-const Test = () => {
-  return (
-    <div className="Test">
-      {StateMasterData.map((data) => {
-        console.log(data);
-      })}
-    </div>
-  );
-};
+// const Test = () => {
+//   return (
+//     <div className="Test">
+//       {StateMasterData.map((data) => {
+//         console.log(data);
+//       })}
+//     </div>
+//   );
+// };
 
-function CardFunction({ data }) {
-  return <div className="Card">"hi"</div>;
-}
+// function CardFunction({ data }) {
+//   return <div className="Card">"hi"</div>;
+// }
 
-export default Test;
+// export default Test;
 
 // const renderFields = () => {
 //   return inputFieldArr.map((field) => (
@@ -347,3 +347,133 @@ export default Test;
 //     />
 //   ));
 // };
+
+// {
+/* {studentRequiredFields.map((field) => {
+              if (field.type === "TextField") {
+                return (
+                  <TextField
+                    key={field.typeName}
+                    fullWidth
+                    id={field.typeName}
+                    sx={{ marginBottom: 1 }}
+                    size="small"
+                    name={field.typeName}
+                    label={
+                      field.typeName.charAt(0).toUpperCase() +
+                      field.typeName.slice(1)
+                    }
+                    value={values[field.typeName]}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      touched[field.typeName] && Boolean(errors[field.typeName])
+                    }
+                    helperText={
+                      touched[field.typeName] && errors[field.typeName]
+                    }
+                  />
+                );
+              } else if (field.type === "Radio") {
+                return (
+                  <FormControl component="fieldset">
+                    <InputLabel>{field.typeName}</InputLabel>
+                    <RadioGroup
+                      key={field.typeName}
+                      id={field.typeName}
+                      name={field.typeName}
+                      value={values[field.typeName]}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    >
+                      {field.radioValues.map((option) => (
+                        <FormControlLabel
+                          key={option}
+                          value={option}
+                          control={<Radio />}
+                          label={option}
+                        />
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                );
+              } else if (field.type === "Select") {
+                return (
+                  <FormControl fullWidth>
+                    <InputLabel htmlFor={field.dtypeName}>
+                      {field.typeName.charAt(0).toUpperCase() +
+                        field.typeName.slice(1)}
+                    </InputLabel>
+                    <Select
+                      label={
+                        field.typeName.charAt(0).toUpperCase() +
+                        field.typeName.slice(1)
+                      }
+                      id={field.typeName}
+                      name={field.typeName}
+                      value={values[field.typeName]}
+                      onChange={handleChange}
+                    >
+                      {field.selectValues.map((value) => (
+                        <MenuItem key={value} value={value}>
+                          {value}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                );
+              }
+            })} */
+// }
+
+// admissionNo: Yup.string().required(),
+// registrationNo: Yup.string().required(),
+// initial: Yup.string().required(),
+// firstName: Yup.string().required("First Name is required").min("2"),
+// middleName: Yup.string(),
+// lastName: Yup.string(),
+// className: Yup.string().required(),
+// sectionName: Yup.string(),
+// gender: Yup.string().required(),
+// administrationType: Yup.string(),
+// administrationName: Yup.string(),
+// address1: Yup.string().required(),
+// address2: Yup.string().required(),
+// pincode: Yup.string().required(),
+// stateName: Yup.string().required(),
+// cityName: Yup.string().required(),
+// nationality: Yup.string().required(),
+// mobile: Yup.number().required().min(10),
+// emailId: Yup.string().email("Invalid email").required("Email is required"),
+// dateOfBirth: Yup.string().required(),
+// religion: Yup.string(),
+// community: Yup.string(),
+// bloodGroup: Yup.string().required(),
+// photoUrl: Yup.string().required(),
+// fatherName: Yup.string().required(),
+// motherName: Yup.string().required(),
+// fatherQualification: Yup.string().required(),
+// admmotherQualificationissionNo: Yup.string().required(),
+// fatherOccupation: Yup.string().required(),
+// motherOccupation: Yup.string().required(),
+// fatherAnnualIncome: Yup.string().required(),
+// motherAnnualIncome: Yup.string().required(),
+// gaurdianName: Yup.string().required(),
+// gaurdianOccupation: Yup.string().required(),
+// gaurdianQualification: Yup.string().required(),
+// caretakerName: Yup.string().required(),
+// caretakerOccupation: Yup.string().required(),
+// caretakerQualification: Yup.string().required(),
+// parentMobileNoA: Yup.string().required(),
+// parentMobileNoB: Yup.string().required(),
+// parentMobileNo3: Yup.string().required(),
+// parentEmailId1: Yup.string().required(),
+// parentEmailId2: Yup.string(),
+// adharcardNo: Yup.string().required(),
+// pancardNo: Yup.string().required(),
+// bankName: Yup.string().required(),
+// bankBranch: Yup.string().required(),
+// accountNo: Yup.string().required(),
+// ifscNo: Yup.string().required(),
+// certificateProvided: Yup.string().required(),
+// administrationId: Yup.string().required(),

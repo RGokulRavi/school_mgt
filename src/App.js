@@ -8,6 +8,7 @@ import StudentRegistration from "./components/Students/studentRegistration";
 import Test from "./Test";
 import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
 import MiniDrawer from "./components/DashBoard/minidrawer";
+import MyDatePicker from "./components/Common/DataPicker";
 
 export const App = () => {
   return (
