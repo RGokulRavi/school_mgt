@@ -453,7 +453,7 @@
 // fatherName: Yup.string().required(),
 // motherName: Yup.string().required(),
 // fatherQualification: Yup.string().required(),
-// admmotherQualificationissionNo: Yup.string().required(),
+// admissionNo: Yup.string().required(),
 // fatherOccupation: Yup.string().required(),
 // motherOccupation: Yup.string().required(),
 // fatherAnnualIncome: Yup.string().required(),

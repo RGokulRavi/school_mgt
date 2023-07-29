@@ -8,8 +8,6 @@ const DashBoardPage = () => {
   return (
     <div className="DashBoardPage">
       <MiniDrawer />
-      {/* <ResponsiveAppBar /> */}
-      {/* <LeftMainBar /> */}
     </div>
   );
 };

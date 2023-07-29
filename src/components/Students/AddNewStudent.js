@@ -193,7 +193,7 @@ const AddNewStudent = () => {
           <Divider />
           <form onSubmit={handleSubmit} className="addStudentForm">
             <div className="studentRequiredFieldsDiv">
-              <div className="PassPortSizePhotoDiv">PHoto</div>
+              <div className="PassPortSizePhotoDiv">Photo</div>
               <div className="StudentsFields">
                 <div className="studentName">
                   <TextField

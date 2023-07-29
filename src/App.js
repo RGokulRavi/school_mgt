@@ -9,19 +9,54 @@ import Test from "./Test";
 import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
 import MiniDrawer from "./components/DashBoard/minidrawer";
 import MyDatePicker from "./components/Common/DataPicker";
+import { ThemeProvider } from "@emotion/react";
+import { createMuiTheme } from "@mui/material";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#333996",
+      light: "#3c44b126",
+    },
+    secondary: {
+      main: "#f83245",
+      light: "#f8324526",
+    },
+    background: {
+      default: "#f4f5fd",
+    },
+  },
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: "translateZ(0)",
+      },
+    },
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: true,
+    },
+  },
+});
 
 export const App = () => {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<DashBoardPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/student_registration" element={<StudentRegistration />} />
-        <Route path="/logout" element={<Navigate to="/login" />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<DashBoardPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/test" element={<Test />} />
+          <Route
+            path="/student_registration"
+            element={<StudentRegistration />}
+          />
+          <Route path="/logout" element={<Navigate to="/login" />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 };
 
