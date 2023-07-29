@@ -166,7 +166,7 @@ export default function MiniDrawer() {
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(!open);
     setOpenStudentSubMenu(false);
     setOpenTeacherSubMenu(false);
   };
@@ -177,9 +177,11 @@ export default function MiniDrawer() {
 
   const handleStudentClick = () => {
     setOpenStudentSubMenu(!openStudentSubMenu);
+    setOpen(true);
   };
   const handleTeacherClick = () => {
     setOpenTeacherSubMenu(!openTeacherSubMenu);
+    setOpen(true);
   };
 
   return (
@@ -191,17 +193,17 @@ export default function MiniDrawer() {
           backgroundColor: "rgba(255, 255, 255, 0.8)",
         }}
         position="fixed"
-        open={open}
+        // open={open}
       >
         <Toolbar sx={{ color: "black" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={handleDrawerClose}
             edge="start"
             sx={{
               marginRight: 5,
-              ...(open && { display: "none" }),
+              // ...(open && { display: "none" }),
             }}
           >
             <MenuIcon />
@@ -241,7 +243,7 @@ export default function MiniDrawer() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <Typography sx={{ marginRight: "auto", paddingLeft: 8.5 }}>
+          {/* <Typography sx={{ marginRight: "auto", paddingLeft: 8.5 }}>
             Hi Gokul
           </Typography>
 
@@ -251,7 +253,7 @@ export default function MiniDrawer() {
             ) : (
               <ChevronLeftIcon />
             )}
-          </IconButton>
+          </IconButton> */}
         </DrawerHeader>
         <Divider />
         <List
