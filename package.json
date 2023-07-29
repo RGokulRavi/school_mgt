@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.41.0",
     "dayjs": "^1.11.9",
     "formik": "^2.4.2",
     "i": "^0.3.7",

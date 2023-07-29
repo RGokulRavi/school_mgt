@@ -11,12 +11,26 @@
   padding: 10px;
 }
 
-.Card {
+.smallCardsDiv {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  height: fit-content;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.smallCards {
+  display: flex;
+
+  flex-direction: row;
+}
+.smallCardsImage {
+  display: flex;
+  width: 50px;
+  height: 80px;
+  padding: 3px;
+  object-fit: cover;
 }
 .navBarDiv {
   display: flex;
@@ -47,4 +61,7 @@
 }
 .DashBoard {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
