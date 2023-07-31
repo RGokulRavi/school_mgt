@@ -9,6 +9,7 @@ import AddNewStudent from "../Students/AddNewStudent";
 import TeacherDetails from "../Teachers/TeacherDetails";
 import AddNewTeacher from "../Teachers/AddNewTeacher";
 import Teachers from "../Teachers/Teachers";
+import StateMaster from "../Master/MasterFolder/StateMaster";
 
 const Body = ({ data }) => {
   const buttons = [
@@ -21,6 +22,7 @@ const Body = ({ data }) => {
     "TeacherDetails",
     "AddNewTeacher",
     "DashBoard",
+    "State Master",
   ];
 
   const renderComponent = () => {
@@ -28,8 +30,11 @@ const Body = ({ data }) => {
       switch (data) {
         case "DashBoard":
           return <DashBoard />;
+        case "State Master":
+          return <StateMaster />;
         case "Master":
           return <Master />;
+          break;
         case "Others":
           return <Others />;
         case "Students":

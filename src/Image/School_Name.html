@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://localhost:3000/Master/StateMaster -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>School_Name</title>
+  <script defer="" src="./School_Name_files/bundle.js.download"></script><style>body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDOztBQUVBO0VBQ0U7YUFDVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsICdPeHlnZW4nLFxuICAgICdVYnVudHUnLCAnQ2FudGFyZWxsJywgJ0ZpcmEgU2FucycsICdEcm9pZCBTYW5zJywgJ0hlbHZldGljYSBOZXVlJyxcbiAgICBzYW5zLXNlcmlmO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbn1cblxuY29kZSB7XG4gIGZvbnQtZmFtaWx5OiBzb3VyY2UtY29kZS1wcm8sIE1lbmxvLCBNb25hY28sIENvbnNvbGFzLCAnQ291cmllciBOZXcnLFxuICAgIG1vbm9zcGFjZTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFNBQVM7QUFDWCIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbn0iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.LoginPage {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  gap: 10rem;
+  /* padding-right: 200px; */
+
+  background-color: #16062a;
+}
+.LoginTitleName {
+  text-align: left;
+  color: solid black;
+}
+.LoginSubTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.LoginHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.LoginHead {
+  text-align: left;
+  font-size: 18px;
+}
+.LoginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  padding: 16px;
+  height: 350px;
+  min-width: 320px;
+}
+
+.LoginTextFieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  /* max-width: 350px; */
+}
+
+.CheckBoxAndForgetPassword {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.RememberMe {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+.LoginButton {
+  margin-top: 10px;
+}
+.CheckBoxAndForgetPassword {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.loginPageSchoolLogoDiv {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+.loginPageSchoolLogo {
+  width: 350px;
+  margin-left: -4px;
+  height: 350px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9QYWdlcy9Mb2dpbi9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixhQUFhO0VBQ2IsV0FBVztFQUNYLFVBQVU7RUFDViwwQkFBMEI7O0VBRTFCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0Qix1QkFBdUI7RUFDdkIsa0JBQWtCO0VBQ2xCLHlCQUF5QjtFQUN6QixhQUFhO0VBQ2IsYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsU0FBUztFQUNULG1CQUFtQjtFQUNuQixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiw2QkFBNkI7QUFDL0I7QUFDQTtFQUNFLGFBQWE7RUFDYixXQUFXO0VBQ1gsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixhQUFhO0FBQ2YiLCJzb3VyY2VzQ29udGVudCI6WyIuTG9naW5QYWdlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjJmMmYyO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZ2FwOiAxMHJlbTtcclxuICAvKiBwYWRkaW5nLXJpZ2h0OiAyMDBweDsgKi9cclxuXHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzE2MDYyYTtcclxufVxyXG4uTG9naW5UaXRsZU5hbWUge1xyXG4gIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgY29sb3I6IHNvbGlkIGJsYWNrO1xyXG59XHJcbi5Mb2dpblN1YlRpdGxlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZ2FwOiA1cHg7XHJcbn1cclxuLkxvZ2luSGVhZGVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLkxvZ2luSGVhZCB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBmb250LXNpemU6IDE4cHg7XHJcbn1cclxuLkxvZ2luQ29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmNGY0ZjQ7XHJcbiAgcGFkZGluZzogMTZweDtcclxuICBoZWlnaHQ6IDM1MHB4O1xyXG4gIG1pbi13aWR0aDogMzIwcHg7XHJcbn1cclxuXHJcbi5Mb2dpblRleHRGaWVsZENvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGdhcDogMXJlbTtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIC8qIG1heC13aWR0aDogMzUwcHg7ICovXHJcbn1cclxuXHJcbi5DaGVja0JveEFuZEZvcmdldFBhc3N3b3JkIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTtcclxufVxyXG4uUmVtZW1iZXJNZSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBnYXA6IDAuMnJlbTtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcbi5Mb2dpbkJ1dHRvbiB7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxufVxyXG4uQ2hlY2tCb3hBbmRGb3JnZXRQYXNzd29yZCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxufVxyXG4ubG9naW5QYWdlU2Nob29sTG9nb0RpdiB7XHJcbiAgd2lkdGg6IDM1MHB4O1xyXG4gIGhlaWdodDogMzUwcHg7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG4ubG9naW5QYWdlU2Nob29sTG9nbyB7XHJcbiAgd2lkdGg6IDM1MHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIGhlaWdodDogMzUwcHg7XHJcbn1cclxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.StudentRegistration {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+.studentRegistrationHeading {
+  margin-right: auto;
+}
+.addStudentFormDiv {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  height: 85%;
+  padding: 15px;
+  gap: 0.5rem;
+}
+.inputField {
+  display: flex;
+  gap: 1rem;
+}
+.addStudentForm {
+  display: flex;
+  flex-direction: column;
+}
+.studentRequiredFieldsDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.PassPortSizePhotoDiv {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+.StudentsFields {
+  display: flex;
+  flex-direction: column;
+}
+.studentName {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL1N0dWRlbnRzL3N0eWxlcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLGFBQWE7RUFDYixhQUFhO0VBQ2IseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixXQUFXO0VBQ1gsYUFBYTtFQUNiLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtFQUNiLFNBQVM7QUFDWDtBQUNBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtBQUN4QjtBQUNBO0VBQ0UsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixlQUFlO0VBQ2YsV0FBVztFQUNYLDZCQUE2QjtBQUMvQjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7QUFDeEI7QUFDQTtFQUNFLGFBQWE7RUFDYixhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLFNBQVM7RUFDVCxnQkFBZ0I7QUFDbEIiLCJzb3VyY2VzQ29udGVudCI6WyIuU3R1ZGVudFJlZ2lzdHJhdGlvbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjJmMmYyO1xyXG59XHJcbi5zdHVkZW50UmVnaXN0cmF0aW9uSGVhZGluZyB7XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG59XHJcbi5hZGRTdHVkZW50Rm9ybURpdiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgaGVpZ2h0OiA4NSU7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBnYXA6IDAuNXJlbTtcclxufVxyXG4uaW5wdXRGaWVsZCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBnYXA6IDFyZW07XHJcbn1cclxuLmFkZFN0dWRlbnRGb3JtIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnN0dWRlbnRSZXF1aXJlZEZpZWxkc0RpdiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICB3aWR0aDogMTAwJTtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTtcclxufVxyXG4uUGFzc1BvcnRTaXplUGhvdG9EaXYge1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGJsYWNrO1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICBoZWlnaHQ6IDEwMHB4O1xyXG59XHJcbi5TdHVkZW50c0ZpZWxkcyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcbi5zdHVkZW50TmFtZSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZ2FwOiAxMHB4O1xyXG4gIG1heC13aWR0aDogMzAwcHg7XHJcbn1cclxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.MasterDataDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 84vh;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.smallCardsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.smallCards {
+  display: flex;
+
+  flex-direction: row;
+}
+.smallCardsImage {
+  display: flex;
+  width: 50px;
+  height: 80px;
+  padding: 3px;
+  object-fit: cover;
+}
+.navBarDiv {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.css-j204z7-MuiFormControlLabel-root {
+  margin-right: 0;
+}
+.css-j204z7-MuiFormControlLabel-root {
+  /* Other CSS properties */
+  margin-right: 0; /* Remove the right margin */
+}
+.schoolLogo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.toggleButton {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.AppBarRight {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+.DashBoard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL0Rhc2hCb2FyZC9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLFNBQVM7RUFDVCxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsYUFBYTtBQUNmOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsV0FBVztFQUNYLG1CQUFtQjtFQUNuQixXQUFXO0VBQ1gsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxhQUFhOztFQUViLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLFdBQVc7RUFDWCxZQUFZO0VBQ1osWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLHlCQUF5QjtFQUN6QixlQUFlLEVBQUUsNEJBQTRCO0FBQy9DO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYixXQUFXO0VBQ1gsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixTQUFTO0FBQ1giLCJzb3VyY2VzQ29udGVudCI6WyIuTWFzdGVyRGF0YURpdiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBnYXA6IDFyZW07XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWluLWhlaWdodDogODR2aDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjRmNGY0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgcGFkZGluZzogMTBweDtcclxufVxyXG5cclxuLnNtYWxsQ2FyZHNEaXYge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZ2FwOiAwLjVyZW07XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICB3aWR0aDogMTAwJTtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxufVxyXG4uc21hbGxDYXJkcyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuXHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxufVxyXG4uc21hbGxDYXJkc0ltYWdlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiA1MHB4O1xyXG4gIGhlaWdodDogODBweDtcclxuICBwYWRkaW5nOiAzcHg7XHJcbiAgb2JqZWN0LWZpdDogY292ZXI7XHJcbn1cclxuLm5hdkJhckRpdiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5jc3MtajIwNHo3LU11aUZvcm1Db250cm9sTGFiZWwtcm9vdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG59XHJcbi5jc3MtajIwNHo3LU11aUZvcm1Db250cm9sTGFiZWwtcm9vdCB7XHJcbiAgLyogT3RoZXIgQ1NTIHByb3BlcnRpZXMgKi9cclxuICBtYXJnaW4tcmlnaHQ6IDA7IC8qIFJlbW92ZSB0aGUgcmlnaHQgbWFyZ2luICovXHJcbn1cclxuLnNjaG9vbExvZ28ge1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbn1cclxuLnRvZ2dsZUJ1dHRvbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG59XHJcbi5BcHBCYXJSaWdodCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBnYXA6IDAuNXJlbTtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uRGFzaEJvYXJkIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGdhcDogMXJlbTtcclxufVxyXG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.bodyDiv{
+    display: flex;
+    flex-direction: column;
+    min-height: 86vh;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL0JvZHkvc3R5bGVzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIseUJBQXlCO0FBQzdCIiwic291cmNlc0NvbnRlbnQiOlsiLmJvZHlEaXZ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIG1pbi1oZWlnaHQ6IDg2dmg7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmMmYyZjI7XHJcbn0iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.Master {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL01hc3Rlci9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixlQUFlO0FBQ2pCIiwic291cmNlc0NvbnRlbnQiOlsiLk1hc3RlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css" data-s="">.css-ahj2mt-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;}</style><style data-emotion="css" data-s="">.css-r44oa-MuiSelect-root{}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;color:rgba(0, 0, 0, 0.87);box-sizing:border-box;position:relative;cursor:text;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;border-radius:4px;}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);cursor:default;}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.87);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.23);}}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline{border-color:#333996;border-width:2px;}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-error .MuiOutlinedInput-notchedOutline{border-color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-disabled .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{font:inherit;letter-spacing:inherit;color:currentColor;padding:4px 0 5px;border:0;box-sizing:content-box;background:none;height:1.4375em;margin:0;-webkit-tap-highlight-color:transparent;display:block;min-width:0;width:100%;-webkit-animation-name:mui-auto-fill-cancel;animation-name:mui-auto-fill-cancel;-webkit-animation-duration:10ms;animation-duration:10ms;padding:16.5px 14px;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{outline:0;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:invalid{box-shadow:none;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-search-decoration{-webkit-appearance:none;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-webkit-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-moz-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus:-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled{opacity:1;-webkit-text-fill-color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{-webkit-animation-duration:5000s;animation-duration:5000s;-webkit-animation-name:mui-auto-fill;animation-name:mui-auto-fill;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{border-radius:inherit;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitBoxShadow{}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitTextFillColor{}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill caretColor{}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{-moz-appearance:none;-webkit-appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:4px;cursor:pointer;font:inherit;letter-spacing:inherit;color:currentColor;padding:4px 0 5px;border:0;box-sizing:content-box;background:none;height:1.4375em;margin:0;-webkit-tap-highlight-color:transparent;display:block;min-width:0;width:100%;-webkit-animation-name:mui-auto-fill-cancel;animation-name:mui-auto-fill-cancel;-webkit-animation-duration:10ms;animation-duration:10ms;padding:16.5px 14px;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus{border-radius:4px;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-ms-expand{display:none;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled{cursor:default;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input[multiple]{height:auto;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:not([multiple]) option,.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:not([multiple]) optgroup{background-color:#fff;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{padding-right:32px;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{height:auto;min-height:1.4375em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus{outline:0;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:invalid{box-shadow:none;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-webkit-search-decoration{-webkit-appearance:none;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus::-webkit-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus::-moz-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus:-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus::-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled{opacity:1;-webkit-text-fill-color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{-webkit-animation-duration:5000s;animation-duration:5000s;-webkit-animation-name:mui-auto-fill;animation-name:mui-auto-fill;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{border-radius:inherit;}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitBoxShadow{}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitTextFillColor{}</style><style data-emotion="css" data-s="">.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill caretColor{}</style><style data-emotion="css" data-s="">.css-yf8vq0-MuiSelect-nativeInput{bottom:0;left:0;position:absolute;opacity:0;pointer-events:none;width:100%;box-sizing:border-box;}</style><style data-emotion="css" data-s="">.css-3qbkez-MuiSelect-icon{position:absolute;right:7px;top:calc(50% - .5em);pointer-events:none;color:rgba(0, 0, 0, 0.54);}</style><style data-emotion="css" data-s="">.css-3qbkez-MuiSelect-icon.Mui-disabled{color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;position:absolute;right:7px;top:calc(50% - .5em);pointer-events:none;color:rgba(0, 0, 0, 0.54);}</style><style data-emotion="css" data-s="">.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon.Mui-disabled{color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-oouctw-MuiMenu-root{}</style><style data-emotion="css" data-s="">.css-bclbye-MuiPopover-root-MuiMenu-root{}</style><style data-emotion="css" data-s="">.css-rki20w-MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.23);}</style><style data-emotion="css" data-s="">.css-1d3z3hw-MuiOutlinedInput-notchedOutline{text-align:left;position:absolute;bottom:0;right:0;top:-5px;left:0;margin:0;padding:0 8px;pointer-events:none;border-radius:inherit;border-style:solid;border-width:1px;overflow:hidden;min-width:0%;border-color:rgba(0, 0, 0, 0.23);}</style><style data-emotion="css" data-s="">.css-ihdtdm{float:unset;width:auto;overflow:hidden;padding:0;line-height:11px;-webkit-transition:width 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:width 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1xj1k15-MuiTextField-root{}</style><style data-emotion="css" data-s="">.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:relative;min-width:0;padding:0;margin:0;border:0;vertical-align:top;}</style><style data-emotion="css" data-s="">.css-1x92c1k-MuiInputLabel-root{display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-2ocxzq-MuiFormLabel-root-MuiInputLabel-root{color:rgba(0, 0, 0, 0.6);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;padding:0;position:relative;display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-2ocxzq-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{color:#333996;}</style><style data-emotion="css" data-s="">.css-2ocxzq-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-2ocxzq-MuiFormLabel-root-MuiInputLabel-root.Mui-error{color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;color:rgba(0, 0, 0, 0.87);box-sizing:border-box;position:relative;cursor:text;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;border-radius:4px;}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);cursor:default;}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.87);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.23);}}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{border-color:#333996;border-width:2px;}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline{border-color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-yjsfm1{float:unset;width:auto;overflow:hidden;display:block;padding:0;height:11px;font-size:0.75em;visibility:hidden;max-width:0.01px;-webkit-transition:max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;white-space:nowrap;}</style><style data-emotion="css" data-s="">.css-yjsfm1>span{padding-left:5px;padding-right:5px;display:inline-block;opacity:0;visibility:visible;}</style><style data-emotion="css" data-s="">.css-1wjuurq-MuiButton-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.875rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:6px 16px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;color:#fff;background-color:#333996;box-shadow:0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-1wjuurq-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgb(35, 39, 105);box-shadow:0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-1wjuurq-MuiButton-root:hover{background-color:#333996;}}</style><style data-emotion="css" data-s="">.css-1wjuurq-MuiButton-root:active{box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-1wjuurq-MuiButton-root.Mui-focusVisible{box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-1wjuurq-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);box-shadow:none;background-color:rgba(0, 0, 0, 0.12);}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;background-color:transparent;outline:0;border:0;margin:0;border-radius:0;padding:0;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;vertical-align:middle;-moz-appearance:none;-webkit-appearance:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.875rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:6px 16px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;color:#fff;background-color:#333996;box-shadow:0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root::-moz-focus-inner{border-style:none;}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root.Mui-disabled{pointer-events:none;cursor:default;}</style><style data-emotion="css" data-s="">@media print{.css-12u38h8-MuiButtonBase-root-MuiButton-root{-webkit-print-color-adjust:exact;color-adjust:exact;}}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgb(35, 39, 105);box-shadow:0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-12u38h8-MuiButtonBase-root-MuiButton-root:hover{background-color:#333996;}}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root:active{box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root.Mui-focusVisible{box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);}</style><style data-emotion="css" data-s="">.css-12u38h8-MuiButtonBase-root-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);box-shadow:none;background-color:rgba(0, 0, 0, 0.12);}</style><style data-emotion="css" data-s="">.css-17kuccg-MuiCard-root{overflow:hidden;min-width:275px;}</style><style data-emotion="css" data-s="">.css-pwngrv-MuiPaper-root-MuiCard-root{background-color:#fff;color:rgba(0, 0, 0, 0.87);-webkit-transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border-radius:4px;box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);overflow:hidden;min-width:275px;}</style><style data-emotion="css" data-s="">.css-46bh2p-MuiCardContent-root{padding:16px;}</style><style data-emotion="css" data-s="">.css-46bh2p-MuiCardContent-root:last-child{padding-bottom:24px;}</style><style data-emotion="css" data-s="">.css-16m3jxf-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;margin-bottom:0.35em;color:rgba(0, 0, 0, 0.6);font-size:14px;}</style><style data-emotion="css" data-s="">.css-ag7rrr-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1.5rem;line-height:1.334;letter-spacing:0em;}</style><style data-emotion="css" data-s="">.css-i42cse{display:inline-block;margin-left:2px;margin-right:2px;-webkit-transform:scale(0.8);-moz-transform:scale(0.8);-ms-transform:scale(0.8);transform:scale(0.8);}</style><style data-emotion="css" data-s="">.css-9eg9l8-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;color:rgba(0, 0, 0, 0.6);margin-bottom:12px;}</style><style data-emotion="css" data-s="">.css-e784if-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;}</style><style data-emotion="css" data-s="">.css-1t6e9jv-MuiCardActions-root{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:8px;}</style><style data-emotion="css" data-s="">.css-1t6e9jv-MuiCardActions-root>:not(:first-of-type){margin-left:8px;}</style><style data-emotion="css" data-s="">.css-xldzbz-MuiButton-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.8125rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:4px 5px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;color:#333996;}</style><style data-emotion="css" data-s="">.css-xldzbz-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgba(51, 57, 150, 0.04);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-xldzbz-MuiButton-root:hover{background-color:transparent;}}</style><style data-emotion="css" data-s="">.css-xldzbz-MuiButton-root:active{}</style><style data-emotion="css" data-s="">.css-xldzbz-MuiButton-root.Mui-focusVisible{}</style><style data-emotion="css" data-s="">.css-xldzbz-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;background-color:transparent;outline:0;border:0;margin:0;border-radius:0;padding:0;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;vertical-align:middle;-moz-appearance:none;-webkit-appearance:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.8125rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:4px 5px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;color:#333996;}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root::-moz-focus-inner{border-style:none;}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root.Mui-disabled{pointer-events:none;cursor:default;}</style><style data-emotion="css" data-s="">@media print{.css-1pcfelp-MuiButtonBase-root-MuiButton-root{-webkit-print-color-adjust:exact;color-adjust:exact;}}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgba(51, 57, 150, 0.04);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-1pcfelp-MuiButtonBase-root-MuiButton-root:hover{background-color:transparent;}}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root:active{}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root.Mui-focusVisible{}</style><style data-emotion="css" data-s="">.css-1pcfelp-MuiButtonBase-root-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-8je8zh-MuiTouchRipple-root{overflow:hidden;pointer-events:none;position:absolute;z-index:0;top:0;right:0;bottom:0;left:0;border-radius:inherit;}</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="App"><div class="MasterSubRoutesDiv"><p class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root">Master</p><p class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root">StateMaster</p><div class="StateMaster"><div class="StateMasterSearchDiv"><div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-e4dyre-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"><div tabindex="0" role="button" aria-expanded="false" aria-haspopup="listbox" class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"><span class="notranslate">​</span></div><input aria-invalid="false" aria-hidden="true" tabindex="-1" class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput" value=""><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ArrowDropDownIcon"><path d="M7 10l5 5 5-5z"></path></svg><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"><legend class="css-ihdtdm"><span class="notranslate">​</span></legend></fieldset></div><div class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-2ocxzq-MuiFormLabel-root-MuiInputLabel-root" data-shrink="false" for=":r1:" id=":r1:-label">New Option</label><div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-o2oozl-MuiInputBase-root-MuiOutlinedInput-root"><input aria-invalid="false" id=":r1:" type="text" class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input" value=""><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"><legend class="css-yjsfm1"><span>New Option</span></legend></fieldset></div></div><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-12u38h8-MuiButtonBase-root-MuiButton-root" tabindex="0" type="button">Add<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button></div><div class="StateMastersCard"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-pwngrv-MuiPaper-root-MuiCard-root"><div class="MuiCardContent-root css-46bh2p-MuiCardContent-root"><p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-16m3jxf-MuiTypography-root">4</p><div class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root">TamilNadu</div><p class="MuiTypography-root MuiTypography-body1 css-9eg9l8-MuiTypography-root">TN</p><p class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root">Created by:ADMIN<br>Created Time Stamp:2023-07-11T07:26:14.000Z</p></div><div class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1pcfelp-MuiButtonBase-root-MuiButton-root" tabindex="0" type="button">Learn More<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button></div></div><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-pwngrv-MuiPaper-root-MuiCard-root"><div class="MuiCardContent-root css-46bh2p-MuiCardContent-root"><p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-16m3jxf-MuiTypography-root">5</p><div class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root">Thanjavur</div><p class="MuiTypography-root MuiTypography-body1 css-9eg9l8-MuiTypography-root">TJ</p><p class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root">Created by:ADMIN<br>Created Time Stamp:2023-07-11T07:32:13.000Z</p></div><div class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1pcfelp-MuiButtonBase-root-MuiButton-root" tabindex="0" type="button">Learn More<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button></div></div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+</body></html>
