@@ -26,11 +26,14 @@ const bull = (
 );
 
 const Master = () => {
+  let routeTypeJoin
   const navigate = useNavigate();
   const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   return (
     <div className="Master">
       {uniqueTypes.map((e) => (
+       
+
         <Accordion
           sx={{
             minWidth: 275,
@@ -64,7 +67,7 @@ const Master = () => {
                     height: 10,
                   }}
                   variant="body2"
-                  onClick={() => navigate(`/Master/${e}/${data.name}`)}
+                  onClick={() => navigate(`/${e}/${data.name.split(" ").join("")}`)}
                 >
                   🔸{data.name}
                 </Typography>
@@ -75,6 +78,6 @@ const Master = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Master;

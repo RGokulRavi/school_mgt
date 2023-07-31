@@ -8,9 +8,10 @@ import StudentRegistration from "./components/Students/studentRegistration";
 import Test from "./Test";
 import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
 import MiniDrawer from "./components/DashBoard/minidrawer";
-import MyDatePicker from "./components/Common/DataPicker";
+import MyDatePicker from "./components/Common/DataPicker"; 
 import { ThemeProvider } from "@emotion/react";
 import { createMuiTheme } from "@mui/material";
+import MasterSubRoutes from "./components/Master/MasterFolder/MasterSubRoutes";
 
 const theme = createMuiTheme({
   palette: {
@@ -47,6 +48,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<DashBoardPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/:type/:name" element={<MasterSubRoutes/>} />
           <Route path="/test" element={<Test />} />
           <Route
             path="/student_registration"
