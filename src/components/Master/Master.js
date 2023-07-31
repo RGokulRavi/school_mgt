@@ -8,7 +8,13 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Divider,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const bull = (
   <Box
@@ -20,17 +26,51 @@ const bull = (
 );
 
 const Master = () => {
+  const navigate = useNavigate();
   const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   return (
     <div className="Master">
       {uniqueTypes.map((e) => (
-        <Accordion sx={{ minWidth: 275, cursor: "pointer" }}>
+        <Accordion
+          sx={{
+            minWidth: 275,
+            cursor: "pointer",
+            background: "#16062a",
+            color: "white",
+            marginBottom: 1,
+          }}
+        >
           <AccordionSummary>
-            <Typography variant="body2">{e}</Typography>
+            <Typography
+              sx={{ fontSize: 14, fontWeight: "bold" }}
+              variant="body2"
+            >
+              {e}
+            </Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography variant="body2">{e}</Typography>
-          </AccordionDetails>
+          {MastersData.map((data) =>
+            data.type === e ? (
+              <AccordionDetails
+                sx={{
+                  textAlign: "left",
+                  paddingLeft: 10,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  sx={{
+                    textTransform: "none",
+                    height: 10,
+                  }}
+                  variant="body2"
+                  onClick={() => navigate(`/Master/${e}/${data.name}`)}
+                >
+                  🔸{data.name}
+                </Typography>
+              </AccordionDetails>
+            ) : null
+          )}
         </Accordion>
       ))}
     </div>
