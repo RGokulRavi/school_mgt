@@ -154,7 +154,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer({ data }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [mainBox, setMainBox] = React.useState("DashBoard");
@@ -367,7 +367,8 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
-        <Body data={mainBox} />
+        {data ? <Body data={data} /> : <Body data={mainBox} />}
+        {/* <Body data={mainBox} /> */}
       </Box>
     </Box>
   );

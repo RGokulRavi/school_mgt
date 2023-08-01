@@ -56,7 +56,34 @@ const Body = ({ data }) => {
       return null;
     }
   };
-  return <div className="bodyDiv">{renderComponent()}</div>;
+  // return <div className="bodyDiv">{renderComponent()}</div>;
+  if (buttons.includes(data)) {
+    switch (data) {
+      case "DashBoard":
+        return <DashBoard />;
+      case "State Master":
+        return <StateMaster />;
+      case "Master":
+        return <Master />;
+        break;
+      case "Others":
+        return <Others />;
+      case "Students":
+        return <Students />;
+      case "StudentDetails":
+        return <StudentDetails />;
+      case "AddNewStudent":
+        return <AddNewStudent />;
+      case "Teachers":
+        return <Teachers />;
+      case "TeacherDetails":
+        return <TeacherDetails />;
+      case "AddNewTeacher":
+        return <AddNewTeacher />;
+      default:
+        return null;
+    }
+  }
 };
 
 export default Body;

@@ -17,6 +17,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import MasterSubRoutes from "./MasterFolder/MasterSubRoutes";
 import Body from "../Body/Body";
+import MiniDrawer from "../DashBoard/minidrawer";
 
 const bull = (
   <Box
@@ -28,64 +29,61 @@ const bull = (
 );
 
 const Master = () => {
-  let routeTypeJoin;
-  const [mastersName, setMastersName] = useState("default");
+  const [mastersName, setMastersName] = useState("initial");
   const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
-  return;
-  {
-    if (mastersName == "default") {
-      <div className="Master">
-        {uniqueTypes.map((e) => (
-          <Accordion
-            sx={{
-              minWidth: 275,
-              cursor: "pointer",
-              background: "#16062a",
-              color: "white",
-              marginBottom: 1,
-            }}
-          >
-            <AccordionSummary>
-              <Typography
-                sx={{ fontSize: 14, fontWeight: "bold" }}
-                variant="body2"
+  return (
+    <div className="Master">
+      {uniqueTypes.map((e) => (
+        <Accordion
+          sx={{
+            minWidth: 275,
+            cursor: "pointer",
+            background: "#16062a",
+            color: "white",
+            marginBottom: 1,
+          }}
+        >
+          <AccordionSummary>
+            <Typography
+              sx={{ fontSize: 14, fontWeight: "bold" }}
+              variant="body2"
+            >
+              {e}
+            </Typography>
+          </AccordionSummary>
+          {MastersData.map((data) =>
+            data.type === e ? (
+              <AccordionDetails
+                sx={{
+                  textAlign: "left",
+                  paddingLeft: 10,
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
-                {e}
-              </Typography>
-            </AccordionSummary>
-            {MastersData.map((data) =>
-              data.type === e ? (
-                <AccordionDetails
+                <Typography
                   sx={{
-                    textAlign: "left",
-                    paddingLeft: 10,
-                    display: "flex",
-                    alignItems: "center",
+                    textTransform: "none",
+                    height: 10,
+                  }}
+                  variant="body2"
+                  // onClick={() =>
+                  //   navigate(`/${e}/${data.name.split(" ").join("")}`)
+                  // }
+                  onClick={() => {
+                    setMastersName(data.name);
                   }}
                 >
-                  <Typography
-                    sx={{
-                      textTransform: "none",
-                      height: 10,
-                    }}
-                    variant="body2"
-                    // onClick={() =>
-                    //   navigate(`/${e}/${data.name.split(" ").join("")}`)
-                    // }
-                    onClick={() => {
-                      setMastersName(data.name);
-                    }}
-                  >
-                    🔸{data.name}
-                  </Typography>
-                </AccordionDetails>
-              ) : null
-            )}
-          </Accordion>
-        ))}
-      </div>;
-    }
-  }
+                  🔸{data.name}
+                </Typography>
+              </AccordionDetails>
+            ) : null
+          )}
+        </Accordion>
+      ))}
+      {mastersName === "initial" ? null : <MiniDrawer data={mastersName} />}
+    </div>
+  );
 };
 
 export default Master;
