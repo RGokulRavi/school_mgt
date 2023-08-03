@@ -11,7 +11,6 @@ import MiniDrawer from "./components/DashBoard/minidrawer";
 import MyDatePicker from "./components/Common/DataPicker";
 import { ThemeProvider } from "@emotion/react";
 import { createMuiTheme } from "@mui/material";
-import MasterSubRoutes from "./components/Master/MasterFolder/MasterSubRoutes";
 
 const theme = createMuiTheme({
   palette: {
