@@ -477,3 +477,85 @@
 // ifscNo: Yup.string().required(),
 // certificateProvided: Yup.string().required(),
 // administrationId: Yup.string().required(),
+
+// import React, { useState } from "react";
+// import Button from "@mui/material/Button";
+// import Input from "@mui/material/Input";
+// import Card from "@mui/material/Card";
+// import CardMedia from "@mui/material/CardMedia";
+
+// const YourComponent = () => {
+//   const [imagePreview, setImagePreview] = useState(null);
+
+//   const handleImageChange = (event) => {
+//     const file = event.target.files[0];
+//     previewImage(file);
+//   };
+
+//   const previewImage = (file) => {
+//     if (file) {
+//       const reader = new FileReader();
+//       reader.onloadend = () => {
+//         setImagePreview(reader.result);
+//       };
+//       reader.readAsDataURL(file);
+//     }
+//   };
+
+//   const clearImagePreview = () => {
+//     setImagePreview(null);
+//   };
+
+//   const handleDrop = (event) => {
+//     event.preventDefault();
+//     event.stopPropagation();
+//     const file = event.dataTransfer.files[0];
+//     previewImage(file);
+//   };
+
+//   const handleDragOver = (event) => {
+//     event.preventDefault();
+//     event.stopPropagation();
+//   };
+
+//   return (
+//     <div
+//       onDrop={handleDrop}
+//       onDragOver={handleDragOver}
+//       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+//     >
+//       <Card sx={{ margin: "0 auto", maxWidth: 300 }}>
+//         {imagePreview ? (
+//           <CardMedia
+//             sx={{ height: 200 }}
+//             image={imagePreview}
+//             title="Uploaded Image Preview"
+//           />
+//         ) : null}
+//       </Card>
+//       <input
+//         accept="image/*"
+//         id="photo-upload"
+//         type="file"
+//         style={{ display: "none" }}
+//         onChange={handleImageChange}
+//       />
+//       <label htmlFor="photo-upload">
+//         <Button component="span" variant="contained" color="primary">
+//           Upload Photo
+//         </Button>
+//       </label>
+//       {imagePreview ? (
+//         <Button
+//           variant="contained"
+//           color="secondary"
+//           onClick={clearImagePreview}
+//         >
+//           Clear Preview
+//         </Button>
+//       ) : null}
+//     </div>
+//   );
+// };
+
+// export default YourComponent;

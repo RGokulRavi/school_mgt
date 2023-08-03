@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles.css";
 import {
   Select,
   MenuItem,
@@ -9,73 +10,149 @@ import {
   Typography,
   CardActions,
   Box,
+  Divider,
+  IconButton,
+  Dialog,
+  DialogContent,
+  DialogActions,
+  DialogContentText,
+  DialogTitle,
 } from "@mui/material";
 import { StateMasterData } from "../../../Global";
+import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const stateValidationSchema = Yup.object({
+  id: Yup.number().required(),
+  stateCode: Yup.string().required,
+  stateName: Yup.string().required,
+  adminitrationId: Yup.number().required,
+  createdBy: Yup.string().required,
+  createdAt: Yup.string().required,
+  updatedAt: Yup.string().required,
+  isActive: Yup.string().required,
+});
 
 const StateMaster = () => {
-  const initialOptions = StateMasterData.map((e) => e.stateName);
-  const [options, setOptions] = useState(initialOptions);
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [newOption, setNewOption] = useState("");
-
-  const handleNewOptionChange = (event) => {
-    setNewOption(event.target.value);
+  const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
+    useFormik({
+      initialValues: {
+        id: 2,
+        stateCode: "",
+        stateName: "",
+        adminitrationId: 1,
+        createdBy: "ADMIN",
+        createdAt: Yup.date,
+        updatedAt: Yup.date,
+        isActive: "1",
+      },
+    });
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
-  const handleAddOption = () => {
-    if (newOption.trim() === "") return; // Avoid adding empty options
-    setOptions((prevOptions) => [...prevOptions, newOption]);
-    setNewOption("");
+  const handleClose = () => {
+    setOpen(false);
   };
-
   return (
     <div className="StateMaster">
-      <div className="StateMasterSearchDiv">
-        <Select value="" onChange={() => {}}>
-          {options.map((option, index) => (
-            <MenuItem key={index} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-        <TextField
-          value={newOption}
-          onChange={handleNewOptionChange}
-          label="New Option"
-          variant="outlined"
-        />
-        <Button variant="contained" onClick={handleAddOption}>
-          Add
-        </Button>
-      </div>
       <div className="StateMastersCard">
         {StateMasterData.map((data) => (
           <Card sx={{ maxWidth: 275 }}>
             <CardContent>
               <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
+                sx={{ display: "flex", justifyContent: "center" }}
+                variant="h5"
+                component="div"
               >
-                {data.id}
+                {data.id}. {data.stateName}
+                <Typography color="text.secondary">
+                  ({data.stateCode})
+                </Typography>
+                <IconButton>
+                  <EditIcon />
+                </IconButton>
               </Typography>
-              <Typography variant="h5" component="div">
-                {data.stateName}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {data.stateCode}
-              </Typography>
-              <Typography variant="body2">
-                Created by:{data.createdBy}
-                <br />
-                Created Time Stamp:{data.createdAt}
-              </Typography>
+
+              <Divider />
+              <div className="StateDetails">
+                <Typography
+                  sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
+                  variant="body2"
+                >
+                  Created by:<Typography>{data.createdBy}</Typography>
+                </Typography>
+                <Typography sx={{ textAlign: "left" }} variant="body2">
+                  Created Time Stamp:{data.createdAt}
+                </Typography>
+              </div>
             </CardContent>
-            <CardActions>
-              <Button size="small">Edit</Button>
-            </CardActions>
           </Card>
         ))}
+      </div>
+      <div className="AddButtonDiv">
+        <IconButton onClick={handleClickOpen}>
+          <AddIcon />
+        </IconButton>
+        <Dialog
+          fullScreen={fullScreen}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="responsive-dialog-title"
+        >
+          <DialogTitle id="responsive-dialog-title">{"Add State"}</DialogTitle>
+          <Divider />
+          <form onSubmit={handleSubmit}>
+            <div className="formDiv">
+              <TextField
+                id="filled-basic"
+                label="State Name"
+                variant="filled"
+                size="small"
+                name="stateName"
+                value={values.stateName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.stateName && errors.stateName}
+                helperText={
+                  touched.stateName && errors.stateName
+                    ? errors.stateName
+                    : null
+                }
+              />
+              <TextField
+                id="filled-basic"
+                label="State Code"
+                variant="filled"
+                size="small"
+                name="stateCode"
+                value={values.stateCode}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.stateCode && errors.stateCode}
+                helperText={
+                  touched.stateCode && errors.stateCode
+                    ? errors.stateCode
+                    : null
+                }
+              />
+            </div>
+
+            <DialogActions>
+              <Button type="submit" onClick={handleClose} autoFocus>
+                Add
+              </Button>
+            </DialogActions>
+          </form>
+        </Dialog>
       </div>
     </div>
   );

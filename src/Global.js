@@ -50,8 +50,8 @@ export const StateMasterData = [
     stateName: "TamilNadu",
     administrationId: 1,
     createdBy: "ADMIN",
-    createdAt: "2023-07-11T07:26:14.000Z",
-    updatedAt: "2023-07-11T07:26:14.000Z",
+    createdAt: "2023-07-11 T0 7:26:14.000Z",
+    updatedAt: "2023-07-11 T0 7:26:14.000Z",
     isActive: "1",
   },
   {

@@ -40,6 +40,9 @@ import Badge from "@mui/material/Badge";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { FormControlLabel } from "@mui/material";
 import { MastersData } from "../../Global";
+import Button from "@mui/material/Button";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -155,7 +158,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer({ data }) {
+export default function MiniDrawer({ data, setMode, mode }) {
   const theme = useTheme();
   const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   const [open, setOpen] = React.useState(false);
@@ -227,9 +230,17 @@ export default function MiniDrawer({ data }) {
             </Typography>
             <div className="AppBarRight">
               <div className="toggleButton">
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={<MaterialUISwitch defaultChecked />}
-                />
+                /> */}
+                <Button
+                  sx={{ marginLeft: "auto" }}
+                  startIcon={
+                    mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
+                  }
+                  color="inherit"
+                  onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+                ></Button>
               </div>
               <IconButton>
                 <Badge badgeContent={4} overlap="circular" color="secondary">

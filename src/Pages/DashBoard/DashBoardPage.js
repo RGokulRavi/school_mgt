@@ -1,13 +1,10 @@
 import React from "react";
 import MiniDrawer from "../../components/DashBoard/minidrawer";
-import Typography from "@mui/material/Typography";
-import ResponsiveAppBar from "../../components/DashBoard/navBar";
-import LeftMainBar from "../../components/DashBoard/LeftMainBar";
 
-const DashBoardPage = () => {
+const DashBoardPage = ({ setMode, mode }) => {
   return (
     <div className="DashBoardPage">
-      <MiniDrawer />
+      <MiniDrawer setMode={setMode} mode={mode} />
     </div>
   );
 };

@@ -186,164 +186,160 @@ const AddNewStudent = () => {
     <div className="StudentRegistration">
       <div className="addStudentFormDiv">
         <div className="studentRegistrationHeading">
-          <Typography sx={{ fontWeight: "bold" }} variant="h6">
+          <Typography sx={{ fontWeight: "bold" }} fontSize={15}>
             Student Detail
           </Typography>
 
           <Divider />
-          <form onSubmit={handleSubmit} className="addStudentForm">
-            <div className="studentRequiredFieldsDiv">
-              <div className="PassPortSizePhotoDiv">Photo</div>
-              <div className="StudentsFields">
-                <div className="studentName">
-                  <TextField
-                    id="filled-basic"
-                    label="Initial"
-                    variant="outlined"
+        </div>
+        <form onSubmit={handleSubmit} className="addStudentForm">
+          <div className="studentRequiredFieldsDiv">
+            <div className="PassPortSizePhotoDiv">Photo</div>
+            <div className="StudentsFields">
+              <div className="studentName">
+                <TextField
+                  id="filled-basic"
+                  label="Initial"
+                  variant="outlined"
+                  size="small"
+                  name="initial"
+                  value={values.initial}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.initial && Boolean(errors.initial)}
+                  helperText={
+                    touched.initial && errors.initial ? errors.initial : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="First Name"
+                  variant="outlined"
+                  size="small"
+                  name="firstName" // Use 'name' instead of 'firstName'
+                  value={values.firstName}
+                  onChange={handleChange} // Provide 'onChange' to update the value
+                  onBlur={handleBlur}
+                  error={touched.firstName && Boolean(errors.firstName)}
+                  helperText={
+                    touched.firstName && errors.firstName
+                      ? errors.firstName
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Middle Name"
+                  variant="outlined"
+                  size="small"
+                  name="middleName"
+                  value={values.middleName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.middleName && Boolean(errors.middleName)}
+                  helperText={
+                    touched.middleName && errors.middleName
+                      ? errors.middleName
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Last Name"
+                  variant="outlined"
+                  size="small"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.lastName && Boolean(errors.lastName)}
+                  helperText={
+                    touched.lastName && errors.lastName ? errors.lastName : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Class</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
                     size="small"
-                    name="initial"
-                    value={values.initial}
+                    label="Class"
+                    name="className"
+                    value={values.className}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={touched.initial && Boolean(errors.initial)}
+                    error={touched.className && Boolean(errors.className)}
                     helperText={
-                      touched.initial && errors.initial ? errors.initial : null
-                    }
-                  />
-                  <TextField
-                    id="filled-basic"
-                    label="First Name"
-                    variant="outlined"
-                    size="small"
-                    name="firstName" // Use 'name' instead of 'firstName'
-                    value={values.firstName}
-                    onChange={handleChange} // Provide 'onChange' to update the value
-                    onBlur={handleBlur}
-                    error={touched.firstName && Boolean(errors.firstName)}
-                    helperText={
-                      touched.firstName && errors.firstName
-                        ? errors.firstName
+                      touched.className && errors.className
+                        ? errors.className
                         : null
                     }
-                  />
-                  <TextField
-                    id="filled-basic"
-                    label="Middle Name"
-                    variant="outlined"
+                  >
+                    <MenuItem value={1}>I</MenuItem>
+                    <MenuItem value={2}>II</MenuItem>
+                    <MenuItem value={3}>III</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Section</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
                     size="small"
-                    name="middleName"
-                    value={values.middleName}
+                    label="Class"
+                    name="sectionName"
+                    value={values.sectionName}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={touched.middleName && Boolean(errors.middleName)}
+                    error={touched.sectionName && Boolean(errors.sectionName)}
                     helperText={
-                      touched.middleName && errors.middleName
-                        ? errors.middleName
+                      touched.sectionName && errors.sectionName
+                        ? errors.sectionName
                         : null
                     }
-                  />
-                  <TextField
-                    id="filled-basic"
-                    label="Last Name"
-                    variant="outlined"
-                    size="small"
-                    name="lastName"
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.lastName && Boolean(errors.lastName)}
-                    helperText={
-                      touched.lastName && errors.lastName
-                        ? errors.lastName
-                        : null
-                    }
-                  />
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Class</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      size="small"
-                      label="Class"
-                      name="className"
-                      value={values.className}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      error={touched.className && Boolean(errors.className)}
-                      helperText={
-                        touched.className && errors.className
-                          ? errors.className
-                          : null
-                      }
-                    >
-                      <MenuItem value={1}>I</MenuItem>
-                      <MenuItem value={2}>II</MenuItem>
-                      <MenuItem value={3}>III</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Section
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      size="small"
-                      label="Class"
-                      name="sectionName"
-                      value={values.sectionName}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      error={touched.sectionName && Boolean(errors.sectionName)}
-                      helperText={
-                        touched.sectionName && errors.sectionName
-                          ? errors.sectionName
-                          : null
-                      }
-                    >
-                      <MenuItem value={1}>A</MenuItem>
-                      <MenuItem value={2}>B</MenuItem>
-                      <MenuItem value={3}>C</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <Input variant="outlined" type="Date"></Input>
-                  <FormControl>
-                    <FormLabel
-                      id="demo-row-radio-buttons-group-label"
-                      sx={{ marginRight: "auto" }}
-                    >
-                      Gender
-                    </FormLabel>
-                    <RadioGroup
-                      row
-                      aria-labelledby="demo-row-radio-buttons-group-label"
-                      name="row-radio-buttons-group"
-                    >
-                      <FormControlLabel
-                        value="female"
-                        control={<Radio size="small" />}
-                        label="Female"
-                      />
-                      <FormControlLabel
-                        value="male"
-                        control={<Radio size="small" />}
-                        label="Male"
-                      />
-                      <FormControlLabel
-                        value="other"
-                        control={<Radio size="small" />}
-                        label="Other"
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                </div>
+                  >
+                    <MenuItem value={1}>A</MenuItem>
+                    <MenuItem value={2}>B</MenuItem>
+                    <MenuItem value={3}>C</MenuItem>
+                  </Select>
+                </FormControl>
+                <Input variant="outlined" type="Date"></Input>
+                <FormControl>
+                  <FormLabel
+                    id="demo-row-radio-buttons-group-label"
+                    sx={{ marginRight: "auto" }}
+                  >
+                    Gender
+                  </FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio size="small" />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio size="small" />}
+                      label="Male"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio size="small" />}
+                      label="Other"
+                    />
+                  </RadioGroup>
+                </FormControl>
               </div>
             </div>
-            <Button type="submit" variant="contained" color="primary">
-              Submit
-            </Button>
-          </form>
-        </div>
+          </div>
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
+        </form>
       </div>
     </div>
   );

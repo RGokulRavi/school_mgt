@@ -1,0 +1,35 @@
+.StateMaster {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+.AddButton {
+  background-color: brown;
+}
+.StateMastersCard {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.AddButtonDiv {
+  margin-top: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  background-color: red;
+  margin-right: 50px;
+}
+.StateDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 10px;
+}
