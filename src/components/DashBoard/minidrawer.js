@@ -39,6 +39,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import Badge from "@mui/material/Badge";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { FormControlLabel } from "@mui/material";
+import { MastersData } from "../../Global";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -156,11 +157,14 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer({ data }) {
   const theme = useTheme();
+  const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   const [open, setOpen] = React.useState(false);
   const [mainBox, setMainBox] = React.useState("DashBoard");
   const [openTeacherSubMenu, setOpenTeacherSubMenu] = React.useState(false);
   const [openStudentSubMenu, setOpenStudentSubMenu] = React.useState(false);
+  const [openMasterSubMenu, setOpenMasterSubMenu] = React.useState(false);
   const MasterData = ["State Master", "City Master", "School Setup"];
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -169,10 +173,15 @@ export default function MiniDrawer({ data }) {
     setOpen(!open);
     setOpenStudentSubMenu(false);
     setOpenTeacherSubMenu(false);
+    setOpenMasterSubMenu(false);
   };
 
-  const handleMasterClick = (text) => {
+  const handleClick = (text) => {
     setMainBox(text);
+  };
+  const handleMasterClick = () => {
+    setOpenMasterSubMenu(!openMasterSubMenu);
+    setOpen(true);
   };
 
   const handleStudentClick = () => {
@@ -242,26 +251,14 @@ export default function MiniDrawer({ data }) {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          {/* <Typography sx={{ marginRight: "auto", paddingLeft: 8.5 }}>
-            Hi Gokul
-          </Typography>
-
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton> */}
-        </DrawerHeader>
+        <DrawerHeader></DrawerHeader>
         <Divider />
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <ListItemButton onClick={() => handleMasterClick("DashBoard")}>
+          <ListItemButton onClick={() => handleClick("DashBoard")}>
             <ListItemIcon>
               <SpaceDashboardIcon />
             </ListItemIcon>
@@ -278,21 +275,21 @@ export default function MiniDrawer({ data }) {
             <List component="div" disablePadding>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("Teachers")}
+                onClick={() => handleClick("Teachers")}
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Teachers" />
               </ListItemButton>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("TeacherDetails")}
+                onClick={() => handleClick("TeacherDetails")}
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="TeacherDetails" />
               </ListItemButton>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("AddNewTeacher")}
+                onClick={() => handleClick("AddNewTeacher")}
               >
                 <ListItemIcon>
                   <PersonAddIcon />
@@ -312,21 +309,21 @@ export default function MiniDrawer({ data }) {
             <List component="div" disablePadding>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("Students")}
+                onClick={() => handleClick("Students")}
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Student" />
               </ListItemButton>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("StudentDetails")}
+                onClick={() => handleClick("StudentDetails")}
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="StudentDetails" />
               </ListItemButton>
               <ListItemButton
                 sx={{ pl: 4 }}
-                onClick={() => handleMasterClick("AddNewStudent")}
+                onClick={() => handleClick("AddNewStudent")}
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Add New Student" />
@@ -336,10 +333,59 @@ export default function MiniDrawer({ data }) {
         </List>
         <Divider />
         <List>
-          {["Master", "Others"].map((text, index) => (
+          {/* 
+
+
+
+ */}
+          {uniqueTypes.map((type) => (
+            <React.Fragment key={type}>
+              <ListItemButton onClick={handleMasterClick}>
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary={type} />
+                {openMasterSubMenu ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              {MastersData.map((data) => (
+                <Collapse
+                  key={data.name}
+                  in={openMasterSubMenu}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    <ListItemButton
+                      sx={{ pl: 4 }}
+                      onClick={() => handleClick(data.name)}
+                    >
+                      <ListItemIcon></ListItemIcon>
+                      {(() => {
+                        switch (true) {
+                          case type === "Master" && data.type === "Master":
+                            return <ListItemText primary={data.name} />;
+                          case type === "Transaction" &&
+                            data.type === "Transaction":
+                            return <ListItemText primary={data.name} />;
+                          case type === "Stock Transaction" &&
+                            data.type === "Stock Transaction":
+                            return <ListItemText primary={data.name} />;
+                          case type === "Reports" && data.type === "Reports":
+                            return <ListItemText primary={data.name} />;
+                          default:
+                            return null;
+                        }
+                      })()}
+                    </ListItemButton>
+                  </List>
+                </Collapse>
+              ))}
+            </React.Fragment>
+          ))}
+          {/* {["Master", "Others"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
-                onClick={() => handleMasterClick(text)}
+                onClick={() => handleClick(text)}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
@@ -362,7 +408,7 @@ export default function MiniDrawer({ data }) {
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))} */}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>

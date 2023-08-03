@@ -34,13 +34,12 @@ export const dashboardSmallCardRevenueLogo =
   "https://e7.pngegg.com/pngimages/160/291/png-clipart-computer-icons-profit-revenue-service-industry-invest-company-service.png";
 
 export const MastersData = [
-  { type: "Master", name: "State Master" },
-  { type: "Master", name: "City Master" },
+  { type: "Master", name: "State" },
+  { type: "Master", name: "City" },
   { type: "Master", name: "School Setup" },
-  { type: "Master", name: "Class Master" },
-  { type: "Master", name: "Bloodgroup Master" },
+  { type: "Master", name: "Class" },
   { type: "Transaction", name: "fees Collection" },
-  { type: "Stock Transaction", name: "Define Stock Master" },
+  { type: "Stock Transaction", name: "Define Stock" },
   { type: "Reports", name: "Fees Collection Summary" },
 ];
 

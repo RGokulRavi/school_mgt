@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.css";
 import DashBoard from "../DashBoard/DashBoard";
-import Master from "../Master/Master";
 import Others from "../Others/Others";
 import Students from "../Students/Students";
 import StudentDetails from "../Students/StudentDetails";
@@ -13,7 +12,6 @@ import StateMaster from "../Master/MasterFolder/StateMaster";
 
 const Body = ({ data }) => {
   const buttons = [
-    "Master",
     "Others",
     "Students",
     "StudentDetails",
@@ -22,7 +20,7 @@ const Body = ({ data }) => {
     "TeacherDetails",
     "AddNewTeacher",
     "DashBoard",
-    "State Master",
+    "State",
   ];
 
   const renderComponent = () => {
@@ -30,11 +28,8 @@ const Body = ({ data }) => {
       switch (data) {
         case "DashBoard":
           return <DashBoard />;
-        case "State Master":
+        case "State":
           return <StateMaster />;
-        case "Master":
-          return <Master />;
-          break;
         case "Others":
           return <Others />;
         case "Students":
@@ -56,34 +51,7 @@ const Body = ({ data }) => {
       return null;
     }
   };
-  // return <div className="bodyDiv">{renderComponent()}</div>;
-  if (buttons.includes(data)) {
-    switch (data) {
-      case "DashBoard":
-        return <DashBoard />;
-      case "State Master":
-        return <StateMaster />;
-      case "Master":
-        return <Master />;
-        break;
-      case "Others":
-        return <Others />;
-      case "Students":
-        return <Students />;
-      case "StudentDetails":
-        return <StudentDetails />;
-      case "AddNewStudent":
-        return <AddNewStudent />;
-      case "Teachers":
-        return <Teachers />;
-      case "TeacherDetails":
-        return <TeacherDetails />;
-      case "AddNewTeacher":
-        return <AddNewTeacher />;
-      default:
-        return null;
-    }
-  }
+  return <div className="bodyDiv">{renderComponent()}</div>;
 };
 
 export default Body;

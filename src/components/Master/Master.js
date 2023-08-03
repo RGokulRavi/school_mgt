@@ -29,8 +29,6 @@ const bull = (
 );
 
 const Master = () => {
-  const [mastersName, setMastersName] = useState("initial");
-  const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   return (
     <div className="Master">
       {uniqueTypes.map((e) => (
@@ -67,12 +65,6 @@ const Master = () => {
                     height: 10,
                   }}
                   variant="body2"
-                  // onClick={() =>
-                  //   navigate(`/${e}/${data.name.split(" ").join("")}`)
-                  // }
-                  onClick={() => {
-                    setMastersName(data.name);
-                  }}
                 >
                   🔸{data.name}
                 </Typography>
@@ -81,7 +73,6 @@ const Master = () => {
           )}
         </Accordion>
       ))}
-      {mastersName === "initial" ? null : <MiniDrawer data={mastersName} />}
     </div>
   );
 };
