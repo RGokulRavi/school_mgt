@@ -5,6 +5,7 @@ import { Field, useFormik } from "formik";
 import * as Yup from "yup";
 import {
   Button,
+  Card,
   Divider,
   FormControl,
   FormControlLabel,
@@ -184,7 +185,7 @@ const AddNewStudent = () => {
   };
   return (
     <div className="StudentRegistration">
-      <div className="addStudentFormDiv">
+      <Card className="addStudentFormDiv">
         <div className="studentRegistrationHeading">
           <Typography sx={{ fontWeight: "bold" }} fontSize={15}>
             Student Detail
@@ -340,7 +341,7 @@ const AddNewStudent = () => {
             Submit
           </Button>
         </form>
-      </div>
+      </Card>
     </div>
   );
 };

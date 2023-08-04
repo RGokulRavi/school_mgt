@@ -9,80 +9,69 @@ import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: "#333996",
-//       light: "#3c44b126",
-//     },
-//     secondary: {
-//       main: "#f83245",
-//       light: "#f8324526",
-//     },
-//     background: {
-//       default: "#f4f5fd",
-//     },
-//   },
-//   overrides: {
-//     MuiAppBar: {
-//       root: {
-//         transform: "translateZ(0)",
-//       },
-//     },
-//   },
-//   props: {
-//     MuiIconButton: {
-//       disableRipple: true,
-//     },
-//   },
-// });
-
 export const App = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
   const themeCtx = createTheme({
     palette: {
       mode: mode,
+      primary: {
+        main: "#333996",
+        light: "#3c44b126",
+      },
+      secondary: {
+        main: "#f83245",
+        light: "#f8324526",
+      },
+      background: {
+        default: "#f4f4f4",
+      },
     },
   });
 
-  // const lightTheme = createTheme({
-  //   palette: {
-  //     type: "light",
-  //     primary: {
-  //       main: "#2196F3", // Blue color
-  //     },
-  //     secondary: {
-  //       main: "#FF5722", // Orange color
-  //     },
-  //   },
-  //   typography: {
-  //     fontFamily: "Arial, sans-serif",
-  //   },
-  // });
+  const lightTheme = createTheme({
+    palette: {
+      mode: "light",
+      primary: {
+        main: "#333996",
+        light: "#3c44b126",
+      },
+      secondary: {
+        main: "#f83245",
+        light: "#f8324526",
+      },
+      background: {
+        default: "#f4f4f4",
+      },
+    },
+  });
 
-  // const darkTheme = createTheme({
-  //   palette: {
-  //     type: "dark",
-  //     primary: {
-  //       main: "#1976D2", // Dark blue color
-  //     },
-  //     secondary: {
-  //       main: "#E64A19", // Dark orange color
-  //     },
-  //   },
-  //   typography: {
-  //     fontFamily: "Arial, sans-serif",
-  //   },
-  // });
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#333996",
+        light: "#3c44b126",
+      },
+      secondary: {
+        main: "#f83245",
+        light: "#f8324526",
+      },
+      background: {
+        default: "#333",
+      },
+    },
+  });
+
+  const theme = mode === "light" ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={themeCtx}>
+    <ThemeProvider theme={theme}>
       <Paper
         sx={{
           minHeight: "100vh",
           borderRadius: "0px",
         }}
-        elevation={4}
+        elevation={6}
       >
         <div className="App">
           <Routes>
