@@ -50,7 +50,7 @@
   gap: 10px;
   width: 300px;
 }
-.ClassAndSection {
+.twoInput {
   display: flex;
   flex-direction: row;
   gap: 10px;
