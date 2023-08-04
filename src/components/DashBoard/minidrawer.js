@@ -90,6 +90,7 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
+  backgroundColor: "primary",
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {
@@ -103,13 +104,12 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer({ data, setMode, mode }) {
-  const theme = useTheme();
-  const uniqueTypes = [...new Set(MastersData.map((e) => e.type))];
   const [open, setOpen] = React.useState(false);
   const [mainBox, setMainBox] = React.useState("DashBoard");
   const [openTeacherSubMenu, setOpenTeacherSubMenu] = React.useState(false);
   const [openStudentSubMenu, setOpenStudentSubMenu] = React.useState(false);
   const [openMasterSubMenu, setOpenMasterSubMenu] = React.useState(false);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -142,16 +142,16 @@ export default function MiniDrawer({ data, setMode, mode }) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
-        // sx={{
-        //   backdropFilter: "blur(8px)",
-        //   backgroundColor: "rgba(255, 255, 255, 0.8)",
-        // }}
+        sx={{
+          backdropFilter: "blur(8px)",
+          // backgroundColor: "rgba(255, 255, 255, 0.8)",
+        }}
         position="fixed"
         // open={open}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="secondary"
             aria-label="open drawer"
             onClick={handleDrawerClose}
             edge="start"
@@ -172,27 +172,24 @@ export default function MiniDrawer({ data, setMode, mode }) {
             </Typography>
             <div className="AppBarRight">
               <div className="toggleButton">
-                {/* <FormControlLabel
-                  control={<MaterialUISwitch defaultChecked />}
-                /> */}
                 <Button
                   sx={{ marginLeft: "auto" }}
                   startIcon={
                     mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
                   }
-                  color="inherit"
+                  color="secondary"
                   onClick={() => setMode(mode === "dark" ? "light" : "dark")}
                 ></Button>
               </div>
               <IconButton>
                 <Badge badgeContent={4} overlap="circular" color="secondary">
-                  <EmailIcon sx={{ color: "blue" }} />
+                  <EmailIcon color="secondary" />
                 </Badge>
               </IconButton>
               <Avatar
                 alt="KST"
+                color="secondary"
                 sx={{
-                  backgroundColor: "red",
                   width: 30,
                   height: 30,
                   margin: "auto",
@@ -203,9 +200,9 @@ export default function MiniDrawer({ data, setMode, mode }) {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer color="Primary" variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader></DrawerHeader>
-        <Divider />
+        <Divider color="secondary" />
         <List
           sx={{
             width: "100%",
@@ -299,7 +296,30 @@ export default function MiniDrawer({ data, setMode, mode }) {
           {/* 
 
  */}
-          {uniqueTypes.map((type) => (
+
+          <ListItemButton onClick={handleMasterClick}>
+            <ListItemIcon>
+              <AdminPanelSettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Master" />
+            {openMasterSubMenu ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openMasterSubMenu} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {MastersData.map((data) => (
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  onClick={() => handleClick(data)}
+                >
+                  <ListItemIcon>
+                    <PiStudentFill className="icon" />
+                  </ListItemIcon>
+                  <ListItemText primary={data} />
+                </ListItemButton>
+              ))}
+            </List>
+          </Collapse>
+          {/* {uniqueTypes.map((type) => (
             <React.Fragment key={type}>
               <ListItemButton onClick={handleMasterClick}>
                 <ListItemIcon>
@@ -321,7 +341,7 @@ export default function MiniDrawer({ data, setMode, mode }) {
                       onClick={() => handleClick(data.name)}
                     >
                       <ListItemIcon></ListItemIcon>
-                      {() => {
+                      {(() => {
                         switch (true) {
                           case type === "Master" && data.type === "Master":
                             return <ListItemText primary={data.name} />;
@@ -333,16 +353,14 @@ export default function MiniDrawer({ data, setMode, mode }) {
                             return <ListItemText primary={data.name} />;
                           case type === "Reports" && data.type === "Reports":
                             return <ListItemText primary={data.name} />;
-                          default:
-                            return null;
                         }
-                      }}
+                      })()}
                     </ListItemButton>
                   </List>
                 </Collapse>
               ))}
             </React.Fragment>
-          ))}
+          ))} */}
           {/* {["Master", "Others"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton

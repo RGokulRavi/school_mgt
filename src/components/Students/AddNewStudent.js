@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import TextField from "@mui/material/TextField";
-import { Field, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
   Button,
@@ -18,8 +18,6 @@ import {
   Typography,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import DatePickerValue from "../Common/DataPicker";
-import BasicDatePicker from "../Common/DataPicker";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string().required(),
@@ -90,91 +88,144 @@ const AddNewStudent = () => {
     "cityName",
   ];
 
-  const studentRequiredFields = [
-    { type: "TextField", typeName: "initial" },
-    { type: "TextField", typeName: "firstName" },
-    { type: "TextField", typeName: "middleName" },
-    { type: "TextField", typeName: "lastName" },
-    {
-      type: "Select",
-      typeName: "religion",
-      selectValues: ["Hindu", "Muslims"],
-    },
-    {
-      type: "Radio",
-      typeName: "gender",
-      radioValues: ["Male", "Female"],
-    },
-    { type: "TextField", typeName: "emailId" },
-    { type: "TextField", typeName: "dateOfBirth" },
-    { type: "TextField", typeName: "photoUrl" },
-    { type: "TextField", typeName: "nationality" },
-    { type: "TextField", typeName: "mobile" },
-  ];
+  // const studentRequiredFields = [
+  //   { type: "TextField", typeName: "initial" },
+  //   { type: "TextField", typeName: "firstName" },
+  //   { type: "TextField", typeName: "middleName" },
+  //   { type: "TextField", typeName: "lastName" },
+  //   {
+  //     type: "Select",
+  //     typeName: "religion",
+  //     selectValues: ["Hindu", "Muslims"],
+  //   },
+  //   {
+  //     type: "Radio",
+  //     typeName: "gender",
+  //     radioValues: ["Male", "Female"],
+  //   },
+  //   { type: "TextField", typeName: "emailId" },
+  //   { type: "TextField", typeName: "dateOfBirth" },
+  //   { type: "TextField", typeName: "photoUrl" },
+  //   { type: "TextField", typeName: "nationality" },
+  //   { type: "TextField", typeName: "mobile" },
+  // ];
 
-  const parantRequiredFeilds = [
-    { type: "TextField", typeName: "address1" },
-    { type: "TextField", typeName: "address2" },
-    { type: "TextField", typeName: "pincode" },
-    { type: "TextField", typeName: "fatherName" },
-    { type: "TextField", typeName: "motherName" },
-  ];
+  // const parantRequiredFeilds = [
+  //   { type: "TextField", typeName: "address1" },
+  //   { type: "TextField", typeName: "address2" },
+  //   { type: "TextField", typeName: "pincode" },
+  //   { type: "TextField", typeName: "fatherName" },
+  //   { type: "TextField", typeName: "motherName" },
+  // ];
 
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
         admissionNo: "AD12352",
         registrationNo: "REG56796",
-        initial: "R",
-        firstName: "GOKUL",
+        initial: "",
+        firstName: "",
         middleName: "",
-        lastName: "KANNAN",
-        className: "Grade 8",
-        sectionName: "A",
-        gender: "Male",
-        administrationType: "School",
-        administrationName: "ABC School",
-        address1: "123 Main Street",
-        address2: "Apt 4B",
-        pincode: "12345",
-        stateName: "TamilNadu",
-        cityName: "Thanjavur",
-        nationality: "Indian",
-        mobile: "9944057983",
-        emailId: "gokulravichandran101@gmail.com",
-        dateOfBirth: "1998-12-24",
-        religion: "Hindu",
-        community: "BC",
-        bloodGroup: "B+",
-        photoUrl: "https://example.com/photo.jpg",
-        fatherName: "M.Ravichandran",
-        motherName: "R.Nirmala",
-        fatherQualification: "Bachelors Degree",
-        motherQualification: "Bachelors Degree",
-        fatherOccupation: "Farmer",
-        motherOccupation: "Home maker",
-        fatherAnnualIncome: 50000.0,
-        motherAnnualIncome: 60000.0,
+        lastName: "",
+        className: "",
+        sectionName: "",
+        gender: "",
+        administrationType: "",
+        administrationName: "",
+        address1: "",
+        address2: "",
+        pincode: "",
+        stateName: "",
+        cityName: "",
+        nationality: "",
+        mobile: "",
+        emailId: "",
+        dateOfBirth: "",
+        religion: "",
+        community: "",
+        bloodGroup: "",
+        photoUrl: "",
+        fatherName: "",
+        motherName: "",
+        fatherQualification: "",
+        motherQualification: "",
+        fatherOccupation: "",
+        motherOccupation: "",
+        fatherAnnualIncome: 0,
+        motherAnnualIncome: 0,
         gaurdianName: "",
         gaurdianOccupation: "",
         gaurdianQualification: "",
         caretakerName: "",
         caretakerOccupation: "",
         caretakerQualification: "",
-        parentMobileNoA: "8754938477",
-        parentMobileNoB: "880774851",
+        parentMobileNoA: "",
+        parentMobileNoB: "",
         parentMobileNo3: "",
-        parentEmailId1: "gokulravichandran101@gmail.com",
-        parentEmailId2: "gokulravichandran101@gmail.com",
-        adharcardNo: "1234567890",
-        pancardNo: "ABCDE1234F",
-        bankName: "ABC Bank",
-        bankBranch: "Main Branch",
-        accountNo: "9876543210",
-        ifscNo: "ABCD1234567",
-        certificateProvided: "Yes",
+        parentEmailId1: "",
+        parentEmailId2: "",
+        adharcardNo: "",
+        pancardNo: "",
+        bankName: "",
+        bankBranch: "",
+        accountNo: "",
+        ifscNo: "",
+        certificateProvided: "",
         administrationId: 1,
       },
+      // initialValues: {
+      //   admissionNo: "AD12352",
+      //   registrationNo: "REG56796",
+      //   initial: "R",
+      //   firstName: "GOKUL",
+      //   middleName: "",
+      //   lastName: "KANNAN",
+      //   className: "Grade 8",
+      //   sectionName: "A",
+      //   gender: "Male",
+      //   administrationType: "School",
+      //   administrationName: "ABC School",
+      //   address1: "123 Main Street",
+      //   address2: "Apt 4B",
+      //   pincode: "12345",
+      //   stateName: "TamilNadu",
+      //   cityName: "Thanjavur",
+      //   nationality: "Indian",
+      //   mobile: "9944057983",
+      //   emailId: "gokulravichandran101@gmail.com",
+      //   dateOfBirth: "1998-12-24",
+      //   religion: "Hindu",
+      //   community: "BC",
+      //   bloodGroup: "B+",
+      //   photoUrl: "https://example.com/photo.jpg",
+      //   fatherName: "M.Ravichandran",
+      //   motherName: "R.Nirmala",
+      //   fatherQualification: "Bachelors Degree",
+      //   motherQualification: "Bachelors Degree",
+      //   fatherOccupation: "Farmer",
+      //   motherOccupation: "Home maker",
+      //   fatherAnnualIncome: 50000.0,
+      //   motherAnnualIncome: 60000.0,
+      //   gaurdianName: "",
+      //   gaurdianOccupation: "",
+      //   gaurdianQualification: "",
+      //   caretakerName: "",
+      //   caretakerOccupation: "",
+      //   caretakerQualification: "",
+      //   parentMobileNoA: "8754938477",
+      //   parentMobileNoB: "880774851",
+      //   parentMobileNo3: "",
+      //   parentEmailId1: "gokulravichandran101@gmail.com",
+      //   parentEmailId2: "gokulravichandran101@gmail.com",
+      //   adharcardNo: "1234567890",
+      //   pancardNo: "ABCDE1234F",
+      //   bankName: "ABC Bank",
+      //   bankBranch: "Main Branch",
+      //   accountNo: "9876543210",
+      //   ifscNo: "ABCD1234567",
+      //   certificateProvided: "Yes",
+      //   administrationId: 1,
+      // },
       validationSchema: studentValidationSchema,
       onSubmit: (newStudent) => {
         addStudent(newStudent);
@@ -187,7 +238,11 @@ const AddNewStudent = () => {
     <div className="StudentRegistration">
       <Card className="addStudentFormDiv">
         <div className="studentRegistrationHeading">
-          <Typography sx={{ fontWeight: "bold" }} fontSize={15}>
+          <Typography
+            color="secondary"
+            sx={{ fontWeight: "bold" }}
+            fontSize={15}
+          >
             Student Detail
           </Typography>
 
@@ -195,8 +250,15 @@ const AddNewStudent = () => {
         </div>
         <form onSubmit={handleSubmit} className="addStudentForm">
           <div className="studentRequiredFieldsDiv">
-            <div className="PassPortSizePhotoDiv">Photo</div>
-            <div className="StudentsFields">
+            <div className="photo">
+              <div className="PassPortSizePhotoDiv">Photo</div>
+              <Button
+                sx={{ margin: 2, textTransform: "none" }}
+                variant="contained"
+                color="primary"
+              >
+                Upload
+              </Button>
               <div className="studentName">
                 <TextField
                   id="filled-basic"
@@ -258,6 +320,159 @@ const AddNewStudent = () => {
                     touched.lastName && errors.lastName ? errors.lastName : null
                   }
                 />
+                <FormControl>
+                  <FormLabel
+                    id="demo-row-radio-buttons-group-label"
+                    sx={{ marginRight: "auto" }}
+                  >
+                    Gender
+                  </FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio size="small" />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio size="small" />}
+                      label="Male"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio size="small" />}
+                      label="Other"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+            </div>
+            <div className="studentName">
+              <Input variant="outlined" type="Date"></Input>
+              <TextField
+                id="filled-basic"
+                label="Mobile Number"
+                variant="outlined"
+                size="small"
+                name="mobile"
+                value={values.mobile}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.mobile && Boolean(errors.mobile)}
+                helperText={
+                  touched.mobile && errors.mobile ? errors.mobile : null
+                }
+              />
+              <TextField
+                id="filled-basic"
+                label="Email"
+                variant="outlined"
+                size="small"
+                name="emailId"
+                value={values.emailId}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.emailId && Boolean(errors.emailId)}
+                helperText={
+                  touched.emailId && errors.emailId ? errors.emailId : null
+                }
+              />
+              <FormControl fullWidth>
+                <InputLabel
+                  sx={{
+                    marginBottom: 2,
+                  }}
+                  id="demo-simple-select-label"
+                >
+                  Blood Group
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="bloodGroup"
+                  name="bloodGroup"
+                  value={values.bloodGroup}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.bloodGroup && Boolean(errors.bloodGroup)}
+                  helperText={
+                    touched.bloodGroup && errors.bloodGroup
+                      ? errors.bloodGroup
+                      : null
+                  }
+                >
+                  <MenuItem value={1}>A+</MenuItem>
+                  <MenuItem value={2}>B+</MenuItem>
+                  <MenuItem value={2}>B-</MenuItem>
+                  <MenuItem value={2}>AB+</MenuItem>
+                  <MenuItem value={2}>AB-</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                id="filled-basic"
+                label="Nationality"
+                variant="outlined"
+                size="small"
+                name="nationality"
+                value={values.nationality}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.nationality && Boolean(errors.nationality)}
+                helperText={
+                  touched.nationality && errors.nationality
+                    ? errors.nationality
+                    : null
+                }
+              />
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Religion</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="religion"
+                  name="religion"
+                  value={values.religion}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.religion && Boolean(errors.religion)}
+                  helperText={
+                    touched.religion && errors.religion ? errors.religion : null
+                  }
+                >
+                  <MenuItem value={1}>Hindu</MenuItem>
+                  <MenuItem value={2}>Muslim</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Community</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="community"
+                  name="community"
+                  value={values.community}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.community && Boolean(errors.community)}
+                  helperText={
+                    touched.community && errors.community
+                      ? errors.community
+                      : null
+                  }
+                >
+                  <MenuItem value={1}>BC</MenuItem>
+                  <MenuItem value={2}>MBC</MenuItem>
+                  <MenuItem value={2}>SC</MenuItem>
+                </Select>
+              </FormControl>
+              <div className="ClassAndSection">
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">Class</InputLabel>
                   <Select
@@ -304,37 +519,148 @@ const AddNewStudent = () => {
                     <MenuItem value={3}>C</MenuItem>
                   </Select>
                 </FormControl>
-                <Input variant="outlined" type="Date"></Input>
-                <FormControl>
-                  <FormLabel
-                    id="demo-row-radio-buttons-group-label"
-                    sx={{ marginRight: "auto" }}
-                  >
-                    Gender
-                  </FormLabel>
-                  <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                  >
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio size="small" />}
-                      label="Female"
-                    />
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio size="small" />}
-                      label="Male"
-                    />
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio size="small" />}
-                      label="Other"
-                    />
-                  </RadioGroup>
-                </FormControl>
               </div>
+            </div>
+            <div className="administrationDetails">
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Adminstration Type
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="administrationType"
+                  name="administrationType"
+                  value={values.administrationType}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.administrationType &&
+                    Boolean(errors.administrationType)
+                  }
+                  helperText={
+                    touched.administrationType && errors.administrationType
+                      ? errors.administrationType
+                      : null
+                  }
+                >
+                  <MenuItem value={1}>School</MenuItem>
+                  <MenuItem value={2}>College</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Administration Name
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="administrationName"
+                  name="administrationName"
+                  value={values.administrationName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.administrationName &&
+                    Boolean(errors.administrationName)
+                  }
+                  helperText={
+                    touched.administrationName && errors.administrationName
+                      ? errors.administrationName
+                      : null
+                  }
+                >
+                  <MenuItem value={1}>Kst School</MenuItem>
+                  <MenuItem value={2}>Kst College</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                id="filled-basic"
+                label="Address (Ex: Door No)"
+                variant="outlined"
+                size="small"
+                name="address1"
+                value={values.address1}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.address1 && Boolean(errors.address1)}
+                helperText={
+                  touched.address1 && errors.address1 ? errors.address1 : null
+                }
+              />
+
+              <TextField
+                id="filled-basic"
+                label="Address (Ex: Street Name)"
+                variant="outlined"
+                size="small"
+                name="address2"
+                value={values.address2}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.address2 && Boolean(errors.address2)}
+                helperText={
+                  touched.address2 && errors.address2 ? errors.address2 : null
+                }
+              />
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">City</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="cityName"
+                  name="cityName"
+                  value={values.cityName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.cityName && Boolean(errors.cityName)}
+                  helperText={
+                    touched.cityName && errors.cityName ? errors.cityName : null
+                  }
+                >
+                  <MenuItem value={1}>Tambaram</MenuItem>
+                  <MenuItem value={2}>Chromepet</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">State</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="stateName"
+                  name="stateName"
+                  value={values.stateName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.stateName && Boolean(errors.stateName)}
+                  helperText={
+                    touched.stateName && errors.stateName
+                      ? errors.stateName
+                      : null
+                  }
+                >
+                  <MenuItem value={1}>Chennai</MenuItem>
+                  <MenuItem value={2}>Pondicherry</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                id="filled-basic"
+                label="Pincode"
+                variant="outlined"
+                size="small"
+                name="pincode"
+                value={values.pincode}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.pincode && Boolean(errors.pincode)}
+                helperText={
+                  touched.pincode && errors.pincode ? errors.pincode : null
+                }
+              />
             </div>
           </div>
           <Button type="submit" variant="contained" color="primary">
