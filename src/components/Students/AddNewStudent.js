@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./styles.css";
-import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -16,8 +15,10 @@ import {
   RadioGroup,
   Select,
   Typography,
+  TextField,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import { StudentData } from "../../Global";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string(),
@@ -49,100 +50,101 @@ const studentValidationSchema = Yup.object({
   administrationId: Yup.string(),
 });
 
-const AddNewStudent = () => {
-  const [parant, setParant] = useState(false);
+const parentValidationSchema = Yup.object({
+  admissionNo: Yup.string(),
+  registrationNo: Yup.string(),
+  fatherName: Yup.string(),
+  motherName: Yup.string(),
+  fatherQualification: Yup.string(),
+  motherQualification: Yup.string(),
+  fatherOccupation: Yup.string(),
+  motherOccupation: Yup.string(),
+  fatherAnnualIncome: Yup.string(),
+  motherAnnualIncome: Yup.string(),
+  gaurdianName: Yup.string(),
+  gaurdianOccupation: Yup.string(),
+  gaurdianQualification: Yup.string(),
+  caretakerName: Yup.string(),
+  caretakerOccupation: Yup.string(),
+  caretakerQualification: Yup.string(),
+  parentMobileNoA: Yup.string(),
+  parentMobileNoB: Yup.string(),
+  parentMobileNo3: Yup.string(),
+  parentEmailId1: Yup.string(),
+  parentEmailId2: Yup.string(),
+});
 
+const AddNewStudent = () => {
+  const [parent, setParent] = useState(false);
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
-      initialValues: {
-        admissionNo: "AD12352",
-        registrationNo: "REG56796",
-        initial: "",
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        className: "",
-        sectionName: "",
-        gender: "",
-        administrationType: "",
-        administrationName: "",
-        address1: "",
-        address2: "",
-        pincode: "",
-        stateName: "",
-        cityName: "",
-        nationality: "",
-        mobile: "",
-        emailId: "",
-        dateOfBirth: "",
-        religion: "",
-        community: "",
-        bloodGroup: "",
-        photoUrl: "test",
-        adharcardNo: "",
-        certificateProvided: "",
-        administrationId: 1,
-      },
-      // initialValues: {
-      //   admissionNo: "AD12352",
-      //   registrationNo: "REG56796",
-      //   initial: "R",
-      //   firstName: "GOKUL",
-      //   middleName: "",
-      //   lastName: "KANNAN",
-      //   className: "Grade 8",
-      //   sectionName: "A",
-      //   gender: "Male",
-      //   administrationType: "School",
-      //   administrationName: "ABC School",
-      //   address1: "123 Main Street",
-      //   address2: "Apt 4B",
-      //   pincode: "12345",
-      //   stateName: "TamilNadu",
-      //   cityName: "Thanjavur",
-      //   nationality: "Indian",
-      //   mobile: "9944057983",
-      //   emailId: "gokulravichandran101@gmail.com",
-      //   dateOfBirth: "1998-12-24",
-      //   religion: "Hindu",
-      //   community: "BC",
-      //   bloodGroup: "B+",
-      //   photoUrl: "https://example.com/photo.jpg",
-      //   fatherName: "M.Ravichandran",
-      //   motherName: "R.Nirmala",
-      //   fatherQualification: "Bachelors Degree",
-      //   motherQualification: "Bachelors Degree",
-      //   fatherOccupation: "Farmer",
-      //   motherOccupation: "Home maker",
-      //   fatherAnnualIncome: 50000.0,
-      //   motherAnnualIncome: 60000.0,
-      //   gaurdianName: "",
-      //   gaurdianOccupation: "",
-      //   gaurdianQualification: "",
-      //   caretakerName: "",
-      //   caretakerOccupation: "",
-      //   caretakerQualification: "",
-      //   parentMobileNoA: "8754938477",
-      //   parentMobileNoB: "880774851",
-      //   parentMobileNo3: "",
-      //   parentEmailId1: "gokulravichandran101@gmail.com",
-      //   parentEmailId2: "gokulravichandran101@gmail.com",
-      //   adharcardNo: "1234567890",
-      //   pancardNo: "ABCDE1234F",
-      //   bankName: "ABC Bank",
-      //   bankBranch: "Main Branch",
-      //   accountNo: "9876543210",
-      //   ifscNo: "ABCD1234567",
-      //   certificateProvided: "Yes",
-      //   administrationId: 1,
-      // },
-      validationSchema: studentValidationSchema,
+      initialValues: !parent
+        ? {
+            admissionNo: "AD12352",
+            registrationNo: "REG56796",
+            initial: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            className: "",
+            sectionName: "",
+            gender: "",
+            administrationType: "",
+            administrationName: "",
+            address1: "",
+            address2: "",
+            pincode: "",
+            stateName: "",
+            cityName: "",
+            nationality: "",
+            mobile: "",
+            emailId: "",
+            dateOfBirth: "",
+            religion: "",
+            community: "",
+            bloodGroup: "",
+            photoUrl: "test",
+            adharcardNo: "",
+            certificateProvided: "",
+            administrationId: 1,
+          }
+        : {
+            admissionNo: "AD12352",
+            registrationNo: "REG56796",
+            fatherName: "",
+            motherName: "",
+            fatherQualification: "",
+            motherQualification: "",
+            fatherOccupation: "",
+            motherOccupation: "",
+            fatherAnnualIncome: "",
+            motherAnnualIncome: "",
+            gaurdianName: "",
+            gaurdianOccupation: "",
+            gaurdianQualification: "",
+            caretakerName: "",
+            caretakerOccupation: "",
+            caretakerQualification: "",
+            parentMobileNoA: "",
+            parentMobileNoB: "",
+            parentMobileNo3: "",
+            parentEmailId1: "",
+            parentEmailId2: "",
+          },
+      validationSchema: !parent
+        ? studentValidationSchema
+        : parentValidationSchema,
       onSubmit: (newStudent) => {
-        console.log("Form Values are:", newStudent);
-        setParant(true);
+        if (!parent) {
+          console.log("Student form Values are:", newStudent);
+          setParent(true);
+        } else {
+          console.log("Parent form Values are:", newStudent);
+        }
       },
     });
-  if (!parant) {
+
+  if (!parent) {
     return (
       <div className="StudentRegistration">
         <Card className="addStudentFormDiv">
@@ -203,15 +205,14 @@ const AddNewStudent = () => {
                       }
                     />
                   </div>
-
                   <TextField
                     id="filled-basic"
                     label="First Name"
                     variant="outlined"
                     size="small"
-                    name="firstName" // Use 'name' instead of 'firstName'
+                    name="firstName"
                     value={values.firstName}
-                    onChange={handleChange} // Provide 'onChange' to update the value
+                    onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.firstName && Boolean(errors.firstName)}
                     helperText={
@@ -236,7 +237,6 @@ const AddNewStudent = () => {
                         : null
                     }
                   />
-
                   <FormControl>
                     <FormLabel
                       id="demo-row-radio-buttons-group-label"
@@ -648,12 +648,431 @@ const AddNewStudent = () => {
       </div>
     );
   } else {
-    return <Card></Card>;
+    return (
+      <div className="StudentRegistration">
+        <Card className="addStudentFormDiv">
+          <form onSubmit={handleSubmit} className="addStudentForm">
+            <div className="studentRegistrationHeading">
+              <Typography
+                color="secondary"
+                sx={{ fontWeight: "bold" }}
+                fontSize={15}
+              >
+                Parent Detail
+              </Typography>
+              <Divider />
+            </div>
+            <div className="studentRequiredFieldsDiv">
+              <div className="parentName">
+                <TextField
+                  id="filled-basic"
+                  label="Father Name"
+                  variant="outlined"
+                  size="small"
+                  name="fatherName"
+                  value={values.fatherName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.fatherName && Boolean(errors.fatherName)}
+                  helperText={
+                    touched.fatherName && errors.fatherName
+                      ? errors.fatherName
+                      : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel
+                    sx={{
+                      marginBottom: 2,
+                    }}
+                    id="demo-simple-select-label"
+                  >
+                    Father's Qualification
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="fatherQualification"
+                    name="fatherQualification"
+                    value={values.fatherQualification}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      touched.fatherQualification &&
+                      Boolean(errors.fatherQualification)
+                    }
+                    helperText={
+                      touched.fatherQualification && errors.fatherQualification
+                        ? errors.fatherQualification
+                        : null
+                    }
+                  >
+                    <MenuItem value="BE">BE</MenuItem>
+                    <MenuItem value="BSC">BSC</MenuItem>
+                    <MenuItem value="MBBS">MBBS</MenuItem>
+                    <MenuItem value="ME">ME</MenuItem>
+                    <MenuItem value="Diplomo">Diplomo</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  id="filled-basic"
+                  label="Father's Occupation"
+                  variant="outlined"
+                  size="small"
+                  name="fatherOccupation"
+                  value={values.fatherOccupation}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.fatherOccupation && Boolean(errors.fatherOccupation)
+                  }
+                  helperText={
+                    touched.fatherOccupation && errors.fatherOccupation
+                      ? errors.fatherOccupation
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Father's Annual Income"
+                  variant="outlined"
+                  size="small"
+                  name="fatherAnnualIncome"
+                  value={values.fatherAnnualIncome}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.fatherAnnualIncome &&
+                    Boolean(errors.fatherAnnualIncome)
+                  }
+                  helperText={
+                    touched.fatherAnnualIncome && errors.fatherAnnualIncome
+                      ? errors.fatherAnnualIncome
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Father's Email ID"
+                  variant="outlined"
+                  size="small"
+                  name="parentEmailId1"
+                  value={values.parentEmailId1}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.parentEmailId1 && Boolean(errors.parentEmailId1)
+                  }
+                  helperText={
+                    touched.parentEmailId1 && errors.parentEmailId1
+                      ? errors.parentEmailId1
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Father's Phone No"
+                  variant="outlined"
+                  size="small"
+                  name="parentMobileNoA"
+                  value={values.parentMobileNoA}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.parentMobileNoA && Boolean(errors.parentMobileNoA)
+                  }
+                  helperText={
+                    touched.parentMobileNoA && errors.parentMobileNoA
+                      ? errors.parentMobileNoA
+                      : null
+                  }
+                />
+              </div>
+              <div className="parentName">
+                <TextField
+                  id="filled-basic"
+                  label="Mother Name"
+                  variant="outlined"
+                  size="small"
+                  name="motherName"
+                  value={values.motherName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.motherName && Boolean(errors.motherName)}
+                  helperText={
+                    touched.motherName && errors.motherName
+                      ? errors.motherName
+                      : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel
+                    sx={{
+                      marginBottom: 2,
+                    }}
+                    id="demo-simple-select-label"
+                  >
+                    Mother's Qualification
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="motherQualification"
+                    name="motherQualification"
+                    value={values.motherQualification}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      touched.motherQualification &&
+                      Boolean(errors.motherQualification)
+                    }
+                    helperText={
+                      touched.motherQualification && errors.motherQualification
+                        ? errors.motherQualification
+                        : null
+                    }
+                  >
+                    <MenuItem value="BE">BE</MenuItem>
+                    <MenuItem value="BSC">BSC</MenuItem>
+                    <MenuItem value="MBBS">MBBS</MenuItem>
+                    <MenuItem value="ME">ME</MenuItem>
+                    <MenuItem value="Diplomo">Diplomo</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  id="filled-basic"
+                  label="Mother's Occupation"
+                  variant="outlined"
+                  size="small"
+                  name="motherOccupation"
+                  value={values.motherOccupation}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.motherOccupation && Boolean(errors.motherOccupation)
+                  }
+                  helperText={
+                    touched.motherOccupation && errors.motherOccupation
+                      ? errors.motherOccupation
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Mother's Annual Income"
+                  variant="outlined"
+                  size="small"
+                  name="motherAnnualIncome"
+                  value={values.motherAnnualIncome}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.motherAnnualIncome &&
+                    Boolean(errors.motherAnnualIncome)
+                  }
+                  helperText={
+                    touched.motherAnnualIncome && errors.motherAnnualIncome
+                      ? errors.motherAnnualIncome
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Mother's Email ID"
+                  variant="outlined"
+                  size="small"
+                  name="parentEmailId2"
+                  value={values.parentEmailId2}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.parentEmailId2 && Boolean(errors.parentEmailId2)
+                  }
+                  helperText={
+                    touched.parentEmailId2 && errors.parentEmailId2
+                      ? errors.parentEmailId2
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Mother's Phone No"
+                  variant="outlined"
+                  size="small"
+                  name="parentMobileNoB"
+                  value={values.parentMobileNoB}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.parentMobileNoB && Boolean(errors.parentMobileNoB)
+                  }
+                  helperText={
+                    touched.parentMobileNoB && errors.parentMobileNoB
+                      ? errors.parentMobileNoB
+                      : null
+                  }
+                />
+              </div>
+              <div className="parentName">
+                <TextField
+                  id="filled-basic"
+                  label="Gaurdian Name"
+                  variant="outlined"
+                  size="small"
+                  name="gaurdianName"
+                  value={values.gaurdianName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.gaurdianName && Boolean(errors.gaurdianName)}
+                  helperText={
+                    touched.gaurdianName && errors.gaurdianName
+                      ? errors.gaurdianName
+                      : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel
+                    sx={{
+                      marginBottom: 2,
+                    }}
+                    id="demo-simple-select-label"
+                  >
+                    Gaurdian's Qualification
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="gaurdianQualification"
+                    name="gaurdianQualification"
+                    value={values.gaurdianQualification}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      touched.gaurdianQualification &&
+                      Boolean(errors.gaurdianQualification)
+                    }
+                    helperText={
+                      touched.gaurdianQualification &&
+                      errors.gaurdianQualification
+                        ? errors.gaurdianQualification
+                        : null
+                    }
+                  >
+                    <MenuItem value="BE">BE</MenuItem>
+                    <MenuItem value="BSC">BSC</MenuItem>
+                    <MenuItem value="MBBS">MBBS</MenuItem>
+                    <MenuItem value="ME">ME</MenuItem>
+                    <MenuItem value="Diplomo">Diplomo</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  id="filled-basic"
+                  label="Gaurdian's Occupation"
+                  variant="outlined"
+                  size="small"
+                  name="gaurdianOccupation"
+                  value={values.gaurdianOccupation}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.gaurdianOccupation &&
+                    Boolean(errors.gaurdianOccupation)
+                  }
+                  helperText={
+                    touched.gaurdianOccupation && errors.gaurdianOccupation
+                      ? errors.gaurdianOccupation
+                      : null
+                  }
+                />
+                <TextField
+                  id="filled-basic"
+                  label="Caretaker Name"
+                  variant="outlined"
+                  size="small"
+                  name="caretakerName"
+                  value={values.caretakerName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.caretakerName && Boolean(errors.caretakerName)}
+                  helperText={
+                    touched.caretakerName && errors.caretakerName
+                      ? errors.caretakerName
+                      : null
+                  }
+                />
+                <FormControl fullWidth>
+                  <InputLabel
+                    sx={{
+                      marginBottom: 2,
+                    }}
+                    id="demo-simple-select-label"
+                  >
+                    Caretaker's Qualification
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    size="small"
+                    label="caretakerQualification"
+                    name="caretakerQualification"
+                    value={values.caretakerQualification}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      touched.caretakerQualification &&
+                      Boolean(errors.caretakerQualification)
+                    }
+                    helperText={
+                      touched.caretakerQualification &&
+                      errors.caretakerQualification
+                        ? errors.caretakerQualification
+                        : null
+                    }
+                  >
+                    <MenuItem value="BE">BE</MenuItem>
+                    <MenuItem value="BSC">BSC</MenuItem>
+                    <MenuItem value="MBBS">MBBS</MenuItem>
+                    <MenuItem value="ME">ME</MenuItem>
+                    <MenuItem value="Diplomo">Diplomo</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  id="filled-basic"
+                  label="Caretaker's Occupation"
+                  variant="outlined"
+                  size="small"
+                  name="caretakerOccupation"
+                  value={values.caretakerOccupation}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={
+                    touched.caretakerOccupation &&
+                    Boolean(errors.caretakerOccupation)
+                  }
+                  helperText={
+                    touched.caretakerOccupation && errors.caretakerOccupation
+                      ? errors.caretakerOccupation
+                      : null
+                  }
+                />
+              </div>
+            </div>
+            <Button
+              type="submit"
+              onClick={handleSubmit}
+              variant="contained"
+              color="primary"
+            >
+              Submit
+            </Button>
+          </form>
+        </Card>
+      </div>
+    );
   }
 };
-
-function Parants() {
-  return <Typography>parant</Typography>;
-}
 
 export default AddNewStudent;

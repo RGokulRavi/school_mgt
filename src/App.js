@@ -86,7 +86,7 @@ export const App = () => {
               element={<DashBoardPage setMode={setMode} mode={mode} />}
             />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/test" element={<Test />} />
+            {/* <Route path="/test" element={<Test />} /> */}
             <Route
               path="/student_registration"
               element={<StudentRegistration />}
