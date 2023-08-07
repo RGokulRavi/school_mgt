@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
   padding: 10px;
+  gap: 2rem;
 }
 .studentRegistrationHeading {
   width: 100%;
