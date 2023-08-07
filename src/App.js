@@ -11,22 +11,6 @@ import Paper from "@mui/material/Paper";
 
 export const App = () => {
   const [mode, setMode] = useState("dark");
-  // const themeCtx = createTheme({
-  //   palette: {
-  //     mode: mode,
-  //     primary: {
-  //       main: "#333996",
-  //       light: "#3c44b126",
-  //     },
-  //     secondary: {
-  //       main: "#f83245",
-  //       light: "#f8324526",
-  //     },
-  //     background: {
-  //       default: "#f4f4f4",
-  //     },
-  //   },
-  // });
 
   const lightTheme = createTheme({
     palette: {
