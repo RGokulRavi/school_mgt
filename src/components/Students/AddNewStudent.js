@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { StudentData } from "../../Global";
+import Body from "../Body/Body";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string(),
@@ -137,7 +138,8 @@ const AddNewStudent = () => {
       onSubmit: (newStudent) => {
         if (!parent) {
           console.log("Student form Values are:", newStudent);
-          setParent(true);
+          <Body data={"AddParent"} />;
+          // setParent(true);
         } else {
           console.log("Parent form Values are:", newStudent);
         }

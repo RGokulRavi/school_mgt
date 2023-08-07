@@ -45,6 +45,13 @@ export const dashboardSmallCardRevenueLogo =
 
 export const MastersData = ["State", "City", "School Setup", "Class"];
 
+export const pieChartData = [
+  { y: 18, label: "Teaching Staff" },
+  { y: 49, label: "Non-Teaching Staff" },
+  { y: 9, label: "Paid Search" },
+  { y: 5, label: "Referral" },
+  { y: 19, label: "Social" },
+];
 export const StateMasterData = [
   {
     id: 4,

@@ -36,7 +36,7 @@ export const App = () => {
         light: "#333996",
       },
       secondary: {
-        main: "#f83245",
+        main: "#f8f8f8",
         light: "#f83245",
       },
       background: {
@@ -46,6 +46,15 @@ export const App = () => {
     typography: {
       fontFamily: "Calibri",
     },
+    // breakpoints: {
+    //   values: {
+    //     xs: 0,
+    //     sm: 600,
+    //     md: 960,
+    //     lg: 1280,
+    //     xl: 1920,
+    //   },
+    // },
   });
 
   const darkTheme = createTheme({
@@ -66,6 +75,15 @@ export const App = () => {
     typography: {
       fontFamily: "Calibri",
     },
+    // breakpoints: {
+    //   values: {
+    //     xs: 0,
+    //     sm: 600,
+    //     md: 960,
+    //     lg: 1280,
+    //     xl: 1920,
+    //   },
+    // },
   });
 
   const theme = mode === "light" ? lightTheme : darkTheme;
@@ -87,10 +105,10 @@ export const App = () => {
             />
             <Route path="/login" element={<LoginPage />} />
             {/* <Route path="/test" element={<Test />} /> */}
-            <Route
+            {/* <Route
               path="/student_registration"
               element={<StudentRegistration />}
-            />
+            /> */}
             <Route path="/logout" element={<Navigate to="/login" />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

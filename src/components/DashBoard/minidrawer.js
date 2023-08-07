@@ -390,7 +390,7 @@ export default function MiniDrawer({ data, setMode, mode }) {
           ))} */}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" backgroundColor="primary" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
         <Body data={mainBox} />
       </Box>
