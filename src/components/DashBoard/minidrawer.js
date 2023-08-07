@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./styles.css";
-import { Route, Routes, Navigate } from "react-router-dom";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
@@ -16,7 +15,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
@@ -287,6 +285,13 @@ export default function MiniDrawer({ data, setMode, mode }) {
               >
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary="Add New Student" />
+              </ListItemButton>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                onClick={() => handleClick("StudentPromotion")}
+              >
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary="Student Promotion" />
               </ListItemButton>
             </List>
           </Collapse>

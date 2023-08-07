@@ -71,3 +71,40 @@
   gap: 10px;
   width: 300px;
 }
+.cardHeader {
+  display: flex;
+  margin-bottom: 8px;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+}
+.SearchFields {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.searchBtuton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dataTable {
+  padding: 15px;
+}
+.studentPromotionCard {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.StudentPromotionCardContentDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.studentPromotionCardActionDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

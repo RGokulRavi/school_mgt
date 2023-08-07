@@ -10,9 +10,11 @@ import AddNewTeacher from "../Teachers/AddNewTeacher";
 import Teachers from "../Teachers/Teachers";
 import StateMaster from "../Master/MasterFolder/StateMaster";
 import AddParent from "../Students/AddParent";
+import StudentPromotion from "../Students/StudentPromotion";
 
 const Body = ({ data }) => {
   const buttons = [
+    "StudentPromotion",
     "Others",
     "Students",
     "StudentDetails",
@@ -42,6 +44,8 @@ const Body = ({ data }) => {
           return <StudentDetails />;
         case "AddNewStudent":
           return <AddNewStudent />;
+        case "StudentPromotion":
+          return <StudentPromotion />;
         case "Teachers":
           return <Teachers />;
         case "TeacherDetails":
