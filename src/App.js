@@ -1,13 +1,8 @@
 import "./App.css";
-import { Route, Routes, Navigate } from "react-router-dom";
 import React, { useState } from "react";
-import PageNotFound from "./Pages/PageNotFound";
-import LoginPage from "./Pages/Login/LoginPage";
-import StudentRegistration from "./components/Students/studentRegistration";
-import Test from "./Test";
-import DashBoardPage from "./Pages/DashBoard/DashBoardPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+import MiniDrawer from "./components/DashBoard/minidrawer";
 
 export const App = () => {
   const [mode, setMode] = useState("dark");
@@ -82,20 +77,7 @@ export const App = () => {
         elevation={6}
       >
         <div className="App">
-          <Routes>
-            <Route
-              path="/"
-              element={<DashBoardPage setMode={setMode} mode={mode} />}
-            />
-            <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/test" element={<Test />} /> */}
-            {/* <Route
-              path="/student_registration"
-              element={<StudentRegistration />}
-            /> */}
-            <Route path="/logout" element={<Navigate to="/login" />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <MiniDrawer setMode={setMode} mode={mode} />
         </div>
       </Paper>
     </ThemeProvider>
