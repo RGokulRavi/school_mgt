@@ -1,7 +1,8 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Avatar } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -39,6 +40,21 @@ const columns = [
     type: "string",
     width: 80,
     cellClassName: (params) => (params.value === "Paid" ? "paid" : "unpaid"),
+  },
+  {
+    field: "actions",
+    headerName: "Actions",
+    width: 100,
+    renderCell: (params) => (
+      <Button
+        component={Link}
+        to={`/view/${params.row.id}`}
+        variant="outlined"
+        color="primary"
+      >
+        View
+      </Button>
+    ),
   },
 ];
 

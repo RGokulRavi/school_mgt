@@ -43,6 +43,15 @@ export const dashboardSmallCardRevenueLogo =
 //   { type: "Reports", name: "Fees Collection Summary" },
 // ];
 
+const currentDate = new Date();
+const currentHours = currentDate.getHours();
+const currentMinutes = currentDate.getMinutes();
+const currentSeconds = currentDate.getSeconds();
+export const currentTimestamp = currentDate.getTime(); // Returns the current timestamp in milliseconds
+export const currentTimestampInSeconds = Math.floor(currentTimestamp / 1000); // Convert to seconds
+export const formattedDate = currentDate.toDateString();
+export const currentTIme = `${currentHours}:${currentMinutes}:${currentSeconds}`;
+
 export const MastersData = ["State", "City", "School Setup", "Class"];
 
 export const pieChartData = [

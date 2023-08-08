@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles.css";
 import {
-  Select,
-  MenuItem,
   TextField,
   Button,
   Card,
   CardContent,
   Typography,
-  CardActions,
-  Box,
   Divider,
   IconButton,
   Dialog,
-  DialogContent,
   DialogActions,
-  DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { StateMasterData } from "../../../Global";
+import { StateMasterData, formattedDate } from "../../../Global";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { useTheme } from "@mui/material/styles";
@@ -41,7 +35,6 @@ const StateMaster = () => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
@@ -58,10 +51,68 @@ const StateMaster = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
+
+  const EditState = () => {
+    <div className="AddButtonDiv">
+      setOpen(true);
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">{"Add State"}</DialogTitle>
+        <Divider />
+        <form onSubmit={handleSubmit}>
+          <div className="formDiv">
+            <TextField
+              id="filled-basic"
+              label="State Name"
+              variant="filled"
+              size="small"
+              name="stateName"
+              value={values.stateName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.stateName && errors.stateName}
+              helperText={
+                touched.stateName && errors.stateName ? errors.stateName : null
+              }
+            />
+            <TextField
+              id="filled-basic"
+              label="State Code"
+              variant="filled"
+              size="small"
+              name="stateCode"
+              value={values.stateCode}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.stateCode && errors.stateCode}
+              helperText={
+                touched.stateCode && errors.stateCode ? errors.stateCode : null
+              }
+            />
+          </div>
+          <DialogActions>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              onClick={handleClose}
+              autoFocus
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+    </div>;
+  };
+
   return (
     <div className="StateMaster">
       <div className="StateMastersCard">
@@ -73,26 +124,34 @@ const StateMaster = () => {
                 variant="h5"
                 component="div"
               >
-                {data.id}. {data.stateName}
+                {data.stateName}
                 <Typography color="text.secondary">
                   ({data.stateCode})
                 </Typography>
-                <IconButton>
+                <IconButton onClick={() => <EditState />}>
                   <EditIcon />
                 </IconButton>
               </Typography>
-
               <Divider />
               <div className="StateDetails">
                 <Typography
                   sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
                   variant="body2"
                 >
-                  Created by:<Typography>{data.createdBy}</Typography>
+                  Created by :
+                  <Typography sx={{ paddingLeft: 2 }}>
+                    {data.createdBy}
+                  </Typography>
                 </Typography>
-                <Typography sx={{ textAlign: "left" }} variant="body2">
-                  Created Time Stamp:{data.createdAt}
-                </Typography>
+                {/* <Typography
+                  sx={{ textAlign: "left", display: "flex" }}
+                  variant="body2"
+                >
+                  Created Time Stamp :
+                  <Typography sx={{ paddingLeft: 2 }}>
+                    {formattedDate}
+                  </Typography>
+                </Typography> */}
               </div>
             </CardContent>
           </Card>
@@ -145,9 +204,14 @@ const StateMaster = () => {
                 }
               />
             </div>
-
             <DialogActions>
-              <Button type="submit" onClick={handleClose} autoFocus>
+              <Button
+                type="submit"
+                variant="contained"
+                fullWidth
+                onClick={handleClose}
+                autoFocus
+              >
                 Add
               </Button>
             </DialogActions>
