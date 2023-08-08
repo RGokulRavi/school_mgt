@@ -18,7 +18,6 @@ import {
   TextField,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import Body from "../Body/Body";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string(),
@@ -69,32 +68,7 @@ const studentValidationSchema = Yup.object({
   parentEmailId2: Yup.string(),
 });
 
-// const parentValidationSchema = Yup.object({
-//   admissionNo: Yup.string(),
-//   registrationNo: Yup.string(),
-//   fatherName: Yup.string(),
-//   motherName: Yup.string(),
-//   fatherQualification: Yup.string(),
-//   motherQualification: Yup.string(),
-//   fatherOccupation: Yup.string(),
-//   motherOccupation: Yup.string(),
-//   fatherAnnualIncome: Yup.string(),
-//   motherAnnualIncome: Yup.string(),
-//   gaurdianName: Yup.string(),
-//   gaurdianOccupation: Yup.string(),
-//   gaurdianQualification: Yup.string(),
-//   caretakerName: Yup.string(),
-//   caretakerOccupation: Yup.string(),
-//   caretakerQualification: Yup.string(),
-//   parentMobileNoA: Yup.string(),
-//   parentMobileNoB: Yup.string(),
-//   parentMobileNo3: Yup.string(),
-//   parentEmailId1: Yup.string(),
-//   parentEmailId2: Yup.string(),
-// });
-
 const AddNewStudent = () => {
-  const [parent, setParent] = useState(false);
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {

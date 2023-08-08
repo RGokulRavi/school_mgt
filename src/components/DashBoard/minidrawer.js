@@ -470,6 +470,7 @@ export default function MiniDrawer({ mode, setMode }) {
             />
             <Route path="/add_state_master" element={<StateMaster />} />
             <Route path="/students" element={<Students />} />
+            <Route path="/student/view/:id" element={<StudentDetails />} />
             <Route path="/" element={<DashBoard />} />
           </Routes>
         </div>

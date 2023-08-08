@@ -48,7 +48,7 @@ const columns = [
     renderCell: (params) => (
       <Button
         component={Link}
-        to={`/view/${params.row.id}`}
+        to={`/student/view/${params.row.id}`}
         variant="outlined"
         color="primary"
       >

@@ -16,7 +16,8 @@ export const App = () => {
       },
       secondary: {
         main: "#f8f8f8",
-        light: "#f83245",
+        light: "#333996",
+        // light: "#f83245",
       },
       background: {
         default: "#f4f4f4",
