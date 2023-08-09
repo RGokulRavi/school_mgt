@@ -45,6 +45,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import LoginPage from "../../Pages/Login/LoginPage";
+import CityMaster from "../Master/MasterFolder/CityMaster";
 
 const drawerWidth = 240;
 const Search = styled("div")(({ theme }) => ({
@@ -344,6 +346,28 @@ export default function MiniDrawer({ mode, setMode }) {
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItemButton>
+          <ListItemButton onClick={handleMasterClick}>
+            <ListItemIcon>
+              <AdminPanelSettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Master" />
+            {openMasterSubMenu ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openMasterSubMenu} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {MastersData.map((data) => (
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  onClick={() => navigate(`/master/${data.value}`)}
+                >
+                  <ListItemIcon>
+                    <PiStudentFill className="icon" />
+                  </ListItemIcon>
+                  <ListItemText primary={data.name} />
+                </ListItemButton>
+              ))}
+            </List>
+          </Collapse>
           <ListItemButton onClick={handleTeacherClick}>
             <ListItemIcon>
               <PiChalkboardTeacherFill className="icons" />
@@ -425,34 +449,6 @@ export default function MiniDrawer({ mode, setMode }) {
           </Collapse>
         </List>
         <Divider />
-        <List>
-          {/* 
-
- */}
-
-          <ListItemButton onClick={handleMasterClick}>
-            <ListItemIcon>
-              <AdminPanelSettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Master" />
-            {openMasterSubMenu ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-          <Collapse in={openMasterSubMenu} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {MastersData.map((data) => (
-                <ListItemButton
-                  sx={{ pl: 4 }}
-                  onClick={() => handleClick(data)}
-                >
-                  <ListItemIcon>
-                    <PiStudentFill className="icon" />
-                  </ListItemIcon>
-                  <ListItemText primary={data} />
-                </ListItemButton>
-              ))}
-            </List>
-          </Collapse>
-        </List>
       </Drawer>
       <Box component="main" backgroundColor="primary" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
@@ -468,7 +464,8 @@ export default function MiniDrawer({ mode, setMode }) {
               path="/student/student_promotion"
               element={<StudentPromotion />}
             />
-            <Route path="/add_state_master" element={<StateMaster />} />
+            <Route path="/master/state" element={<StateMaster />} />
+            <Route path="/master/city" element={<CityMaster />} />
             <Route path="/students" element={<Students />} />
             <Route path="/student/view/:id" element={<StudentDetails />} />
             <Route path="/" element={<DashBoard />} />

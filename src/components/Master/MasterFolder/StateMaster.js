@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import {
   TextField,
@@ -12,6 +12,9 @@ import {
   DialogActions,
   DialogTitle,
 } from "@mui/material";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+
 import { StateMasterData, formattedDate } from "../../../Global";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
@@ -55,64 +58,6 @@ const StateMaster = () => {
     setOpen(false);
   };
 
-  const EditState = () => {
-    <div className="AddButtonDiv">
-      setOpen(true);
-      <Dialog
-        fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">{"Add State"}</DialogTitle>
-        <Divider />
-        <form onSubmit={handleSubmit}>
-          <div className="formDiv">
-            <TextField
-              id="filled-basic"
-              label="State Name"
-              variant="filled"
-              size="small"
-              name="stateName"
-              value={values.stateName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.stateName && errors.stateName}
-              helperText={
-                touched.stateName && errors.stateName ? errors.stateName : null
-              }
-            />
-            <TextField
-              id="filled-basic"
-              label="State Code"
-              variant="filled"
-              size="small"
-              name="stateCode"
-              value={values.stateCode}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.stateCode && errors.stateCode}
-              helperText={
-                touched.stateCode && errors.stateCode ? errors.stateCode : null
-              }
-            />
-          </div>
-          <DialogActions>
-            <Button
-              type="submit"
-              variant="contained"
-              fullWidth
-              onClick={handleClose}
-              autoFocus
-            >
-              Add
-            </Button>
-          </DialogActions>
-        </form>
-      </Dialog>
-    </div>;
-  };
-
   return (
     <div className="StateMaster">
       <div className="StateMastersCard">
@@ -128,9 +73,8 @@ const StateMaster = () => {
                 <Typography color="text.secondary">
                   ({data.stateCode})
                 </Typography>
-                <IconButton onClick={() => <EditState />}>
-                  <EditIcon />
-                </IconButton>
+
+                <EditState data={data} />
               </Typography>
               <Divider />
               <div className="StateDetails">
@@ -221,5 +165,56 @@ const StateMaster = () => {
     </div>
   );
 };
+
+function EditState({ data }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  return (
+    <div>
+      <IconButton onClick={handleClickOpen}>
+        <EditIcon />
+      </IconButton>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Edit State</DialogTitle>
+        <DialogContent>
+          {/* <DialogContentText>
+            To subscribe to this website, please enter your email address here.
+            We will send updates occasionally.
+          </DialogContentText> */}
+          <TextField
+            autoFocus
+            margin="dense"
+            label="State Code"
+            value={data.stateCode}
+            type={data.stateCode}
+            fullWidth
+            variant="filled"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            label="State Name"
+            type={data.stateName}
+            value={data.stateName}
+            fullWidth
+            variant="filled"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleClose}>
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
 
 export default StateMaster;

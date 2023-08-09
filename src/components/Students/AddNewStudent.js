@@ -18,112 +18,197 @@ import {
   TextField,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import previewPhoto from "../../Image/previewPhoto.png";
+import axios from "axios";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 
 const studentValidationSchema = Yup.object({
-  admissionNo: Yup.string(),
-  registrationNo: Yup.string(),
-  initial: Yup.string(),
+  admissionNo: Yup.string().required(),
+  registrationNo: Yup.string().required(),
+  initial: Yup.string().required(),
   firstName: Yup.string().required("First Name is required").min("2"),
-  middleName: Yup.string(),
-  lastName: Yup.string(),
-  className: Yup.string(),
-  sectionName: Yup.string(),
-  gender: Yup.string(),
-  administrationType: Yup.string(),
-  administrationName: Yup.string(),
-  address1: Yup.string(),
-  address2: Yup.string(),
-  pincode: Yup.string(),
-  stateName: Yup.string(),
-  cityName: Yup.string(),
-  nationality: Yup.string(),
-  mobile: Yup.string().min(10),
-  emailId: Yup.string().email("Invalid email").required("Email is required"),
-  dateOfBirth: Yup.string(),
-  religion: Yup.string(),
-  community: Yup.string(),
-  bloodGroup: Yup.string(),
-  photoUrl: Yup.string(),
-  adharcardNo: Yup.string(),
-  certificateProvided: Yup.string(),
-  administrationId: Yup.string(),
-  fatherName: Yup.string(),
-  motherName: Yup.string(),
-  fatherQualification: Yup.string(),
-  motherQualification: Yup.string(),
-  fatherOccupation: Yup.string(),
-  motherOccupation: Yup.string(),
-  fatherAnnualIncome: Yup.string(),
-  motherAnnualIncome: Yup.string(),
-  gaurdianName: Yup.string(),
-  gaurdianOccupation: Yup.string(),
-  gaurdianQualification: Yup.string(),
-  caretakerName: Yup.string(),
-  caretakerOccupation: Yup.string(),
-  caretakerQualification: Yup.string(),
-  parentMobileNoA: Yup.string(),
-  parentMobileNoB: Yup.string(),
-  parentMobileNo3: Yup.string(),
-  parentEmailId1: Yup.string(),
-  parentEmailId2: Yup.string(),
+  middleName: Yup.string().required(),
+  lastName: Yup.string().required(),
+  className: Yup.string().required(),
+  sectionName: Yup.string().required(),
+  gender: Yup.string().required(),
+  administrationType: Yup.string().required(),
+  administrationName: Yup.string().required(),
+  address1: Yup.string().required(),
+  address2: Yup.string().required(),
+  pincode: Yup.string().required(),
+  stateName: Yup.string().required(),
+  cityName: Yup.string().required(),
+  nationality: Yup.string().required(),
+  mobile: Yup.string().required().min(10),
+  emailId: Yup.string()
+    .required()
+    .email("Invalid email")
+    .required("Email is required"),
+  dateOfBirth: Yup.string().required(),
+  dateOfJoining: Yup.string(),
+  religion: Yup.string().required(),
+  community: Yup.string().required(),
+  bloodGroup: Yup.string().required(),
+  photoUrl: Yup.mixed().required("Photo is required"),
+  adharcardNo: Yup.string().required(),
+  certificateProvided: Yup.string().required(),
+  administrationId: Yup.number().required(),
+  fatherName: Yup.string().required(),
+  motherName: Yup.string().required(),
+  fatherQualification: Yup.string().required(),
+  motherQualification: Yup.string().required(),
+  fatherOccupation: Yup.string().required(),
+  motherOccupation: Yup.string().required(),
+  fatherAnnualIncome: Yup.number().required(),
+  motherAnnualIncome: Yup.number().required(),
+  gaurdianName: Yup.string().required(),
+  gaurdianOccupation: Yup.string().required(),
+  gaurdianQualification: Yup.string().required(),
+  caretakerName: Yup.string().required(),
+  caretakerOccupation: Yup.string().required(),
+  caretakerQualification: Yup.string().required(),
+  parentMobileNo1: Yup.string().required(),
+  parentMobileNo2: Yup.string().required(),
+  parentMobileNo3: Yup.string().required(),
+  parentEmailId1: Yup.string().required(),
+  parentEmailId2: Yup.string().required(),
+  pancardNo: Yup.string(),
+  bankName: Yup.string(),
+  bankBranch: Yup.string(),
+  accountNo: Yup.string(),
+  ifscNo: Yup.string(),
 });
 
 const AddNewStudent = () => {
-  const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
-    useFormik({
-      initialValues: {
-        admissionNo: "AD12352",
-        registrationNo: "REG56796",
-        initial: "",
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        className: "",
-        sectionName: "",
-        gender: "",
-        administrationType: "",
-        administrationName: "",
-        address1: "",
-        address2: "",
-        pincode: "",
-        stateName: "",
-        cityName: "",
-        nationality: "",
-        mobile: "",
-        emailId: "",
-        dateOfBirth: "",
-        religion: "",
-        community: "",
-        bloodGroup: "",
-        photoUrl: "test",
-        adharcardNo: "",
-        certificateProvided: "",
-        administrationId: 1,
-        fatherName: "",
-        motherName: "",
-        fatherQualification: "",
-        motherQualification: "",
-        fatherOccupation: "",
-        motherOccupation: "",
-        fatherAnnualIncome: "",
-        motherAnnualIncome: "",
-        gaurdianName: "",
-        gaurdianOccupation: "",
-        gaurdianQualification: "",
-        caretakerName: "",
-        caretakerOccupation: "",
-        caretakerQualification: "",
-        parentMobileNoA: "",
-        parentMobileNoB: "",
-        parentMobileNo3: "",
-        parentEmailId1: "",
-        parentEmailId2: "",
-      },
-      ValidationSchema: studentValidationSchema,
-      onSubmit: (newStudent) => {
-        console.log("Student form Values are:", newStudent);
-      },
-    });
+  const [newStudent, setNewStudent] = useState();
+  let jsonString;
+  const {
+    handleSubmit,
+    values,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      // admissionNo: "AD12352",
+      // registrationNo: "REG56796",
+      // initial: "",
+      // firstName: "",
+      // middleName: "",
+      // lastName: "",
+      // className: "",
+      // sectionName: "",
+      // gender: "",
+      // administrationType: "",
+      // administrationName: "",
+      // address1: "",
+      // address2: "",
+      // pincode: "",
+      // stateName: "",
+      // cityName: "",
+      // nationality: "",
+      // mobile: "",
+      // emailId: "",
+      // dateOfBirth: "1998-12-24",
+      // dateOfJoining: "1998-12-24",
+      // religion: "",
+      // community: "",
+      // bloodGroup: "",
+      // photoUrl: "test",
+      // adharcardNo: "",
+      // certificateProvided: "",
+      // administrationId: 1,
+      // fatherName: "",
+      // motherName: "",
+      // fatherQualification: "",
+      // motherQualification: "",
+      // fatherOccupation: "",
+      // motherOccupation: "",
+      // fatherAnnualIncome: 150000,
+      // motherAnnualIncome: 150000,
+      // gaurdianName: "",
+      // gaurdianOccupation: "",
+      // gaurdianQualification: "",
+      // caretakerName: "",
+      // caretakerOccupation: "",
+      // caretakerQualification: "",
+      // parentMobileNo1: "",
+      // parentMobileNo2: "",
+      // parentMobileNo3: "",
+      // parentEmailId1: "",
+      // parentEmailId2: "",
+      // pancardNo: "ABCDE1234F",
+      // bankName: "ABC Bank",
+      // bankBranch: "Main Branch",
+      // accountNo: "9876543210",
+      // ifscNo: "ABCD1234567",
+      admissionNo: 1013505463,
+      registrationNo: "REG5636546553",
+      initial: "",
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      className: "",
+      sectionName: "",
+      gender: "",
+      administrationType: "",
+      administrationName: "",
+      address1: "",
+      address2: "",
+      pincode: "",
+      stateName: "",
+      cityName: "",
+      nationality: "",
+      mobile: "",
+      emailId: "",
+      dateOfBirth: "1998-12-24",
+      dateOfJoining: "2023-08-01",
+      religion: "",
+      community: "",
+      bloodGroup: "",
+      photoUrl: "",
+      fatherName: "",
+      motherName: "",
+      fatherQualification: "",
+      motherQualification: "",
+      fatherOccupation: "",
+      motherOccupation: "",
+      fatherAnnualIncome: 0,
+      motherAnnualIncome: 0,
+      gaurdianName: "",
+      gaurdianOccupation: "",
+      gaurdianQualification: "",
+      caretakerName: "",
+      caretakerOccupation: "",
+      caretakerQualification: "",
+      parentMobileNo1: "",
+      parentMobileNo2: "",
+      parentMobileNo3: "",
+      parentEmailId1: "",
+      parentEmailId2: "",
+      adharcardNo: "",
+      pancardNo: "",
+      bankName: "",
+      bankBranch: "",
+      accountNo: "",
+      ifscNo: "",
+      certificateProvided: "",
+      administrationId: 1,
+    },
+    ValidationSchema: studentValidationSchema,
+    onSubmit: (newStudentData) => {
+      // let jsonString = JSON.stringify(newStudent);
+      setNewStudent(newStudentData);
+      console.log("Student form Values are:", newStudent);
+      PostNewStudent(newStudent);
+    },
+  });
 
   return (
     <div className="StudentRegistration">
@@ -142,14 +227,31 @@ const AddNewStudent = () => {
           </div>
           <div className="studentRequiredFieldsDiv">
             <div className="photo">
-              <div className="PassPortSizePhotoDiv">Photo</div>
-              <Button
-                sx={{ margin: 2, textTransform: "none" }}
-                variant="contained"
-                color="primary"
-              >
-                Upload
-              </Button>
+              <div className="PassPortSizePhotoDiv">
+                <div>
+                  <input
+                    type="file"
+                    name="photoUrl"
+                    onChange={(event) => {
+                      setFieldValue("photoUrl", event.currentTarget.files[0]);
+                    }}
+                  />
+                  {errors.photoUrl && touched.photoUrl && (
+                    <div>{errors.photoUrl}</div>
+                  )}
+                </div>
+                {/* <div>
+                  {values.photoUrl && (
+                    <div>
+                      <img
+                        src={URL.createObjectURL(values.photoUrl)}
+                        alt={previewPhoto}
+                        style={{ maxWidth: "100px" }}
+                      />
+                    </div>
+                  )}
+                </div> */}
+              </div>
               <div className="studentName">
                 <div className="twoInput">
                   <TextField
@@ -247,6 +349,16 @@ const AddNewStudent = () => {
                   </RadioGroup>
                 </FormControl>
                 <Input variant="outlined" type="Date"></Input>
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker", "DatePicker"]}>
+                    <DatePicker label="DOB" />
+                    <DatePicker
+                      label="Controlled picker"
+                      value={values.dateOfBirth}
+                      // onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider> */}
               </div>
             </div>
             <div className="studentName">
@@ -319,11 +431,11 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value={1}>A+</MenuItem>
-                  <MenuItem value={2}>B+</MenuItem>
-                  <MenuItem value={2}>B-</MenuItem>
-                  <MenuItem value={2}>AB+</MenuItem>
-                  <MenuItem value={2}>AB-</MenuItem>
+                  <MenuItem value="A+">A+</MenuItem>
+                  <MenuItem value="B+">B+</MenuItem>
+                  <MenuItem value="B-">B-</MenuItem>
+                  <MenuItem value="AB+">AB+</MenuItem>
+                  <MenuItem value="AB-">AB-</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -359,8 +471,8 @@ const AddNewStudent = () => {
                     touched.religion && errors.religion ? errors.religion : null
                   }
                 >
-                  <MenuItem value={1}>Hindu</MenuItem>
-                  <MenuItem value={2}>Muslim</MenuItem>
+                  <MenuItem value="Hindu">Hindu</MenuItem>
+                  <MenuItem value="Muslim">Muslim</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -381,9 +493,9 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value={1}>BC</MenuItem>
-                  <MenuItem value={2}>MBC</MenuItem>
-                  <MenuItem value={2}>SC</MenuItem>
+                  <MenuItem value="BC">BC</MenuItem>
+                  <MenuItem value="MBC">MBC</MenuItem>
+                  <MenuItem value="SC">SC</MenuItem>
                 </Select>
               </FormControl>
               <div className="twoInput">
@@ -459,8 +571,8 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value={1}>School</MenuItem>
-                  <MenuItem value={2}>College</MenuItem>
+                  <MenuItem value="School">School</MenuItem>
+                  <MenuItem value="College">College</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -486,8 +598,8 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value={1}>Kst School</MenuItem>
-                  <MenuItem value={2}>Kst College</MenuItem>
+                  <MenuItem value="Kst School">Kst School</MenuItem>
+                  <MenuItem value="Kst College">Kst College</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -535,8 +647,8 @@ const AddNewStudent = () => {
                     touched.cityName && errors.cityName ? errors.cityName : null
                   }
                 >
-                  <MenuItem value={1}>Tambaram</MenuItem>
-                  <MenuItem value={2}>Chromepet</MenuItem>
+                  <MenuItem value="Tambaram">Tambaram</MenuItem>
+                  <MenuItem value="Chromepet">Chromepet</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -557,8 +669,8 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value={1}>Chennai</MenuItem>
-                  <MenuItem value={2}>Pondicherry</MenuItem>
+                  <MenuItem value="Chennai">Chennai</MenuItem>
+                  <MenuItem value="Pondicherry">Pondicherry</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -590,12 +702,12 @@ const AddNewStudent = () => {
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="true"
+                    value="Yes"
                     control={<Radio size="small" />}
                     label="Yes"
                   />
                   <FormControlLabel
-                    value="false"
+                    value="No"
                     control={<Radio size="small" />}
                     label="No"
                   />
@@ -603,14 +715,6 @@ const AddNewStudent = () => {
               </FormControl>
             </div>
           </div>
-          {/* <Button
-              type="submit"
-              onClick={handleSubmit}
-              variant="contained"
-              color="primary"
-            >
-              Save
-            </Button> */}
         </form>
       </Card>
       <Card className="addStudentFormDiv">
@@ -736,16 +840,16 @@ const AddNewStudent = () => {
                 label="Father's Phone No"
                 variant="outlined"
                 size="small"
-                name="parentMobileNoA"
-                value={values.parentMobileNoA}
+                name="parentMobileNo1"
+                value={values.parentMobileNo1}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={
-                  touched.parentMobileNoA && Boolean(errors.parentMobileNoA)
+                  touched.parentMobileNo1 && Boolean(errors.parentMobileNo1)
                 }
                 helperText={
-                  touched.parentMobileNoA && errors.parentMobileNoA
-                    ? errors.parentMobileNoA
+                  touched.parentMobileNo1 && errors.parentMobileNo1
+                    ? errors.parentMobileNo1
                     : null
                 }
               />
@@ -860,16 +964,16 @@ const AddNewStudent = () => {
                 label="Mother's Phone No"
                 variant="outlined"
                 size="small"
-                name="parentMobileNoB"
-                value={values.parentMobileNoB}
+                name="parentMobileNo2"
+                value={values.parentMobileNo2}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={
-                  touched.parentMobileNoB && Boolean(errors.parentMobileNoB)
+                  touched.parentMobileNo2 && Boolean(errors.parentMobileNo2)
                 }
                 helperText={
-                  touched.parentMobileNoB && errors.parentMobileNoB
-                    ? errors.parentMobileNoB
+                  touched.parentMobileNo2 && errors.parentMobileNo2
+                    ? errors.parentMobileNo2
                     : null
                 }
               />
@@ -1032,5 +1136,17 @@ const AddNewStudent = () => {
     </div>
   );
 };
+
+async function PostNewStudent(newStudent) {
+  try {
+    const response = await axios.post(
+      "http://192.168.0.127:1010/admin/registration/student",
+      newStudent
+    );
+    console.log("POST request successful:", response.data);
+  } catch (error) {
+    console.error("Error sending POST request:", error);
+  }
+}
 
 export default AddNewStudent;

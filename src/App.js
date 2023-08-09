@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import MiniDrawer from "./components/DashBoard/minidrawer";
+import LoginPage from "./Pages/Login/LoginPage";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 export const App = () => {
   const [mode, setMode] = useState("dark");
@@ -26,15 +28,15 @@ export const App = () => {
     typography: {
       fontFamily: "Calibri",
     },
-    // breakpoints: {
-    //   values: {
-    //     xs: 0,
-    //     sm: 600,
-    //     md: 960,
-    //     lg: 1280,
-    //     xl: 1920,
-    //   },
-    // },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
   });
 
   const darkTheme = createTheme({
@@ -55,19 +57,19 @@ export const App = () => {
     typography: {
       fontFamily: "Calibri",
     },
-    // breakpoints: {
-    //   values: {
-    //     xs: 0,
-    //     sm: 600,
-    //     md: 960,
-    //     lg: 1280,
-    //     xl: 1920,
-    //   },
-    // },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
   });
 
   const theme = mode === "light" ? lightTheme : darkTheme;
-
+  const location = useLocation();
   return (
     <ThemeProvider theme={theme}>
       <Paper
@@ -78,7 +80,13 @@ export const App = () => {
         elevation={6}
       >
         <div className="App">
-          <MiniDrawer setMode={setMode} mode={mode} />
+          {location.pathname == "/login" ? (
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
+          ) : (
+            <MiniDrawer setMode={setMode} mode={mode} />
+          )}
         </div>
       </Paper>
     </ThemeProvider>

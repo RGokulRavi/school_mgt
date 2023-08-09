@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import { styled } from "@mui/material/styles";
-import { Link } from "@mui/material";
+import { Card, Link } from "@mui/material";
 
 const BpIcon = styled("span")(({ theme }) => ({
   borderRadius: 3,
@@ -98,7 +98,7 @@ const LoginPage = () => {
 
       <React.Fragment>
         <CssBaseline />
-        <Box className="LoginContainer">
+        <Card className="LoginContainer">
           <div className="LoginTitle">
             <Typography
               className="LoginTitleName"
@@ -185,7 +185,7 @@ const LoginPage = () => {
               Sign in
             </Button>
           </div>
-        </Box>
+        </Card>
       </React.Fragment>
     </div>
   );
