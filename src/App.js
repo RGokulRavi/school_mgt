@@ -13,16 +13,41 @@ export const App = () => {
     palette: {
       mode: "light",
       primary: {
-        main: "#333996",
-        light: "#333996",
+        main: "#00796B", // A teal shade
+        light: "#4DB6AC", // A lighter shade of teal
       },
       secondary: {
-        main: "#f8f8f8",
-        light: "#333996",
-        // light: "#f83245",
+        main: "#FFA000", // An amber shade
+        light: "#FFD54F", // A lighter shade of amber
       },
       background: {
-        default: "#f4f4f4",
+        default: "#F5F5F5", // A light gray background
+      },
+    },
+    components: {
+      MuiList: {
+        styleOverrides: {
+          root: {
+            paddingTop: 0,
+            paddingBottom: 0,
+            backgroundColor: "#4DB6AC", // Customize the background color of the List
+          },
+        },
+      },
+      MuiListItemButton: {
+        styleOverrides: {
+          root: {
+            backgroundColor: "#00796B",
+            color: "#FFA000", // Customize the text color of the ListItemButton
+          },
+        },
+      },
+      MuiDrawer: {
+        styleOverrides: {
+          paper: {
+            backgroundColor: "#00796B",
+          },
+        },
       },
     },
     typography: {
@@ -43,15 +68,15 @@ export const App = () => {
     palette: {
       mode: "dark",
       primary: {
-        main: "#333996",
-        light: "#3c44b126",
+        main: "#00796B", // A teal shade
+        light: "#4DB6AC", // A lighter shade of teal
       },
       secondary: {
-        main: "#f83245",
-        light: "#f8324526",
+        main: "#FFA000", // An amber shade
+        light: "#FFD54F", // A lighter shade of amber
       },
       background: {
-        default: "#333",
+        default: "#121212", // A dark gray background
       },
     },
     typography: {
