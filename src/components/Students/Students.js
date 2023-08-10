@@ -15,13 +15,10 @@ const Students = () => {
   return (
     <div className="Card">
       <Card>
-        <CardHeader>
-          <Typography>Students</Typography>
-        </CardHeader>
         <div className="search">
           <CardContent className="cardContants">
             <div className="cardHeader">
-              <Typography variant="h5">Students</Typography>
+              <Typography variant="h5">All Students Data</Typography>
             </div>
             <div className="SearchFields">
               <TextField

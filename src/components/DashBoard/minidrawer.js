@@ -468,8 +468,13 @@ export default function MiniDrawer({ mode, setMode }) {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" backgroundColor="primary" sx={{ flexGrow: 1 }}>
+      <Box
+        component="main"
+        // backgroundColor="secondary.light"
+        sx={{ flexGrow: 1 }}
+      >
         <DrawerHeader />
+        <div className="PageHeading"></div>
         <div className="RoutesDiv">
           <Routes>
             <Route path="/" element={<DashBoard />} />

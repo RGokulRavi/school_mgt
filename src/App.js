@@ -13,15 +13,15 @@ export const App = () => {
     palette: {
       mode: "light",
       primary: {
-        main: "#00796B", // A teal shade
-        light: "#4DB6AC", // A lighter shade of teal
+        main: "#283593", // Deep blue shade
+        light: "#5c6bc0", // Lighter shade of blue
       },
       secondary: {
-        main: "#FFA000", // An amber shade
-        light: "#FFD54F", // A lighter shade of amber
+        main: "#f44336", // Red shade
+        light: "#ef9a9a", // Lighter shade of red
       },
       background: {
-        default: "#F5F5F5", // A light gray background
+        default: "#f5f5f5", // A light gray background
       },
     },
     components: {
@@ -30,22 +30,22 @@ export const App = () => {
           root: {
             paddingTop: 0,
             paddingBottom: 0,
-            backgroundColor: "#4DB6AC", // Customize the background color of the List
+            backgroundColor: "#5c6bc0", // Customize the background color of the List
           },
         },
       },
       MuiListItemButton: {
         styleOverrides: {
           root: {
-            backgroundColor: "#00796B",
-            color: "#FFA000", // Customize the text color of the ListItemButton
+            backgroundColor: "#283593",
+            color: "#f44336", // Customize the text color of the ListItemButton
           },
         },
       },
       MuiDrawer: {
         styleOverrides: {
           paper: {
-            backgroundColor: "#00796B",
+            backgroundColor: "#283593",
           },
         },
       },

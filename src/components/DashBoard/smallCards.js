@@ -8,6 +8,7 @@ import {
   dashboardSmallCardTeachersLogo,
   dashboardSmallCardsData,
 } from "../../Global";
+import CountUp from "react-countup";
 
 const smallCards = () => {
   return (
@@ -16,7 +17,9 @@ const smallCards = () => {
       <Card className="smallCards">
         <CardContent sx={{ textAlign: "left" }}>
           <Typography fontSize={12}>Students</Typography>
-          <Typography>5054</Typography>
+          <Typography>
+            <CountUp end={5024} />
+          </Typography>
         </CardContent>
         <CardMedia
           className="smallCardsImage"
@@ -27,7 +30,9 @@ const smallCards = () => {
       <Card className="smallCards">
         <CardContent sx={{ textAlign: "left" }}>
           <Typography fontSize={12}>Teachers</Typography>
-          <Typography>2300</Typography>
+          <Typography>
+            <CountUp end={2300} />
+          </Typography>
         </CardContent>
         <CardMedia
           className="smallCardsImage"
@@ -38,7 +43,10 @@ const smallCards = () => {
       <Card className="smallCards">
         <CardContent sx={{ textAlign: "left" }}>
           <Typography fontSize={12}>Acheivements</Typography>
-          <Typography>58</Typography>
+          <Typography>
+            {" "}
+            <CountUp end={58} />
+          </Typography>
         </CardContent>
         <CardMedia
           className="smallCardsImage"
@@ -48,10 +56,12 @@ const smallCards = () => {
       </Card>
       <Card className="smallCards">
         <CardContent sx={{ textAlign: "left" }}>
-          <Typography fontSize={12} sx={{ paddingLeft: 1 }}>
+          <Typography fontSize={12} sx={{ paddingRight: 5, paddingLeft: 1 }}>
             Revenue
           </Typography>
-          <Typography>💲32,058</Typography>
+          <Typography>
+            💲 <CountUp end={32056} />
+          </Typography>
         </CardContent>
         <CardMedia
           className="smallCardsImage"

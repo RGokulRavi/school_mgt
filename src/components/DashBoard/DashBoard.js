@@ -9,6 +9,7 @@ const DashBoard = () => {
     <div className="DashBoard">
       {smallCards()}
       <Charts />
+
       {/* {splineChart()} */}
     </div>
   );
