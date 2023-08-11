@@ -15,13 +15,21 @@ import {
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 
-import { StateMasterData, formattedDate } from "../../../Global";
+import {
+  StateListRows,
+  StateListcolumns,
+  StateMasterData,
+  StudentsListColumns,
+  StudentsListrows,
+  formattedDate,
+} from "../../../Global";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import DataTable from "../../Common/table";
 
 const stateValidationSchema = Yup.object({
   id: Yup.number().required(),
@@ -60,47 +68,13 @@ const StateMaster = () => {
 
   return (
     <div className="StateMaster">
-      <div className="StateMastersCard">
-        {StateMasterData.map((data) => (
-          <Card sx={{ maxWidth: 275 }}>
-            <CardContent>
-              <Typography
-                sx={{ display: "flex", justifyContent: "center" }}
-                variant="h5"
-                component="div"
-              >
-                {data.stateName}
-                <Typography color="text.secondary">
-                  ({data.stateCode})
-                </Typography>
-
-                <EditState data={data} />
-              </Typography>
-              <Divider />
-              <div className="StateDetails">
-                <Typography
-                  sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
-                  variant="body2"
-                >
-                  Created by :
-                  <Typography sx={{ paddingLeft: 2 }}>
-                    {data.createdBy}
-                  </Typography>
-                </Typography>
-                {/* <Typography
-                  sx={{ textAlign: "left", display: "flex" }}
-                  variant="body2"
-                >
-                  Created Time Stamp :
-                  <Typography sx={{ paddingLeft: 2 }}>
-                    {formattedDate}
-                  </Typography>
-                </Typography> */}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="Head">
+        <Typography variant="h4" sx={{ display: "flex", paddingLeft: 3 }}>
+          States
+        </Typography>
+        <Divider />
       </div>
+      <DataTable rows={StateListRows} columns={StateListcolumns} />
       <div className="AddButtonDiv">
         <IconButton onClick={handleClickOpen}>
           <AddIcon />
@@ -218,3 +192,47 @@ function EditState({ data }) {
 }
 
 export default StateMaster;
+
+// function CardData() {
+//   return (
+//     <div className="StateMastersCard">
+//       {StateMasterData.map((data) => (
+//         <Card sx={{ maxWidth: 275 }}>
+//           <CardContent>
+//             <Typography
+//               sx={{ display: "flex", justifyContent: "center" }}
+//               variant="h5"
+//               component="div"
+//             >
+//               {data.stateName}
+//               <Typography color="text.secondary">({data.stateCode})</Typography>
+
+//               <EditState data={data} />
+//             </Typography>
+//             <Divider />
+//             <div className="StateDetails">
+//               <Typography
+//                 sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
+//                 variant="body2"
+//               >
+//                 Created by :
+//                 <Typography sx={{ paddingLeft: 2 }}>
+//                   {data.createdBy}
+//                 </Typography>
+//               </Typography>
+//               {/* <Typography
+//           sx={{ textAlign: "left", display: "flex" }}
+//           variant="body2"
+//         >
+//           Created Time Stamp :
+//           <Typography sx={{ paddingLeft: 2 }}>
+//             {formattedDate}
+//           </Typography>
+//         </Typography> */}
+//             </div>
+//           </CardContent>
+//         </Card>
+//       ))}
+//     </div>
+//   );
+// }

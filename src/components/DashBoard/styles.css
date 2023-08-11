@@ -80,4 +80,5 @@
 .RoutesDiv {
   padding: 10px;
   border-radius: 50px;
+  min-height: calc(100vh - 64px);
 }

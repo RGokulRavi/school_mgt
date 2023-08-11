@@ -16,6 +16,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 
 import {
+  CityListRows,
+  CityListcolumns,
   CityMasterData,
   StateMasterData,
   formattedDate,
@@ -26,6 +28,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import DataTable from "../../Common/table";
 
 const cityValidationSchema = Yup.object({
   id: Yup.number().required(),
@@ -64,47 +67,13 @@ const CityMaster = () => {
 
   return (
     <div className="StateMaster">
-      <div className="StateMastersCard">
-        {CityMasterData.map((data) => (
-          <Card sx={{ maxWidth: 275 }}>
-            <CardContent>
-              <Typography
-                sx={{ display: "flex", justifyContent: "center" }}
-                variant="h5"
-                component="div"
-              >
-                {data.cityName}
-                <Typography color="text.secondary">
-                  ({data.cityCode})
-                </Typography>
-
-                <EditCity data={data} />
-              </Typography>
-              <Divider />
-              <div className="StateDetails">
-                <Typography
-                  sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
-                  variant="body2"
-                >
-                  Created by :
-                  <Typography sx={{ paddingLeft: 2 }}>
-                    {data.createdBy}
-                  </Typography>
-                </Typography>
-                {/* <Typography
-                  sx={{ textAlign: "left", display: "flex" }}
-                  variant="body2"
-                >
-                  Created Time Stamp :
-                  <Typography sx={{ paddingLeft: 2 }}>
-                    {formattedDate}
-                  </Typography>
-                </Typography> */}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="Head">
+        <Typography variant="h4" sx={{ display: "flex", paddingLeft: 3 }}>
+          Cities
+        </Typography>
+        <Divider />
       </div>
+      <DataTable rows={CityListRows} columns={CityListcolumns} />
       <div className="AddButtonDiv">
         <IconButton onClick={handleClickOpen}>
           <AddIcon />
@@ -218,3 +187,47 @@ function EditCity({ data }) {
 }
 
 export default CityMaster;
+
+// function CityCard() {
+//   return (
+//     <div className="StateMastersCard">
+//       {CityMasterData.map((data) => (
+//         <Card sx={{ maxWidth: 275 }}>
+//           <CardContent>
+//             <Typography
+//               sx={{ display: "flex", justifyContent: "center" }}
+//               variant="h5"
+//               component="div"
+//             >
+//               {data.cityName}
+//               <Typography color="text.secondary">({data.cityCode})</Typography>
+
+//               <EditCity data={data} />
+//             </Typography>
+//             <Divider />
+//             <div className="StateDetails">
+//               <Typography
+//                 sx={{ textAlign: "left", display: "flex", paddingTop: 2 }}
+//                 variant="body2"
+//               >
+//                 Created by :
+//                 <Typography sx={{ paddingLeft: 2 }}>
+//                   {data.createdBy}
+//                 </Typography>
+//               </Typography>
+//               {/* <Typography
+//               sx={{ textAlign: "left", display: "flex" }}
+//               variant="body2"
+//             >
+//               Created Time Stamp :
+//               <Typography sx={{ paddingLeft: 2 }}>
+//                 {formattedDate}
+//               </Typography>
+//             </Typography> */}
+//             </div>
+//           </CardContent>
+//         </Card>
+//       ))}
+//     </div>
+//   );
+// }

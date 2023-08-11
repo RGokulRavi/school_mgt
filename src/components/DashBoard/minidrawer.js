@@ -47,6 +47,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import LoginPage from "../../Pages/Login/LoginPage";
 import CityMaster from "../Master/MasterFolder/CityMaster";
+import SchoolSetup from "../Master/MasterFolder/SchoolSetup";
+import { useTheme } from "@emotion/react";
 
 const drawerWidth = 240;
 const Search = styled("div")(({ theme }) => ({
@@ -174,6 +176,8 @@ const Drawer = styled(MuiDrawer, {
 });
 
 export default function MiniDrawer({ mode, setMode }) {
+  const [selectedItem, setSelectedItem] = React.useState(null);
+  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [mainBox, setMainBox] = React.useState("DashBoard");
   const [openTeacherSubMenu, setOpenTeacherSubMenu] = React.useState(false);
@@ -184,6 +188,10 @@ export default function MiniDrawer({ mode, setMode }) {
   const navigate = useNavigate();
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
 
   const handleDrawerClose = () => {
     setOpen(!open);
@@ -364,6 +372,7 @@ export default function MiniDrawer({ mode, setMode }) {
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItemButton>
+          <Divider />
           <ListItemButton onClick={handleMasterClick}>
             <ListItemIcon>
               <AdminPanelSettingsIcon />
@@ -371,6 +380,7 @@ export default function MiniDrawer({ mode, setMode }) {
             <ListItemText primary="Master" />
             {openMasterSubMenu ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
+          <Divider />
           <Collapse in={openMasterSubMenu} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {MastersData.map((data) => (
@@ -393,6 +403,7 @@ export default function MiniDrawer({ mode, setMode }) {
             <ListItemText primary="Teachers" />
             {openTeacherSubMenu ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
+          <Divider />
           <Collapse in={openTeacherSubMenu} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItemButton
@@ -442,13 +453,7 @@ export default function MiniDrawer({ mode, setMode }) {
                 </ListItemIcon>
                 <ListItemText primary="Student" />
               </ListItemButton>
-              <ListItemButton
-                sx={{ pl: 4 }}
-                onClick={() => navigate("/student/student_details")}
-              >
-                <ListItemIcon></ListItemIcon>
-                <ListItemText primary="StudentDetails" />
-              </ListItemButton>
+
               <ListItemButton
                 sx={{ pl: 4 }}
                 onClick={() => navigate("/student/add_new_student")}
@@ -465,13 +470,36 @@ export default function MiniDrawer({ mode, setMode }) {
               </ListItemButton>
             </List>
           </Collapse>
+          <Divider />
         </List>
-        <Divider />
       </Drawer>
       <Box
         component="main"
-        // backgroundColor="secondary.light"
-        sx={{ flexGrow: 1 }}
+        backgroundColor="background.default"
+        sx={{
+          flexGrow: 1,
+          content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+            overflowY: "scroll", // Enable vertical scrolling
+            scrollbarWidth: "thin", // For Firefox
+            scrollbarColor: `${theme.palette.primary.main} ${theme.palette.background.default}`, // Use primary color and background color from the theme
+            "&::-webkit-scrollbar": {
+              width: "6px",
+              height: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: theme.palette.primary.main, // Thumb color using primary color from the theme
+              borderRadius: "3px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: theme.palette.primary.light, // Thumb color on hover using light shade of primary color
+            },
+            "&::-webkit-scrollbar-track": {
+              backgroundColor: theme.palette.background.default, // Track color using background color from the theme
+            },
+          },
+        }}
       >
         <DrawerHeader />
         <div className="PageHeading"></div>
@@ -489,6 +517,7 @@ export default function MiniDrawer({ mode, setMode }) {
             />
             <Route path="/master/state" element={<StateMaster />} />
             <Route path="/master/city" element={<CityMaster />} />
+            <Route path="/master/school" element={<SchoolSetup />} />
             <Route path="/students" element={<Students />} />
             <Route path="/student/view/:id" element={<StudentDetails />} />
             <Route path="/" element={<DashBoard />} />

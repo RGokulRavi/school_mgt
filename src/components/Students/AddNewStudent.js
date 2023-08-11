@@ -17,13 +17,23 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import MenuItem from "@mui/material/MenuItem";
-import previewPhoto from "../../Image/previewPhoto.png";
+import previewPhotoss from "../../Image/previewPhoto.png";
 import axios from "axios";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import {
+  StateAndCitiesList,
+  bloodGroup,
+  religions,
+  grades,
+  nationalities,
+  communities,
+} from "../../Global";
 
 const studentValidationSchema = Yup.object({
   admissionNo: Yup.string().required(),
@@ -85,7 +95,10 @@ const studentValidationSchema = Yup.object({
 
 const AddNewStudent = () => {
   const [newStudent, setNewStudent] = useState();
+  const [selectedState, setSelectedState] = useState();
+  const [selectedGrade, setSelectedGrade] = useState();
   let jsonString;
+  const theme = useTheme();
   const {
     handleSubmit,
     values,
@@ -203,7 +216,6 @@ const AddNewStudent = () => {
     },
     ValidationSchema: studentValidationSchema,
     onSubmit: (newStudentData) => {
-      // let jsonString = JSON.stringify(newStudent);
       setNewStudent(newStudentData);
       console.log("Student form Values are:", newStudent);
       PostNewStudent(newStudent);
@@ -222,36 +234,61 @@ const AddNewStudent = () => {
             >
               Student Detail
             </Typography>
-
             <Divider />
           </div>
           <div className="studentRequiredFieldsDiv">
             <div className="photo">
               <div className="PassPortSizePhotoDiv">
+                <div className="PhotoDiv">
+                  {values.photoUrl ? (
+                    <img
+                      src={URL.createObjectURL(values.photoUrl)}
+                      alt="Default Profile"
+                      style={{
+                        maxWidth: "100px",
+                        borderRadius: "10px",
+                        backgroundColor: theme.palette.secondary.main,
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={previewPhotoss}
+                      alt="Default Profile"
+                      style={{
+                        maxWidth: "100px",
+                        borderRadius: "10px",
+                        backgroundColor: theme.palette.secondary.main,
+                      }}
+                    />
+                  )}
+                </div>
                 <div>
                   <input
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    id="contained-button-file"
                     type="file"
                     name="photoUrl"
                     onChange={(event) => {
-                      setFieldValue("photoUrl", event.currentTarget.files[0]);
+                      const selectedFile = event.currentTarget.files[0];
+                      setFieldValue("photoUrl", selectedFile);
                     }}
                   />
+                  <label htmlFor="contained-button-file">
+                    <Button
+                      variant="contained"
+                      component="span"
+                      startIcon={<CloudUploadIcon />}
+                    >
+                      Upload Photo
+                    </Button>
+                  </label>
                   {errors.photoUrl && touched.photoUrl && (
-                    <div>{errors.photoUrl}</div>
+                    <div className="error">{errors.photoUrl}</div>
                   )}
                 </div>
-                {/* <div>
-                  {values.photoUrl && (
-                    <div>
-                      <img
-                        src={URL.createObjectURL(values.photoUrl)}
-                        alt={previewPhoto}
-                        style={{ maxWidth: "100px" }}
-                      />
-                    </div>
-                  )}
-                </div> */}
               </div>
+
               <div className="studentName">
                 <div className="twoInput">
                   <TextField
@@ -431,14 +468,14 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value="A+">A+</MenuItem>
-                  <MenuItem value="B+">B+</MenuItem>
-                  <MenuItem value="B-">B-</MenuItem>
-                  <MenuItem value="AB+">AB+</MenuItem>
-                  <MenuItem value="AB-">AB-</MenuItem>
+                  {bloodGroup.map((data) => (
+                    <MenuItem key={data.type} value={data.type}>
+                      {data.type}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
-              <TextField
+              {/* <TextField
                 id="filled-basic"
                 label="Nationality"
                 variant="outlined"
@@ -453,8 +490,32 @@ const AddNewStudent = () => {
                     ? errors.nationality
                     : null
                 }
-              />
-
+              /> */}
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Nationality
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="nationality"
+                  name="nationality"
+                  value={values.nationality}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.nationality && Boolean(errors.nationality)}
+                  helperText={
+                    touched.nationality && errors.nationality
+                      ? errors.nationality
+                      : null
+                  }
+                >
+                  {nationalities.map((data) => (
+                    <MenuItem value={data.name}>{data.name}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Religion</InputLabel>
                 <Select
@@ -471,8 +532,9 @@ const AddNewStudent = () => {
                     touched.religion && errors.religion ? errors.religion : null
                   }
                 >
-                  <MenuItem value="Hindu">Hindu</MenuItem>
-                  <MenuItem value="Muslim">Muslim</MenuItem>
+                  {religions.map((data) => (
+                    <MenuItem value={data.name}>{data.name}</MenuItem>
+                  ))}
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -493,9 +555,9 @@ const AddNewStudent = () => {
                       : null
                   }
                 >
-                  <MenuItem value="BC">BC</MenuItem>
-                  <MenuItem value="MBC">MBC</MenuItem>
-                  <MenuItem value="SC">SC</MenuItem>
+                  {communities.map((data) => (
+                    <MenuItem value={data.name}>{data.name}</MenuItem>
+                  ))}
                 </Select>
               </FormControl>
               <div className="twoInput">
@@ -508,7 +570,11 @@ const AddNewStudent = () => {
                     label="Class"
                     name="className"
                     value={values.className}
-                    onChange={handleChange}
+                    // onChange={handleChange}
+                    onChange={(event) => {
+                      handleChange(event);
+                      setSelectedGrade(event.target.value);
+                    }}
                     onBlur={handleBlur}
                     error={touched.className && Boolean(errors.className)}
                     helperText={
@@ -517,9 +583,9 @@ const AddNewStudent = () => {
                         : null
                     }
                   >
-                    <MenuItem value={1}>I</MenuItem>
-                    <MenuItem value={2}>II</MenuItem>
-                    <MenuItem value={3}>III</MenuItem>
+                    {grades.map((data) => (
+                      <MenuItem value={data.grade}>{data.grade}</MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
@@ -540,9 +606,16 @@ const AddNewStudent = () => {
                         : null
                     }
                   >
-                    <MenuItem value="A">A</MenuItem>
-                    <MenuItem value="B">B</MenuItem>
-                    <MenuItem value="C">C</MenuItem>
+                    {grades.map((data) => {
+                      if (data.grade === selectedGrade) {
+                        return data.section.map((data) => (
+                          <MenuItem key={data} value={data}>
+                            {data}
+                          </MenuItem>
+                        ));
+                      }
+                      return null;
+                    })}
                   </Select>
                 </FormControl>
               </div>
@@ -632,6 +705,35 @@ const AddNewStudent = () => {
                 }
               />
               <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">State</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  label="stateName"
+                  name="stateName"
+                  value={values.stateName}
+                  // onChange={handleChange}
+                  onChange={(event) => {
+                    handleChange(event);
+                    setSelectedState(event.target.value);
+                  }}
+                  onBlur={handleBlur}
+                  error={touched.stateName && Boolean(errors.stateName)}
+                  helperText={
+                    touched.stateName && errors.stateName
+                      ? errors.stateName
+                      : null
+                  }
+                >
+                  {StateAndCitiesList.map((data) => (
+                    <MenuItem value={data.state} key={data.state}>
+                      {data.state}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">City</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -647,32 +749,19 @@ const AddNewStudent = () => {
                     touched.cityName && errors.cityName ? errors.cityName : null
                   }
                 >
-                  <MenuItem value="Tambaram">Tambaram</MenuItem>
-                  <MenuItem value="Chromepet">Chromepet</MenuItem>
+                  {StateAndCitiesList.map((data) => {
+                    if (data.state === selectedState) {
+                      return data.city.map((cityData) => (
+                        <MenuItem key={cityData} value={cityData}>
+                          {cityData}
+                        </MenuItem>
+                      ));
+                    }
+                    return null;
+                  })}
                 </Select>
               </FormControl>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">State</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  size="small"
-                  label="stateName"
-                  name="stateName"
-                  value={values.stateName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  error={touched.stateName && Boolean(errors.stateName)}
-                  helperText={
-                    touched.stateName && errors.stateName
-                      ? errors.stateName
-                      : null
-                  }
-                >
-                  <MenuItem value="Chennai">Chennai</MenuItem>
-                  <MenuItem value="Pondicherry">Pondicherry</MenuItem>
-                </Select>
-              </FormControl>
+
               <TextField
                 id="filled-basic"
                 label="Pincode"

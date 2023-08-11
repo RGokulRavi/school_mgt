@@ -13,15 +13,15 @@ export const App = () => {
     palette: {
       mode: "light",
       primary: {
-        main: "#283593", // Deep blue shade
-        light: "#5c6bc0", // Lighter shade of blue
+        main: "#1976D2", // Royal Blue
+        light: "#64B5F6", // Lighter shade of Royal Blue
       },
       secondary: {
-        main: "#f44336", // Red shade
-        light: "#ef9a9a", // Lighter shade of red
+        main: "#03A9F4", // Light Blue
+        light: "#81D4FA", // Lighter shade of Light Blue
       },
       background: {
-        default: "#f5f5f5", // A light gray background
+        default: "#F5F5F5", // Light Gray
       },
     },
     components: {
@@ -30,22 +30,44 @@ export const App = () => {
           root: {
             paddingTop: 0,
             paddingBottom: 0,
-            backgroundColor: "#5c6bc0", // Customize the background color of the List
+            backgroundColor: "#03A9F4", // Customize the background color of the List
           },
         },
       },
       MuiListItemButton: {
         styleOverrides: {
           root: {
-            backgroundColor: "#283593",
-            color: "#f44336", // Customize the text color of the ListItemButton
+            backgroundColor: "#1976D2", // Customize the background color of ListItemButton
+            color: "#FFFFFF", // Text color for ListItemButton
           },
         },
       },
       MuiDrawer: {
         styleOverrides: {
+          // ListItemIcon: {
+          //   "& .MuiListItemIcon-root": {
+          //     color: "#5c6bc0", // Customize the color here
+          //   },
+          // },
           paper: {
-            backgroundColor: "#283593",
+            overflowY: "scroll", // Enable vertical scrolling
+            scrollbarWidth: "thin", // For Firefox
+            scrollbarColor: "#5c6bc0 #f5f5f5", // For Firefox
+            "&::-webkit-scrollbar": {
+              width: "6px",
+              height: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#5c6bc0", // Thumb color
+              borderRadius: "3px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: "#283593", // Thumb color on hover
+            },
+            "&::-webkit-scrollbar-track": {
+              backgroundColor: "#f5f5f5", // Track color
+            },
+            backgroundColor: "#1976D2", // Customize the background color of the Drawer
           },
         },
       },
@@ -68,12 +90,13 @@ export const App = () => {
     palette: {
       mode: "dark",
       primary: {
-        main: "#00796B", // A teal shade
-        light: "#4DB6AC", // A lighter shade of teal
+        main: "#1976D2", // Royal Blue (matching the light theme's primary color)
+        light: "#64B5F6", // Lighter shade of Royal Blue (matching the light theme's primary color)
       },
       secondary: {
-        main: "#FFA000", // An amber shade
-        light: "#FFD54F", // A lighter shade of amber
+        main: "#03A9F4", // Light Blue (matching the light theme's secondary color)
+        light: "#81D4FA", // Lighter shade of Light Blue (matching the light theme's secondary color)
+        text: "#ffffff", // Text color for secondary elements
       },
       background: {
         default: "#121212", // A dark gray background
