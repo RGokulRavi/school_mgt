@@ -11,6 +11,11 @@ import {
   Dialog,
   DialogActions,
   DialogTitle,
+  CardActions,
+  Select,
+  FormControl,
+  MenuItem,
+  InputLabel,
 } from "@mui/material";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -19,6 +24,7 @@ import {
   CityListRows,
   CityListcolumns,
   CityMasterData,
+  StateAndCitiesList,
   StateMasterData,
   formattedDate,
 } from "../../../Global";
@@ -31,17 +37,18 @@ import * as Yup from "yup";
 import DataTable from "../../Common/table";
 
 const cityValidationSchema = Yup.object({
-  id: Yup.number().required(),
-  cityCode: Yup.string().required,
-  cityName: Yup.string().required,
-  adminitrationId: Yup.number().required,
-  createdBy: Yup.string().required,
-  createdAt: Yup.string().required,
-  updatedAt: Yup.string().required,
-  isActive: Yup.string().required,
+  id: Yup.number(),
+  cityCode: Yup.string(),
+  cityName: Yup.string(),
+  adminitrationId: Yup.number(),
+  createdBy: Yup.string(),
+  createdAt: Yup.string(),
+  updatedAt: Yup.string(),
+  isActive: Yup.string(),
 });
 
 const CityMaster = () => {
+  const [selectedState, setSelectedState] = React.useState();
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -57,6 +64,10 @@ const CityMaster = () => {
         updatedAt: Yup.date,
         isActive: "1",
       },
+      validationSchema: cityValidationSchema,
+      onSubmit: (data) => {
+        console.log(data);
+      },
     });
   const handleClickOpen = () => {
     setOpen(true);
@@ -67,27 +78,44 @@ const CityMaster = () => {
 
   return (
     <div className="StateMaster">
-      <div className="Head">
-        <Typography variant="h4" sx={{ display: "flex", paddingLeft: 3 }}>
+      <Card className="StateMasterDiv">
+        <Typography variant="h4" sx={{ display: "flex", paddingLeft: 2 }}>
           Cities
         </Typography>
         <Divider />
-      </div>
-      <DataTable rows={CityListRows} columns={CityListcolumns} />
-      <div className="AddButtonDiv">
-        <IconButton onClick={handleClickOpen}>
-          <AddIcon />
-        </IconButton>
-        <Dialog
-          fullScreen={fullScreen}
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="responsive-dialog-title"
-        >
-          <DialogTitle id="responsive-dialog-title">{"Add City"}</DialogTitle>
-          <Divider />
+
+        <div className="tableAndForm">
+          <DataTable rows={CityListRows} columns={CityListcolumns} />
           <form onSubmit={handleSubmit}>
-            <div className="formDiv">
+            <Card className="StateMasterCard">
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">State</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  size="small"
+                  variant="filled"
+                  label="state"
+                  name="state"
+                  value={values.state}
+                  // onChange={handleChange}
+                  onChange={(event) => {
+                    handleChange(event);
+                    setSelectedState(event.target.value);
+                  }}
+                  onBlur={handleBlur}
+                  error={touched.state && Boolean(errors.state)}
+                  helperText={
+                    touched.state && errors.state ? errors.state : null
+                  }
+                >
+                  {StateAndCitiesList.map((data) => (
+                    <MenuItem value={data.state} key={data.state}>
+                      {data.state}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
               <TextField
                 id="filled-basic"
                 label="City Name"
@@ -102,35 +130,22 @@ const CityMaster = () => {
                   touched.cityName && errors.cityName ? errors.cityName : null
                 }
               />
-              <TextField
-                id="filled-basic"
-                label="City Code"
-                variant="filled"
-                size="small"
-                name="cityCode"
-                value={values.cityCode}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.cityCode && errors.cityCode}
-                helperText={
-                  touched.cityCode && errors.cityCode ? errors.cityCode : null
-                }
-              />
-            </div>
-            <DialogActions>
-              <Button
-                type="submit"
-                variant="contained"
-                fullWidth
-                onClick={handleClose}
-                autoFocus
-              >
-                Add
-              </Button>
-            </DialogActions>
+
+              <CardActions>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  onClick={handleClose}
+                  autoFocus
+                >
+                  Add
+                </Button>
+              </CardActions>
+            </Card>
           </form>
-        </Dialog>
-      </div>
+        </div>
+      </Card>
     </div>
   );
 };

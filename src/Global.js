@@ -643,7 +643,7 @@ export const StudentsListrows = [
 ];
 export const StateListRows = [
   {
-    id: 4,
+    id: 1,
     code: "TN",
     name: "TamilNadu",
     administrationId: 1,
@@ -653,7 +653,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 2,
     code: "TJ",
     name: "Thanjavur",
     administrationId: 1,
@@ -663,7 +663,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 3,
     code: "TN",
     name: "TamilNadu",
     administrationId: 1,
@@ -673,7 +673,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 4,
     code: "TJ",
     name: "Thanjavur",
     administrationId: 1,
@@ -683,7 +683,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 5,
     code: "TN",
     name: "TamilNadu",
     administrationId: 1,
@@ -693,7 +693,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 6,
     code: "TJ",
     name: "Thanjavur",
     administrationId: 1,
@@ -703,7 +703,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 7,
     code: "TN",
     name: "TamilNadu",
     administrationId: 1,
@@ -713,7 +713,7 @@ export const StateListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 8,
     code: "TJ",
     name: "Thanjavur",
     administrationId: 1,
@@ -724,14 +724,14 @@ export const StateListRows = [
   },
 ];
 export const StateListcolumns = [
-  { field: "id", headerName: "ID", width: "70" },
-  { field: "code", headerName: "Code", width: "20" },
+  { field: "id", headerName: "ID", width: "100" },
+  { field: "code", headerName: "Code", width: "100" },
   { field: "name", headerName: "Name", width: "200" },
-  { field: "createdBy", headerName: "Created By", width: 80 },
+  { field: "createdBy", headerName: "Created By", width: 150 },
   {
     field: "actions",
     headerName: "Actions",
-    width: 100,
+    width: 150,
     renderCell: (params) => (
       <div>
         <IconButton
@@ -756,14 +756,14 @@ export const StateListcolumns = [
 ];
 
 export const CityListcolumns = [
-  { field: "id", headerName: "ID", width: "50" },
-  { field: "code", headerName: "Code", width: "50" },
+  { field: "id", headerName: "ID", width: "100" },
+  { field: "code", headerName: "Code", width: "100" },
   { field: "name", headerName: "Name", width: "200" },
-  { field: "createdBy", headerName: "Created By", width: 80 },
+  { field: "createdBy", headerName: "Created By", width: "150" },
   {
     field: "actions",
     headerName: "Actions",
-    width: 100,
+    width: 150,
     renderCell: (params) => (
       <div>
         <IconButton
@@ -789,7 +789,7 @@ export const CityListcolumns = [
 
 export const CityListRows = [
   {
-    id: 4,
+    id: 1,
     code: "TN",
     name: "Chennai",
     administrationId: 1,
@@ -799,7 +799,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 2,
     code: "TJ",
     name: "Thanjavur",
     administrationId: 1,
@@ -809,7 +809,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 3,
     code: "TN",
     name: "Tiruppur",
     administrationId: 1,
@@ -819,7 +819,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 4,
     code: "TJ",
     name: "Coimbatore",
     administrationId: 1,
@@ -829,7 +829,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 5,
     code: "TN",
     name: "Salem",
     administrationId: 1,
@@ -839,7 +839,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 6,
     code: "TJ",
     name: "Erode",
     administrationId: 1,
@@ -849,7 +849,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 7,
     code: "TN",
     name: "Dharapuram",
     administrationId: 1,
@@ -859,7 +859,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 8,
     code: "TJ",
     name: "Avinashi",
     administrationId: 1,
@@ -869,7 +869,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 9,
     code: "TN",
     name: "Pollachi",
     administrationId: 1,
@@ -879,7 +879,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 10,
     code: "TN",
     name: "Ooty",
     administrationId: 1,
@@ -889,7 +889,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 4,
+    id: 11,
     code: "TN",
     name: "Kodaikanal",
     administrationId: 1,
@@ -899,7 +899,7 @@ export const CityListRows = [
     isActive: "1",
   },
   {
-    id: 5,
+    id: 12,
     code: "TN",
     name: "Trichy",
     administrationId: 1,

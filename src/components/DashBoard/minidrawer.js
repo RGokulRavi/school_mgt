@@ -49,6 +49,7 @@ import LoginPage from "../../Pages/Login/LoginPage";
 import CityMaster from "../Master/MasterFolder/CityMaster";
 import SchoolSetup from "../Master/MasterFolder/SchoolSetup";
 import { useTheme } from "@emotion/react";
+import StateAndCIty from "../Master/MasterFolder/StateAndCIty";
 
 const drawerWidth = 240;
 const Search = styled("div")(({ theme }) => ({
@@ -516,6 +517,7 @@ export default function MiniDrawer({ mode, setMode }) {
               element={<StudentPromotion />}
             />
             <Route path="/master/state" element={<StateMaster />} />
+            <Route path="/master/state_and_city" element={<StateAndCIty />} />
             <Route path="/master/city" element={<CityMaster />} />
             <Route path="/master/school" element={<SchoolSetup />} />
             <Route path="/students" element={<Students />} />

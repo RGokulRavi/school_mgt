@@ -7,7 +7,7 @@ import LoginPage from "./Pages/Login/LoginPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 export const App = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   const lightTheme = createTheme({
     palette: {
@@ -128,7 +128,7 @@ export const App = () => {
         elevation={6}
       >
         <div className="App">
-          {location.pathname == "/login" ? (
+          {location.pathname === "/login" ? (
             <Routes>
               <Route path="/login" element={<LoginPage />} />
             </Routes>

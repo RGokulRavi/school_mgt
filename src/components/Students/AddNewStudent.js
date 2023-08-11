@@ -221,7 +221,6 @@ const AddNewStudent = () => {
       PostNewStudent(newStudent);
     },
   });
-
   return (
     <div className="StudentRegistration">
       <Card className="addStudentFormDiv">

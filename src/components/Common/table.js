@@ -101,28 +101,30 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function DataTable({ rows, columns }) {
   return (
-    <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-      <Card
+    <div
+    // style={{ display: "flex", justifyContent: "center", width: "100%" }}
+    >
+      {/* <Card
         sx={{
           width: "fit-content",
           padding: 3,
           borderRadius: 3,
           marginTop: 3,
         }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-        {/* </div> */}
-      </Card>
+      > */}
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
+      {/* </div> */}
+      {/* </Card> */}
     </div>
   );
 }

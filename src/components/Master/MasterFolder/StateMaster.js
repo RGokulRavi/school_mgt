@@ -11,6 +11,8 @@ import {
   Dialog,
   DialogActions,
   DialogTitle,
+  CardActions,
+  CardHeader,
 } from "@mui/material";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -32,14 +34,14 @@ import * as Yup from "yup";
 import DataTable from "../../Common/table";
 
 const stateValidationSchema = Yup.object({
-  id: Yup.number().required(),
-  stateCode: Yup.string().required,
-  stateName: Yup.string().required,
-  adminitrationId: Yup.number().required,
-  createdBy: Yup.string().required,
-  createdAt: Yup.string().required,
-  updatedAt: Yup.string().required,
-  isActive: Yup.string().required,
+  id: Yup.number(),
+  stateCode: Yup.string(),
+  stateName: Yup.string(),
+  adminitrationId: Yup.number(),
+  createdBy: Yup.string(),
+  createdAt: Yup.string(),
+  updatedAt: Yup.string(),
+  isActive: Yup.string(),
 });
 
 const StateMaster = () => {
@@ -49,7 +51,7 @@ const StateMaster = () => {
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
-        id: 2,
+        id: 1,
         stateCode: "",
         stateName: "",
         adminitrationId: 1,
@@ -58,6 +60,10 @@ const StateMaster = () => {
         updatedAt: Yup.date,
         isActive: "1",
       },
+      validationSchema: stateValidationSchema,
+      onSubmit: (data) => {
+        console.log(data);
+      },
     });
   const handleClickOpen = () => {
     setOpen(true);
@@ -65,30 +71,17 @@ const StateMaster = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div className="StateMaster">
-      <div className="Head">
-        <Typography variant="h4" sx={{ display: "flex", paddingLeft: 3 }}>
+      <Card className="StateMasterDiv">
+        <Typography sx={{ display: "flex", paddingLeft: 2 }} variant="h4">
           States
         </Typography>
         <Divider />
-      </div>
-      <DataTable rows={StateListRows} columns={StateListcolumns} />
-      <div className="AddButtonDiv">
-        <IconButton onClick={handleClickOpen}>
-          <AddIcon />
-        </IconButton>
-        <Dialog
-          fullScreen={fullScreen}
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="responsive-dialog-title"
-        >
-          <DialogTitle id="responsive-dialog-title">{"Add State"}</DialogTitle>
-          <Divider />
+        <div className="tableAndForm">
+          <DataTable rows={StateListRows} columns={StateListcolumns} />
           <form onSubmit={handleSubmit}>
-            <div className="formDiv">
+            <Card className="StateMasterCard">
               <TextField
                 id="filled-basic"
                 label="State Name"
@@ -121,21 +114,21 @@ const StateMaster = () => {
                     : null
                 }
               />
-            </div>
-            <DialogActions>
-              <Button
-                type="submit"
-                variant="contained"
-                fullWidth
-                onClick={handleClose}
-                autoFocus
-              >
-                Add
-              </Button>
-            </DialogActions>
+              <CardActions>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  onClick={handleClose}
+                  autoFocus
+                >
+                  Add
+                </Button>
+              </CardActions>
+            </Card>
           </form>
-        </Dialog>
-      </div>
+        </div>
+      </Card>
     </div>
   );
 };
@@ -164,20 +157,20 @@ function EditState({ data }) {
           </DialogContentText> */}
           <TextField
             autoFocus
-            margin="dense"
+            // margin="dense"
             label="State Code"
             value={data.stateCode}
             type={data.stateCode}
-            fullWidth
+            // fullWidth
             variant="filled"
           />
           <TextField
             autoFocus
-            margin="dense"
+            // margin="dense"
             label="State Name"
             type={data.stateName}
             value={data.stateName}
-            fullWidth
+            // fullWidth
             variant="filled"
           />
         </DialogContent>
