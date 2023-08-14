@@ -82,6 +82,8 @@ const StateMaster = () => {
           <DataTable rows={StateListRows} columns={StateListcolumns} />
           <form onSubmit={handleSubmit}>
             <Card className="StateMasterCard">
+              <Typography sx={{ fontWeight: "bold" }}>Add New State</Typography>
+              <Divider />
               <TextField
                 id="filled-basic"
                 label="State Name"

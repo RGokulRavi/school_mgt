@@ -5,3 +5,40 @@
 .unpaid {
   color: red;
 }
+
+.custom-data-grid-container {
+  width: 100%;
+  height: 300px; /* Set an appropriate height for your table */
+}
+
+/* Style the header row */
+.MuiDataGrid-root .MuiDataGrid-colHeaderWrapper {
+  background-color: #f2f2f2; /* Header row background color */
+  font-weight: bold;
+}
+
+/* Style alternate rows */
+.MuiDataGrid-root .MuiDataGrid-row:nth-child(odd) {
+  background-color: #f8f8f8; /* Alternate row background color */
+}
+
+/* Style selected rows */
+.MuiDataGrid-root .Mui-selected {
+  background-color: #cceeff; /* Selected row background color */
+}
+
+/* Style hovered rows */
+.MuiDataGrid-root .Mui-row-hover {
+  background-color: #e6e6e6; /* Hovered row background color */
+}
+
+/* Style the cells */
+.MuiDataGrid-root .MuiDataGrid-cell {
+  border: none; /* Remove cell borders for a cleaner look */
+  padding: 8px;
+}
+
+.custom-header {
+  background-color: #f2f2f2; /* Header background color */
+  font-weight: bold;
+}

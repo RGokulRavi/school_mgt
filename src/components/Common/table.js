@@ -112,7 +112,7 @@ export default function DataTable({ rows, columns }) {
           marginTop: 3,
         }}
       > */}
-      <DataGrid
+      {/* <DataGrid
         rows={rows}
         columns={columns}
         initialState={{
@@ -122,6 +122,42 @@ export default function DataTable({ rows, columns }) {
         }}
         pageSizeOptions={[5, 10]}
         checkboxSelection
+      /> */}
+
+      {/* <div className="custom-data-grid-container">
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          checkboxSelection
+          components={{
+            HeaderCell: ({ value }) => (
+              <div className="custom-header-cell">{value}</div>
+            ),
+          }}
+        />
+      </div> */}
+      {/* <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        // checkboxSelection
+      /> */}
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        headerClassName="custom-header"
       />
       {/* </div> */}
       {/* </Card> */}

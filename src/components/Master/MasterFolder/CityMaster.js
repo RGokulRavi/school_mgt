@@ -83,11 +83,12 @@ const CityMaster = () => {
           Cities
         </Typography>
         <Divider />
-
         <div className="tableAndForm">
           <DataTable rows={CityListRows} columns={CityListcolumns} />
           <form onSubmit={handleSubmit}>
             <Card className="StateMasterCard">
+              <Typography sx={{ fontWeight: "bold" }}>Add New City</Typography>
+              <Divider />
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">State</InputLabel>
                 <Select
