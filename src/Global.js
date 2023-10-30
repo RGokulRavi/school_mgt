@@ -954,7 +954,7 @@ export const SchoolSetupListcolumns = [
 export const SchoolSetupListRows = [
   {
     id: 1,
-    name: "Kst Engineering College",
+    name: "Gokul Engineering College",
     phone: "46468435",
     address1: "No:1, Nanganallur",
     city: "Chennai",
@@ -969,7 +969,7 @@ export const SchoolSetupListRows = [
   },
   {
     id: 2,
-    name: "Kst Educations",
+    name: "Gokul Educations",
     address1: "Tambaram",
     city: "Chennai",
     state: "Tamil Nadu",

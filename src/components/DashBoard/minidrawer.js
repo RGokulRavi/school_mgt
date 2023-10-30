@@ -281,7 +281,7 @@ export default function MiniDrawer({ mode, setMode }) {
               src="https://img.freepik.com/premium-vector/education-school-logo-design_586739-1335.jpg?w=2000"
             />
             <Typography variant="h6" noWrap component="div">
-              Kst International School
+              Gokul International School
             </Typography>
             <Search>
               <SearchIconWrapper>
